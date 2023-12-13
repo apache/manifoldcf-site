@@ -1,0 +1,29 @@
+site:
+  name: Apache ManifoldCF Website
+  description: The official website of the Apache ManifoldCF
+  domain: manifoldcf.apache.org
+  logo: /extra/favicon.ico
+  repository: https://github.com/apache/manifoldcf-site/blob/main/content/
+  trademarks: Apache HTTP Server, Apache, and the Apache feather logo are trademarks of The Apache Software Foundation.
+
+theme: theme/apache
+
+setup:
+  ignore:
+    - theme
+    - README.md
+    - '*.sh'
+    - '*.py'
+
+content:
+  pages: pages
+  static:
+    - extra
+    - css
+    - js
+    - highlight
+    - images
+    - fonts
+
+genid:
+  unsafe: yes

@@ -1,0 +1,45 @@
+pelican:
+  notify:         piergiorgio@apache.org
+  autobuild:      preview/*
+  target:         asf-staging
+  whoami:         main
+  theme:          theme/apache
+  
+staging:
+  whoami: asf-staging
+  profile: ~
+  autostage: preview/*
+
+publish:
+  profile: ~
+  whoami: asf-site
+
+github:
+  description:   "Apache ManifoldCF website"
+  homepage:      https://manifoldcf.apache.org/
+  autolink_jira:
+    - CONNECTORS
+  custom_subjects:
+    new_issue: "{repository}/#{issue_id} created"
+    close_issue: "{repository}/#{issue_id} closed"
+    catchall: "{repository}/#{issue_id} updated"
+    new_discussion: "Created: Discussion {repository}: {title}"
+    edit_discussion: "Edited: Discussion {repository}: {title}"
+    close_discussion: "Closed: Discussion {repository}: {title}"
+    close_discussion_with_comment: "Closed: Discussion with comment {repository}: {title}"
+    reopen_discussion: "Reopened: Discussion {repository}: {title}"
+    new_comment_discussion: "Commented: Discussion {repository}: {title}"
+    edit_comment_discussion: "Edited a comment: Discussion {repository}: {title}"
+    delete_comment_discussion: "Deleted a comment: Discussion {repository}: {title}"
+  labels:
+    - apache
+    - website
+    - pelican
+    - manifoldcf
+
+notifications:
+  commits:              commits@manifoldcf.apache.org
+  pullrequests:         dev@manifoldcf.apache.org
+  issues:               dev@manifoldcf.apache.org
+  discussions:          dev@manifoldcf.apache.org
+  pullrequests_bot_dependabot: dev@manifoldcf.apache.org

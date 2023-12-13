@@ -1,0 +1,6 @@
+*.pyc
+*.swp
+site-generated/
+pelican.auto.py
+env/
+.DS_Store
