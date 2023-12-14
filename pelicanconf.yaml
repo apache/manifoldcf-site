@@ -4,7 +4,7 @@ site:
   domain: manifoldcf.apache.org
   logo: /extra/favicon.ico
   repository: https://github.com/apache/manifoldcf-site/blob/main/content/
-  trademarks: Apache HTTP Server, Apache, and the Apache feather logo are trademarks of The Apache Software Foundation.
+  trademarks: Apache ManifoldCF, Apache, and the Apache feather logo are trademarks of The Apache Software Foundation.
 
 theme: theme/apache
 
