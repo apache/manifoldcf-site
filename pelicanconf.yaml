@@ -10,7 +10,6 @@ theme: theme/apache
 
 setup:
   ignore:
-    - theme
     - README.md
     - '*.sh'
     - '*.py'
