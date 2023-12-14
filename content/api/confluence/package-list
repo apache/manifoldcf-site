@@ -1,0 +1,7 @@
+org.apache.manifoldcf.authorities.authorities.confluence
+org.apache.manifoldcf.crawler.connectors.confluence
+org.apache.manifoldcf.crawler.connectors.confluence.client
+org.apache.manifoldcf.crawler.connectors.confluence.exception
+org.apache.manifoldcf.crawler.connectors.confluence.model
+org.apache.manifoldcf.crawler.connectors.confluence.model.builder
+org.apache.manifoldcf.crawler.connectors.confluence.util
