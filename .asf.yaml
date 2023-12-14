@@ -9,7 +9,10 @@ staging:
   whoami: asf-staging
   profile: ~
   autostage: preview/*
-  
+
+publish:
+  profile: ~
+  whoami: asf-site
 
 github:
   description:   "Apache ManifoldCF website"
