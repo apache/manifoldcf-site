@@ -5,7 +5,7 @@
 <meta content="Apache Forrest" name="Generator">
 <meta name="Forrest-version" content="0.9">
 <meta name="Forrest-skin-name" content="lucene">
-<title>ManifoldCFにようこそ！</title>
+<title>Apache ManifoldCF&trade;にようこそ！</title>
 <link type="text/css" href="../skin/basic.css" rel="stylesheet">
 <link media="screen" type="text/css" href="../skin/screen.css" rel="stylesheet">
 <link media="print" type="text/css" href="../skin/print.css" rel="stylesheet">
@@ -20,7 +20,7 @@
     |breadtrail
     +-->
 <div class="breadtrail">
-<a href="http://www.apache.org/">Apache</a> &gt; <a href="http://manifoldcf.apache.org">ManifoldCF</a> &gt; <a href="">Release Documentation</a><script src="../skin/breadcrumbs.js" language="JavaScript" type="text/javascript"></script>
+<a href="http://www.apache.org/">Apache</a> &gt; <a href="http://manifoldcf.apache.org">ManifoldCF</a> &gt; <a href="">Project</a><script src="../skin/breadcrumbs.js" language="JavaScript" type="text/javascript"></script>
 </div>
 <!--+
     |header
@@ -30,7 +30,7 @@
     |start group logo
     +-->
 <div class="grouplogo">
-<a href="https://www.apache.org"><img class="logoImage" alt="Apache" src="../images/SupportApache-small-128.png" title="Apache Software Foundation"></a>
+<a href="http://www.apache.org"><img class="logoImage" alt="Apache" src="../images/SupportApache-small-128.png" title="Apache Software Foundation"></a>
 </div>
 <!--+
     |end group logo
@@ -77,6 +77,9 @@
 <li>
 <a class="unselected" href="../zh_CN/index.html">中文</a>
 </li>
+<li>
+<a class="unselected" href="http://cwiki.apache.org/confluence/display/CONNECTORS/Index">Wiki</a>
+</li>
 </ul>
 <!--+
     |end Tabs
@@ -115,28 +118,19 @@ document.write("Last Published: " + document.lastModified);
 <div class="menupage">
 <div class="menupagetitle">概要</div>
 </div>
-<div onclick="SwitchMenu('menu_1.1.2', '../skin/')" id="menu_1.1.2Title" class="menutitle">ドキュメント</div>
-<div id="menu_1.1.2" class="menuitemgroup">
 <div class="menuitem">
-<a href="../ja_JP/concepts.html">概要</a>
+<a href="../ja_JP/download.html">ダウンロード</a>
+</div>
+<div onclick="SwitchMenu('menu_1.1.3', '../skin/')" id="menu_1.1.3Title" class="menutitle">ドキュメント</div>
+<div id="menu_1.1.3" class="menuitemgroup">
+<div class="menuitem">
+<a href="../ja_JP/release-documentation.html">リリースドキュメント</a>
 </div>
 <div class="menuitem">
-<a href="../ja_JP/included-connectors.html">コネクタ一覧</a>
+<a href="../ja_JP/mail.html">メーリングリスト</a>
 </div>
 <div class="menuitem">
-<a href="../ja_JP/faq.html">Ｑ＆Ａ</a>
-</div>
-<div class="menuitem">
-<a href="../ja_JP/javadoc.html">Javadoc</a>
-</div>
-<div class="menuitem">
-<a href="../ja_JP/technical-resources.html">開発者リソース</a>
-</div>
-<div class="menuitem">
-<a href="../ja_JP/end-user-documentation.html">エンドユーザマニュアル (HTML)</a>
-</div>
-<div class="menuitem">
-<a href="../ja_JP/end-user-documentation.pdf">エンドユーザマニュアル (PDF)</a>
+<a href="../ja_JP/developer-resources.html">開発者リソース</a>
 </div>
 </div>
 </div>
@@ -158,32 +152,477 @@ document.write("Last Published: " + document.lastModified);
     |start content
     +-->
 <div id="content">
-<h1>ManifoldCFにようこそ！</h1>
+<h1>Apache ManifoldCF&trade;にようこそ！</h1>
 <div id="minitoc-area">
 <ul class="minitoc">
 <li>
-<a href="#ManifoldCF%E3%81%A8%E3%81%AF%EF%BC%9F">ManifoldCFとは？</a>
+<a href="#Apache+ManifoldCF%E3%81%A8%E3%81%AF%EF%BC%9F">Apache ManifoldCFとは？</a>
+</li>
+<li>
+<a href="#%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%81%AE%E7%8A%B6%E6%B3%81">プロジェクトの状況</a>
 </li>
 <li>
 <a href="#%E3%82%B5%E3%83%BC%E3%83%89%E3%83%91%E3%83%BC%E3%83%86%E3%82%A3%E3%81%AE%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">サードパーティのリポジトリについて</a>
 </li>
+<li>
+<a href="#%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%B9">ニュース</a>
+<ul class="minitoc">
+<li>
+<a href="#2023%E5%B9%B411%E6%9C%881%E6%97%A5+-+ManifoldCF+2.26%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81">2023年11月1日 - ManifoldCF 2.26を公開しました！</a>
+</li>
+<li>
+<a href="#2023%E5%B9%B406%E6%9C%881%E6%97%A5+-+ManifoldCF+2.25%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81">2023年06月1日 - ManifoldCF 2.25を公開しました！</a>
+</li>
+<li>
+<a href="#2022%E5%B9%B412%E6%9C%883%E6%97%A5+-+ManifoldCF+2.24%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81">2022年12月3日 - ManifoldCF 2.24を公開しました！</a>
+</li>
+<li>
+<a href="#2022%E5%B9%B409%E6%9C%881%E6%97%A5+-+ManifoldCF+2.23%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81">2022年09月1日 - ManifoldCF 2.23を公開しました！</a>
+</li>
+<li>
+<a href="#2022%E5%B9%B405%E6%9C%8812%E6%97%A5+-+ManifoldCF+2.22.1%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81">2022年05月12日 - ManifoldCF 2.22.1を公開しました！</a>
+</li>
+<li>
+<a href="#2022%E5%B9%B405%E6%9C%883%E6%97%A5+-+ManifoldCF+2.22%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81">2022年05月3日 - ManifoldCF 2.22を公開しました！</a>
+</li>
+<li>
+<a href="#2022%E5%B9%B401%E6%9C%883%E6%97%A5+-+ManifoldCF+2.21%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81">2022年01月3日 - ManifoldCF 2.21を公開しました！</a>
+</li>
+<li>
+<a href="#2021%E5%B9%B410%E6%9C%881%E6%97%A5+-+ManifoldCF+2.20%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81">2021年10月1日 - ManifoldCF 2.20を公開しました！</a>
+</li>
+<li>
+<a href="#2021%E5%B9%B405%E6%9C%8810%E6%97%A5+-+ManifoldCF+2.19%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81">2021年05月10日 - ManifoldCF 2.19を公開しました！</a>
+</li>
+<li>
+<a href="#2020%E5%B9%B412%E6%9C%8828%E6%97%A5+-+ManifoldCF+2.18%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81">2020年12月28日 - ManifoldCF 2.18を公開しました！</a>
+</li>
+<li>
+<a href="#2020%E5%B9%B409%E6%9C%8816%E6%97%A5+-+ManifoldCF+2.17%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81">2020年09月16日 - ManifoldCF 2.17を公開しました！</a>
+</li>
+<li>
+<a href="#2020%E5%B9%B405%E6%9C%8806%E6%97%A5+-+ManifoldCF+2.16%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81">2020年05月06日 - ManifoldCF 2.16を公開しました！</a>
+</li>
+<li>
+<a href="#2019%E5%B9%B412%E6%9C%8825%E6%97%A5+-+ManifoldCF+2.15%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81">2019年12月25日 - ManifoldCF 2.15を公開しました！</a>
+</li>
+<li>
+<a href="#2019%E5%B9%B410%E6%9C%8803%E6%97%A5+-+ManifoldCF+2.14%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81">2019年10月03日 - ManifoldCF 2.14を公開しました！</a>
+</li>
+<li>
+<a href="#2019%E5%B9%B405%E6%9C%8801%E6%97%A5+-+ManifoldCF+2.13%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81">2019年05月01日 - ManifoldCF 2.13を公開しました！</a>
+</li>
+<li>
+<a href="#2018%E5%B9%B412%E6%9C%8820%E6%97%A5+-+ManifoldCF+2.12%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81">2018年12月20日 - ManifoldCF 2.12を公開しました！</a>
+</li>
+<li>
+<a href="#2018%E5%B9%B409%E6%9C%8828%E6%97%A5+-+ManifoldCF+2.11%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81">2018年09月28日 - ManifoldCF 2.11を公開しました！</a>
+</li>
+<li>
+<a href="#2018%E5%B9%B404%E6%9C%8819%E6%97%A5+-+ManifoldCF+2.10%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81">2018年04月19日 - ManifoldCF 2.10を公開しました！</a>
+</li>
+<li>
+<a href="#2018%E5%B9%B401%E6%9C%8815%E6%97%A5+-+ManifoldCF+2.9.1%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81">2018年01月15日 - ManifoldCF 2.9.1を公開しました！</a>
+</li>
+<li>
+<a href="#2017%E5%B9%B412%E6%9C%8822%E6%97%A5+-+ManifoldCF+2.9%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81">2017年12月22日 - ManifoldCF 2.9を公開しました！</a>
+</li>
+<li>
+<a href="#2017%E5%B9%B409%E6%9C%8807%E6%97%A5+-+ManifoldCF+2.8.1%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81">2017年09月07日 - ManifoldCF 2.8.1を公開しました！</a>
+</li>
+<li>
+<a href="#2017%E5%B9%B408%E6%9C%8818%E6%97%A5+-+ManifoldCF+2.8%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81">2017年08月18日 - ManifoldCF 2.8を公開しました！</a>
+</li>
+<li>
+<a href="#2017%E5%B9%B405%E6%9C%8810%E6%97%A5+-+ManifoldCF+2.7.1%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81">2017年05月10日 - ManifoldCF 2.7.1を公開しました！</a>
+</li>
+<li>
+<a href="#2017%E5%B9%B404%E6%9C%8820%E6%97%A5+-+ManifoldCF+2.7%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81">2017年04月20日 - ManifoldCF 2.7を公開しました！</a>
+</li>
+<li>
+<a href="#2016%E5%B9%B412%E6%9C%8830%E6%97%A5+-+ManifoldCF+2.6%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81">2016年12月30日 - ManifoldCF 2.6を公開しました！</a>
+</li>
+<li>
+<a href="#2016%E5%B9%B408%E6%9C%8818%E6%97%A5+-+ManifoldCF+2.5%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81">2016年08月18日 - ManifoldCF 2.5を公開しました！</a>
+</li>
+<li>
+<a href="#2016%E5%B9%B404%E6%9C%8823%E6%97%A5+-+ManifoldCF+2.4%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81">2016年04月23日 - ManifoldCF 2.4を公開しました！</a>
+</li>
+<li>
+<a href="#2015%E5%B9%B412%E6%9C%8817%E6%97%A5+-+ManifoldCF+2.3%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81">2015年12月17日 - ManifoldCF 2.3を公開しました！</a>
+</li>
+<li>
+<a href="#2015%E5%B9%B409%E6%9C%8807%E6%97%A5+-+ManifoldCF+1.10%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81">2015年09月07日 - ManifoldCF 1.10を公開しました！</a>
+</li>
+<li>
+<a href="#2015%E5%B9%B408%E6%9C%8831%E6%97%A5+-+ManifoldCF+2.2%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81">2015年08月31日 - ManifoldCF 2.2を公開しました！</a>
+</li>
+<li>
+<a href="#2015%E5%B9%B405%E6%9C%8804%E6%97%A5+-+ManifoldCF+2.1%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81">2015年05月04日 - ManifoldCF 2.1を公開しました！</a>
+</li>
+<li>
+<a href="#2015%E5%B9%B405%E6%9C%8803%E6%97%A5+-+ManifoldCF+1.9%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81">2015年05月03日 - ManifoldCF 1.9を公開しました！</a>
+</li>
+<li>
+<a href="#2015%E5%B9%B403%E6%9C%8802%E6%97%A5+-+ManifoldCF+2.0.2%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81">2015年03月02日 - ManifoldCF 2.0.2を公開しました！</a>
+</li>
+<li>
+<a href="#2015%E5%B9%B403%E6%9C%8802%E6%97%A5+-+ManifoldCF+1.8.2%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81">2015年03月02日 - ManifoldCF 1.8.2を公開しました！</a>
+</li>
+<li>
+<a href="#2015%E5%B9%B402%E6%9C%8803%E6%97%A5+-+ManifoldCF+2.0.1%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81">2015年02月03日 - ManifoldCF 2.0.1を公開しました！</a>
+</li>
+<li>
+<a href="#2015%E5%B9%B402%E6%9C%8803%E6%97%A5+-+ManifoldCF+1.8.1%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81">2015年02月03日 - ManifoldCF 1.8.1を公開しました！</a>
+</li>
+<li>
+<a href="#2014%E5%B9%B412%E6%9C%8826%E6%97%A5+-+ManifoldCF+2.0%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81">2014年12月26日 - ManifoldCF 2.0を公開しました！</a>
+</li>
+<li>
+<a href="#2014%E5%B9%B412%E6%9C%8826%E6%97%A5+-+ManifoldCF+1.8%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81">2014年12月26日 - ManifoldCF 1.8を公開しました！</a>
+</li>
+<li>
+<a href="#2014%E5%B9%B411%E6%9C%8802%E6%97%A5+-+ManifoldCF+1.7.2%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81">2014年11月02日 - ManifoldCF 1.7.2を公開しました！</a>
+</li>
+<li>
+<a href="#2014%E5%B9%B409%E6%9C%8822%E6%97%A5+-+ManifoldCF+1.7.1%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81">2014年09月22日 - ManifoldCF 1.7.1を公開しました！</a>
+</li>
+<li>
+<a href="#2014%E5%B9%B408%E6%9C%8824%E6%97%A5+-+ManifoldCF+1.7%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81">2014年08月24日 - ManifoldCF 1.7を公開しました！</a>
+</li>
+<li>
+<a href="#2014%E5%B9%B406%E6%9C%8801%E6%97%A5+-+ManifoldCF+1.6.1%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81">2014年06月01日 - ManifoldCF 1.6.1を公開しました！</a>
+</li>
+<li>
+<a href="#2014%E5%B9%B404%E6%9C%8830%E6%97%A5+-+ManifoldCF+1.6%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81">2014年04月30日 - ManifoldCF 1.6を公開しました！</a>
+</li>
+<li>
+<a href="#2014%E5%B9%B402%E6%9C%8820%E6%97%A5+-+ManifoldCF+1.5.1%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81">2014年02月20日 - ManifoldCF 1.5.1を公開しました！</a>
+</li>
+<li>
+<a href="#2014%E5%B9%B402%E6%9C%8807%E6%97%A5+-+ManifoldCF+1.5%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81">2014年02月07日 - ManifoldCF 1.5を公開しました！</a>
+</li>
+<li>
+<a href="#2013%E5%B9%B411%E6%9C%8816%E6%97%A5+-+ManifoldCF+1.4.1%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81">2013年11月16日 - ManifoldCF 1.4.1を公開しました！</a>
+</li>
+<li>
+<a href="#2013%E5%B9%B410%E6%9C%8828%E6%97%A5+-+ManifoldCF+1.4%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81">2013年10月28日 - ManifoldCF 1.4を公開しました！</a>
+</li>
+<li>
+<a href="#2013%E5%B9%B407%E6%9C%8829%E6%97%A5+-+ManifoldCF+1.3%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81">2013年07月29日 - ManifoldCF 1.3を公開しました！</a>
+</li>
+<li>
+<a href="#2013%E5%B9%B405%E6%9C%8811%E6%97%A5+-+ManifoldCF+1.2%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81">2013年05月11日 - ManifoldCF 1.2を公開しました！</a>
+</li>
+<li>
+<a href="#2013%E5%B9%B402%E6%9C%8813%E6%97%A5+-+ManifoldCF+1.1.1%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81">2013年02月13日 - ManifoldCF 1.1.1を公開しました！</a>
+</li>
+<li>
+<a href="#2013%E5%B9%B402%E6%9C%8803%E6%97%A5+-+ManifoldCF+1.1%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81">2013年02月03日 - ManifoldCF 1.1を公開しました！</a>
+</li>
+<li>
+<a href="#2012%E5%B9%B410%E6%9C%8818%E6%97%A5+-+ManifoldCF+1.0.1%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81">2012年10月18日 - ManifoldCF 1.0.1を公開しました！</a>
+</li>
+<li>
+<a href="#2012%E5%B9%B410%E6%9C%8803%E6%97%A5+-+ManifoldCF+1.0%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81">2012年10月03日 - ManifoldCF 1.0を公開しました！</a>
+</li>
+<li>
+<a href="#2012%E5%B9%B47%E6%9C%8813%E6%97%A5+-+ManifoldCF+0.6%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81">2012年7月13日 - ManifoldCF 0.6を公開しました！</a>
+</li>
+<li>
+<a href="#2012%E5%B9%B45%E6%9C%8822%E6%97%A5+-+ManifoldCF+0.5.1%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81">2012年5月22日 - ManifoldCF 0.5.1を公開しました！</a>
+</li>
+<li>
+<a href="#2012%E5%B9%B45%E6%9C%8816%E6%97%A5+-+ManifoldCF%E3%81%AFApache%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%AD%E3%83%A5%E3%83%99%E3%83%BC%E3%82%BF%E3%81%8B%E3%82%89%E5%8D%92%E6%A5%AD%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81">2012年5月16日 - ManifoldCFはApacheのインキュベータから卒業しました！</a>
+</li>
+<li>
+<a href="#2012%E5%B9%B404%E6%9C%8815%E6%97%A5+-+ManifoldCF+0.5-incubating%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81">2012年04月15日 - ManifoldCF 0.5-incubatingを公開しました！</a>
+</li>
+<li>
+<a href="#2012%E5%B9%B402%E6%9C%8802%E6%97%A5+-+ManifoldCF+0.4-incubating%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81">2012年02月02日 - ManifoldCF 0.4-incubatingを公開しました！</a>
+</li>
+<li>
+<a href="#2011%E5%B9%B411%E6%9C%8808%E6%97%A5+-+%E3%83%90%E3%83%B3%E3%82%AF%E3%83%BC%E3%83%90%E3%83%BC%E3%81%A7ManifoldCF%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E8%AC%9B%E6%BC%94%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F">2011年11月08日 - バンクーバーでManifoldCFについて講演しました</a>
+</li>
+<li>
+<a href="#2011%E5%B9%B410%E6%9C%8819%E6%97%A5+-+%E3%83%90%E3%83%AB%E3%82%BB%E3%83%AD%E3%83%8A%E3%81%A7ManifoldCF%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E7%99%BA%E8%A1%A8%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F">2011年10月19日 - バルセロナでManifoldCFについて発表しました</a>
+</li>
+<li>
+<a href="#2011%E5%B9%B409%E6%9C%8820%E6%97%A5+-+ManifoldCF+0.3-incubating%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81">2011年09月20日 - ManifoldCF 0.3-incubatingを公開しました！</a>
+</li>
+<li>
+<a href="#2011%E5%B9%B405%E6%9C%8817%E6%97%A5+-+ManifoldCF+0.2-incubating%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81">2011年05月17日 - ManifoldCF 0.2-incubatingを公開しました！</a>
+</li>
+<li>
+<a href="#2011%E5%B9%B401%E6%9C%8831%E6%97%A5+-+ManifoldCF+0.1-incubating%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81">2011年01月31日 - ManifoldCF 0.1-incubatingを公開しました！</a>
+</li>
+<li>
+<a href="#2010%E5%B9%B410%E6%9C%8803%E6%97%A5+-+Apache%E3%82%B3%E3%83%8D%E3%82%AF%E3%82%BF%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0%E3%83%AF%E3%83%BC%E3%82%AF%E3%81%AF%E6%AD%A3%E5%BC%8F%E3%81%ABApache+ManifoldCF%E3%81%AB%E5%91%BD%E5%90%8D%E5%A4%89%E6%9B%B4%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F">2010年10月03日 - Apacheコネクタフレームワークは正式にApache ManifoldCFに命名変更しました</a>
+</li>
+<li>
+<a href="#2010%E5%B9%B408%E6%9C%8819%E6%97%A5+-+Lucene%E3%82%B3%E3%83%8D%E3%82%AF%E3%82%BF%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0%E3%83%AF%E3%83%BC%E3%82%AF%E3%81%AFApache%E3%82%B3%E3%83%8D%E3%82%AF%E3%82%BF%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0%E3%83%AF%E3%83%BC%E3%82%AF%E3%81%AB%E5%91%BD%E5%90%8D%E5%A4%89%E6%9B%B4%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F">2010年08月19日 - LuceneコネクタフレームワークはApacheコネクタフレームワークに命名変更しました</a>
+</li>
+<li>
+<a href="#2010%E5%B9%B407%E6%9C%8807%E6%97%A5+-+Lucene%E3%82%B3%E3%83%8D%E3%82%AF%E3%82%BF%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0%E3%83%AF%E3%83%BC%E3%82%AF%E3%81%AE%E5%88%9D%E6%9C%9F%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E3%81%8C%E6%8F%90%E6%A1%88%E3%81%95%E3%82%8C%E3%81%BE%E3%81%97%E3%81%9F">2010年07月07日 - Luceneコネクタフレームワークの初期リリースが提案されました</a>
+</li>
+<li>
+<a href="#2010%E5%B9%B405%E6%9C%8821%E6%97%A5+-+%E3%83%97%E3%83%A9%E3%83%8F%E3%81%A7Lucene%E3%82%B3%E3%83%8D%E3%82%AF%E3%82%BF%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0%E3%83%AF%E3%83%BC%E3%82%AF%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E7%99%BA%E8%A1%A8%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F">2010年05月21日 - プラハでLuceneコネクタフレームワークについて発表しました</a>
+</li>
+<li>
+<a href="#2010%E5%B9%B401%E6%9C%8812%E6%97%A5+-+Lucene%E3%82%B3%E3%83%8D%E3%82%AF%E3%82%BF%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0%E3%83%AF%E3%83%BC%E3%82%AF%E3%82%92%E9%96%8B%E5%A7%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81">2010年01月12日 - Luceneコネクタフレームワークを開始しました！</a>
+</li>
+</ul>
+</li>
 </ul>
 </div> 
     
-<a name="N1000E"></a><a name="ManifoldCF%E3%81%A8%E3%81%AF%EF%BC%9F"></a>
-<h2 class="h3">ManifoldCFとは？</h2>
+<a name="N1000E"></a><a name="Apache+ManifoldCF%E3%81%A8%E3%81%AF%EF%BC%9F"></a>
+<h2 class="h3">Apache ManifoldCFとは？</h2>
 <div class="section">
-<p>ManifoldCFとは、インターネットやイントラネットの様々なサーバに保管されている文書ファイルやWebページなどコンテンツを収集し、それを検索エンジンに送るJavaプログラムです。なお、コンテンツを収集する際にActiveDirectoryなど認証基盤と連携してコンテンツ毎に権限情報も収集し、検索するときにその権限情報を利用して表示内容を制限することもできます。例えば、人事情報に関する文書は、人事部のユーザが検索した時のみに表示するようにできます。</p>
-<p>現バージョンのManifoldCFは、FileNet P8 (IBM), Documentum (EMC), LiveLink (OpenText), Meridio (Autonomy), Windows共有(Microsoft), SharePoint (Microsoft)のような商用商品に保存されているコンテンツと次のような汎用コネクタを使って様々なコンテンツを収集することができます：CMISコネクタ, ファイルシステムコネクタ, JDBCコネクタ, RSSフィードコネクタ, Wikiコネクタ, HTMLコネクタ。また収集したコンテンツをApache Solr, QBase(旧MetaCarta) GTS, OpenSearchServer, ElasticSearchに送ることができます。対応している製品及び規格一覧は<a href="included-connectors.html">ここ</a>にあります。</p>
+<p>Apache ManifoldCFとは、インターネットやイントラネットの様々なサーバに保管されている文書ファイルやWebページなどコンテンツを収集し、それを検索エンジンに送るJavaプログラムです。なお、コンテンツを収集する際にActiveDirectoryなど認証基盤と連携してコンテンツ毎に権限情報も収集し、検索するときにその権限情報を利用して表示内容を制限することもできます。例えば、人事情報に関する文書は、人事部のユーザが検索した時のみに表示するようにできます。</p>
+<p>現バージョンのManifoldCFは、FileNet P8 (IBM), Documentum (EMC), LiveLink (OpenText), Meridio (Autonomy), Windows共有(Microsoft), SharePoint (Microsoft)のような商用商品に保存されているコンテンツと次のような汎用コネクタを使って様々なコンテンツを収集することができます：CMISコネクタ, ファイルシステムコネクタ, JDBCコネクタ, RSSフィードコネクタ, Wikiコネクタ, HTMLコネクタ。また収集したコンテンツをApache Solr, QBase(旧MetaCarta) GTS, Open Search Server, ElasticSearchに送ることができます。対応している製品及び規格一覧は<a href="release-documentation.html">ここ</a>にあります。</p>
 <p>Apache ManifoldCFはMetaCarta, Inc.により開発されました。5年間の年月の間に複数企業用に開発／テストが繰り返された後の2009年12月にApache Software Foundationにコードソースが寄贈されました。</p>
 </div>
 
     
-<a name="N10022"></a><a name="%E3%82%B5%E3%83%BC%E3%83%89%E3%83%91%E3%83%BC%E3%83%86%E3%82%A3%E3%81%AE%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6"></a>
+<a name="N10022"></a><a name="%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%81%AE%E7%8A%B6%E6%B3%81"></a>
+<h2 class="h3">プロジェクトの状況</h2>
+<div class="section">
+<p>Apache ManifoldCF 2.26は<a href="download.html">ここ</a>からダウンロードすることができます。</p>
+</div>
+
+    
+<a name="N10030"></a><a name="%E3%82%B5%E3%83%BC%E3%83%89%E3%83%91%E3%83%BC%E3%83%86%E3%82%A3%E3%81%AE%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6"></a>
 <h2 class="h3">サードパーティのリポジトリについて</h2>
 <div class="section">
 <p>ManifoldCFにふくまれる商用ソフトウェア用のコネクタをビルドするには、サードパーティのライブラリ、パッケージ、そのソフトウェアが必要な場合があります。開発者はビルドする時にこれらサードパーティのソフトウェアを入手する必要はありますが、条件付きでコンパイルすることができるため、コネクタ自体のソースコードはApacheとして配布することができます。できる限りすべてをApacheライセンスに準拠するようにしたいと思っていますが、現実的には状況はすぐには変わりません。</p>
 <p>サードパーティのソフトウェアを含めてビルドする手順はWikiページに掲載しています。</p>
+</div>
+
+    
+<a name="N1003D"></a><a name="%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%B9"></a>
+<h2 class="h3">ニュース</h2>
+<div class="section">
+<a name="N10043"></a><a name="2023%E5%B9%B411%E6%9C%881%E6%97%A5+-+ManifoldCF+2.26%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81"></a>
+<h3 class="h4">2023年11月1日 - ManifoldCF 2.26を公開しました！</h3>
+<p>開発者コミュニティは2.25リリースを承認しました</p>
+<a name="N1004D"></a><a name="2023%E5%B9%B406%E6%9C%881%E6%97%A5+-+ManifoldCF+2.25%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81"></a>
+<h3 class="h4">2023年06月1日 - ManifoldCF 2.25を公開しました！</h3>
+<p>開発者コミュニティは2.25リリースを承認しました</p>
+<a name="N10057"></a><a name="2022%E5%B9%B412%E6%9C%883%E6%97%A5+-+ManifoldCF+2.24%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81"></a>
+<h3 class="h4">2022年12月3日 - ManifoldCF 2.24を公開しました！</h3>
+<p>開発者コミュニティは2.24リリースを承認しました</p>
+<a name="N10061"></a><a name="2022%E5%B9%B409%E6%9C%881%E6%97%A5+-+ManifoldCF+2.23%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81"></a>
+<h3 class="h4">2022年09月1日 - ManifoldCF 2.23を公開しました！</h3>
+<p>開発者コミュニティは2.23リリースを承認しました</p>
+<a name="N1006B"></a><a name="2022%E5%B9%B405%E6%9C%8812%E6%97%A5+-+ManifoldCF+2.22.1%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81"></a>
+<h3 class="h4">2022年05月12日 - ManifoldCF 2.22.1を公開しました！</h3>
+<p>開発者コミュニティはバグ修正版リリースを承認しました</p>
+<a name="N10075"></a><a name="2022%E5%B9%B405%E6%9C%883%E6%97%A5+-+ManifoldCF+2.22%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81"></a>
+<h3 class="h4">2022年05月3日 - ManifoldCF 2.22を公開しました！</h3>
+<p>開発者コミュニティは2.22リリースを承認しました</p>
+<a name="N1007F"></a><a name="2022%E5%B9%B401%E6%9C%883%E6%97%A5+-+ManifoldCF+2.21%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81"></a>
+<h3 class="h4">2022年01月3日 - ManifoldCF 2.21を公開しました！</h3>
+<p>開発者コミュニティは2.21リリースを承認しました</p>
+<a name="N10089"></a><a name="2021%E5%B9%B410%E6%9C%881%E6%97%A5+-+ManifoldCF+2.20%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81"></a>
+<h3 class="h4">2021年10月1日 - ManifoldCF 2.20を公開しました！</h3>
+<p>開発者コミュニティは2.20リリースを承認しました</p>
+<a name="N10093"></a><a name="2021%E5%B9%B405%E6%9C%8810%E6%97%A5+-+ManifoldCF+2.19%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81"></a>
+<h3 class="h4">2021年05月10日 - ManifoldCF 2.19を公開しました！</h3>
+<p>開発者コミュニティは2.19リリースを承認しました</p>
+<a name="N1009D"></a><a name="2020%E5%B9%B412%E6%9C%8828%E6%97%A5+-+ManifoldCF+2.18%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81"></a>
+<h3 class="h4">2020年12月28日 - ManifoldCF 2.18を公開しました！</h3>
+<p>開発者コミュニティは2.18リリースを承認しました</p>
+<a name="N100A7"></a><a name="2020%E5%B9%B409%E6%9C%8816%E6%97%A5+-+ManifoldCF+2.17%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81"></a>
+<h3 class="h4">2020年09月16日 - ManifoldCF 2.17を公開しました！</h3>
+<p>開発者コミュニティは2.17リリースを承認しました</p>
+<a name="N100B1"></a><a name="2020%E5%B9%B405%E6%9C%8806%E6%97%A5+-+ManifoldCF+2.16%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81"></a>
+<h3 class="h4">2020年05月06日 - ManifoldCF 2.16を公開しました！</h3>
+<p>開発者コミュニティは2.16リリースを承認しました</p>
+<a name="N100BB"></a><a name="2019%E5%B9%B412%E6%9C%8825%E6%97%A5+-+ManifoldCF+2.15%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81"></a>
+<h3 class="h4">2019年12月25日 - ManifoldCF 2.15を公開しました！</h3>
+<p>開発者コミュニティは2.15リリースを承認しました</p>
+<a name="N100C5"></a><a name="2019%E5%B9%B410%E6%9C%8803%E6%97%A5+-+ManifoldCF+2.14%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81"></a>
+<h3 class="h4">2019年10月03日 - ManifoldCF 2.14を公開しました！</h3>
+<p>開発者コミュニティは2.14リリースを承認しました</p>
+<a name="N100CF"></a><a name="2019%E5%B9%B405%E6%9C%8801%E6%97%A5+-+ManifoldCF+2.13%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81"></a>
+<h3 class="h4">2019年05月01日 - ManifoldCF 2.13を公開しました！</h3>
+<p>開発者コミュニティは2.13リリースを承認しました</p>
+<a name="N100D9"></a><a name="2018%E5%B9%B412%E6%9C%8820%E6%97%A5+-+ManifoldCF+2.12%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81"></a>
+<h3 class="h4">2018年12月20日 - ManifoldCF 2.12を公開しました！</h3>
+<p>開発者コミュニティは2.12リリースを承認しました</p>
+<a name="N100E3"></a><a name="2018%E5%B9%B409%E6%9C%8828%E6%97%A5+-+ManifoldCF+2.11%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81"></a>
+<h3 class="h4">2018年09月28日 - ManifoldCF 2.11を公開しました！</h3>
+<p>開発者コミュニティは2.11リリースを承認しました</p>
+<a name="N100ED"></a><a name="2018%E5%B9%B404%E6%9C%8819%E6%97%A5+-+ManifoldCF+2.10%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81"></a>
+<h3 class="h4">2018年04月19日 - ManifoldCF 2.10を公開しました！</h3>
+<p>開発者コミュニティは2.10リリースを承認しました</p>
+<a name="N100F7"></a><a name="2018%E5%B9%B401%E6%9C%8815%E6%97%A5+-+ManifoldCF+2.9.1%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81"></a>
+<h3 class="h4">2018年01月15日 - ManifoldCF 2.9.1を公開しました！</h3>
+<p>開発者コミュニティはバグ修正版リリースを承認しました</p>
+<a name="N10101"></a><a name="2017%E5%B9%B412%E6%9C%8822%E6%97%A5+-+ManifoldCF+2.9%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81"></a>
+<h3 class="h4">2017年12月22日 - ManifoldCF 2.9を公開しました！</h3>
+<p>開発者コミュニティは2.9リリースを承認しました</p>
+<a name="N1010B"></a><a name="2017%E5%B9%B409%E6%9C%8807%E6%97%A5+-+ManifoldCF+2.8.1%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81"></a>
+<h3 class="h4">2017年09月07日 - ManifoldCF 2.8.1を公開しました！</h3>
+<p>開発者コミュニティはバグ修正版リリースを承認しました</p>
+<a name="N10115"></a><a name="2017%E5%B9%B408%E6%9C%8818%E6%97%A5+-+ManifoldCF+2.8%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81"></a>
+<h3 class="h4">2017年08月18日 - ManifoldCF 2.8を公開しました！</h3>
+<p>開発者コミュニティは2.8リリースを承認しました</p>
+<a name="N1011F"></a><a name="2017%E5%B9%B405%E6%9C%8810%E6%97%A5+-+ManifoldCF+2.7.1%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81"></a>
+<h3 class="h4">2017年05月10日 - ManifoldCF 2.7.1を公開しました！</h3>
+<p>開発者コミュニティはバグ修正版リリースを承認しました</p>
+<a name="N10129"></a><a name="2017%E5%B9%B404%E6%9C%8820%E6%97%A5+-+ManifoldCF+2.7%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81"></a>
+<h3 class="h4">2017年04月20日 - ManifoldCF 2.7を公開しました！</h3>
+<p>開発者コミュニティは2.7リリースを承認しました</p>
+<a name="N10133"></a><a name="2016%E5%B9%B412%E6%9C%8830%E6%97%A5+-+ManifoldCF+2.6%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81"></a>
+<h3 class="h4">2016年12月30日 - ManifoldCF 2.6を公開しました！</h3>
+<p>開発者コミュニティは2.6リリースを承認しました</p>
+<a name="N1013D"></a><a name="2016%E5%B9%B408%E6%9C%8818%E6%97%A5+-+ManifoldCF+2.5%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81"></a>
+<h3 class="h4">2016年08月18日 - ManifoldCF 2.5を公開しました！</h3>
+<p>開発者コミュニティは2.5リリースを承認しました</p>
+<a name="N10147"></a><a name="2016%E5%B9%B404%E6%9C%8823%E6%97%A5+-+ManifoldCF+2.4%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81"></a>
+<h3 class="h4">2016年04月23日 - ManifoldCF 2.4を公開しました！</h3>
+<p>開発者コミュニティは2.4リリースを承認しました</p>
+<a name="N10151"></a><a name="2015%E5%B9%B412%E6%9C%8817%E6%97%A5+-+ManifoldCF+2.3%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81"></a>
+<h3 class="h4">2015年12月17日 - ManifoldCF 2.3を公開しました！</h3>
+<p>開発者コミュニティは2.3リリースを承認しました</p>
+<a name="N1015B"></a><a name="2015%E5%B9%B409%E6%9C%8807%E6%97%A5+-+ManifoldCF+1.10%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81"></a>
+<h3 class="h4">2015年09月07日 - ManifoldCF 1.10を公開しました！</h3>
+<p>開発者コミュニティは1.10リリースを承認しました</p>
+<a name="N10165"></a><a name="2015%E5%B9%B408%E6%9C%8831%E6%97%A5+-+ManifoldCF+2.2%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81"></a>
+<h3 class="h4">2015年08月31日 - ManifoldCF 2.2を公開しました！</h3>
+<p>開発者コミュニティは2.2リリースを承認しました</p>
+<a name="N1016F"></a><a name="2015%E5%B9%B405%E6%9C%8804%E6%97%A5+-+ManifoldCF+2.1%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81"></a>
+<h3 class="h4">2015年05月04日 - ManifoldCF 2.1を公開しました！</h3>
+<p>開発者コミュニティは2.1リリースを承認しました</p>
+<a name="N10179"></a><a name="2015%E5%B9%B405%E6%9C%8803%E6%97%A5+-+ManifoldCF+1.9%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81"></a>
+<h3 class="h4">2015年05月03日 - ManifoldCF 1.9を公開しました！</h3>
+<p>開発者コミュニティは1.9リリースを承認しました</p>
+<a name="N10183"></a><a name="2015%E5%B9%B403%E6%9C%8802%E6%97%A5+-+ManifoldCF+2.0.2%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81"></a>
+<h3 class="h4">2015年03月02日 - ManifoldCF 2.0.2を公開しました！</h3>
+<p>開発者コミュニティはバグ修正版リリースを承認しました</p>
+<a name="N1018D"></a><a name="2015%E5%B9%B403%E6%9C%8802%E6%97%A5+-+ManifoldCF+1.8.2%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81"></a>
+<h3 class="h4">2015年03月02日 - ManifoldCF 1.8.2を公開しました！</h3>
+<p>開発者コミュニティはバグ修正版リリースを承認しました</p>
+<a name="N10197"></a><a name="2015%E5%B9%B402%E6%9C%8803%E6%97%A5+-+ManifoldCF+2.0.1%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81"></a>
+<h3 class="h4">2015年02月03日 - ManifoldCF 2.0.1を公開しました！</h3>
+<p>開発者コミュニティはバグ修正版リリースを承認しました</p>
+<a name="N101A1"></a><a name="2015%E5%B9%B402%E6%9C%8803%E6%97%A5+-+ManifoldCF+1.8.1%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81"></a>
+<h3 class="h4">2015年02月03日 - ManifoldCF 1.8.1を公開しました！</h3>
+<p>開発者コミュニティはバグ修正版リリースを承認しました</p>
+<a name="N101AB"></a><a name="2014%E5%B9%B412%E6%9C%8826%E6%97%A5+-+ManifoldCF+2.0%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81"></a>
+<h3 class="h4">2014年12月26日 - ManifoldCF 2.0を公開しました！</h3>
+<p>開発者コミュニティは2.0リリースを承認しました</p>
+<a name="N101B5"></a><a name="2014%E5%B9%B412%E6%9C%8826%E6%97%A5+-+ManifoldCF+1.8%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81"></a>
+<h3 class="h4">2014年12月26日 - ManifoldCF 1.8を公開しました！</h3>
+<p>開発者コミュニティは1.8リリースを承認しました</p>
+<a name="N101BF"></a><a name="2014%E5%B9%B411%E6%9C%8802%E6%97%A5+-+ManifoldCF+1.7.2%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81"></a>
+<h3 class="h4">2014年11月02日 - ManifoldCF 1.7.2を公開しました！</h3>
+<p>開発者コミュニティはバグ修正版リリースを承認しました</p>
+<a name="N101C9"></a><a name="2014%E5%B9%B409%E6%9C%8822%E6%97%A5+-+ManifoldCF+1.7.1%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81"></a>
+<h3 class="h4">2014年09月22日 - ManifoldCF 1.7.1を公開しました！</h3>
+<p>開発者コミュニティはバグ修正版リリースを承認しました</p>
+<a name="N101D3"></a><a name="2014%E5%B9%B408%E6%9C%8824%E6%97%A5+-+ManifoldCF+1.7%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81"></a>
+<h3 class="h4">2014年08月24日 - ManifoldCF 1.7を公開しました！</h3>
+<p>開発者コミュニティは1.7リリースを承認しました</p>
+<a name="N101DD"></a><a name="2014%E5%B9%B406%E6%9C%8801%E6%97%A5+-+ManifoldCF+1.6.1%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81"></a>
+<h3 class="h4">2014年06月01日 - ManifoldCF 1.6.1を公開しました！</h3>
+<p>開発者コミュニティはバグ修正版リリースを承認しました</p>
+<a name="N101E7"></a><a name="2014%E5%B9%B404%E6%9C%8830%E6%97%A5+-+ManifoldCF+1.6%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81"></a>
+<h3 class="h4">2014年04月30日 - ManifoldCF 1.6を公開しました！</h3>
+<p>開発者コミュニティは1.6リリースを承認しました</p>
+<a name="N101F1"></a><a name="2014%E5%B9%B402%E6%9C%8820%E6%97%A5+-+ManifoldCF+1.5.1%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81"></a>
+<h3 class="h4">2014年02月20日 - ManifoldCF 1.5.1を公開しました！</h3>
+<p>開発者コミュニティはバグ修正版リリースを承認しました</p>
+<a name="N101FB"></a><a name="2014%E5%B9%B402%E6%9C%8807%E6%97%A5+-+ManifoldCF+1.5%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81"></a>
+<h3 class="h4">2014年02月07日 - ManifoldCF 1.5を公開しました！</h3>
+<p>開発者コミュニティは1.5リリースを承認しました</p>
+<a name="N10205"></a><a name="2013%E5%B9%B411%E6%9C%8816%E6%97%A5+-+ManifoldCF+1.4.1%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81"></a>
+<h3 class="h4">2013年11月16日 - ManifoldCF 1.4.1を公開しました！</h3>
+<p>開発者コミュニティはバグ修正版リリースを承認しました</p>
+<a name="N1020F"></a><a name="2013%E5%B9%B410%E6%9C%8828%E6%97%A5+-+ManifoldCF+1.4%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81"></a>
+<h3 class="h4">2013年10月28日 - ManifoldCF 1.4を公開しました！</h3>
+<p>開発者コミュニティは1.4リリースを承認しました</p>
+<a name="N10219"></a><a name="2013%E5%B9%B407%E6%9C%8829%E6%97%A5+-+ManifoldCF+1.3%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81"></a>
+<h3 class="h4">2013年07月29日 - ManifoldCF 1.3を公開しました！</h3>
+<p>開発者コミュニティは1.3リリースを承認しました</p>
+<a name="N10223"></a><a name="2013%E5%B9%B405%E6%9C%8811%E6%97%A5+-+ManifoldCF+1.2%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81"></a>
+<h3 class="h4">2013年05月11日 - ManifoldCF 1.2を公開しました！</h3>
+<p>開発者コミュニティは1.2リリースを承認しました</p>
+<a name="N1022D"></a><a name="2013%E5%B9%B402%E6%9C%8813%E6%97%A5+-+ManifoldCF+1.1.1%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81"></a>
+<h3 class="h4">2013年02月13日 - ManifoldCF 1.1.1を公開しました！</h3>
+<p>開発者コミュニティはバグ修正版リリースを承認しました</p>
+<a name="N10237"></a><a name="2013%E5%B9%B402%E6%9C%8803%E6%97%A5+-+ManifoldCF+1.1%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81"></a>
+<h3 class="h4">2013年02月03日 - ManifoldCF 1.1を公開しました！</h3>
+<p>開発者コミュニティは1.1リリースを承認しました</p>
+<a name="N10241"></a><a name="2012%E5%B9%B410%E6%9C%8818%E6%97%A5+-+ManifoldCF+1.0.1%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81"></a>
+<h3 class="h4">2012年10月18日 - ManifoldCF 1.0.1を公開しました！</h3>
+<p>開発者コミュニティはバグ修正版リリースを承認しました</p>
+<a name="N1024B"></a><a name="2012%E5%B9%B410%E6%9C%8803%E6%97%A5+-+ManifoldCF+1.0%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81"></a>
+<h3 class="h4">2012年10月03日 - ManifoldCF 1.0を公開しました！</h3>
+<p>開発者コミュニティは1.0リリースを承認しました</p>
+<a name="N10255"></a><a name="2012%E5%B9%B47%E6%9C%8813%E6%97%A5+-+ManifoldCF+0.6%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81"></a>
+<h3 class="h4">2012年7月13日 - ManifoldCF 0.6を公開しました！</h3>
+<p>開発者コミュニティは6版を承認しました</p>
+<a name="N1025F"></a><a name="2012%E5%B9%B45%E6%9C%8822%E6%97%A5+-+ManifoldCF+0.5.1%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81"></a>
+<h3 class="h4">2012年5月22日 - ManifoldCF 0.5.1を公開しました！</h3>
+<p>開発者コミュニティはバグ修正版リリースを承認しました</p>
+<a name="N10269"></a><a name="2012%E5%B9%B45%E6%9C%8816%E6%97%A5+-+ManifoldCF%E3%81%AFApache%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%AD%E3%83%A5%E3%83%99%E3%83%BC%E3%82%BF%E3%81%8B%E3%82%89%E5%8D%92%E6%A5%AD%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81"></a>
+<h3 class="h4">2012年5月16日 - ManifoldCFはApacheのインキュベータから卒業しました！</h3>
+<p>Apacheの理事会はManifoldCFをトップレベルプロジェクトとして承認しました</p>
+<a name="N10273"></a><a name="2012%E5%B9%B404%E6%9C%8815%E6%97%A5+-+ManifoldCF+0.5-incubating%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81"></a>
+<h3 class="h4">2012年04月15日 - ManifoldCF 0.5-incubatingを公開しました！</h3>
+<p>開発者コミュニティ及びApacheインキュベータは5版を承認しました</p>
+<p>主な追加機能:</p>
+<ul>
+                  
+<li>コネクタUIテンプレートのApache Velocityサポート</li>
+                  
+<li>ElasticSearch出力コネクタ</li>
+                  
+<li>CMISコネクタのCMIS 0.6.0のアップグレード</li>
+                  
+<li>MySQLのサポート</li>
+                  
+<li>プロプライエタリコネクタのプレビルドのサポート</li>
+                  
+<li>多言語対応, 日本語ローカリゼーション</li>
+                
+</ul>
+<a name="N10295"></a><a name="2012%E5%B9%B402%E6%9C%8802%E6%97%A5+-+ManifoldCF+0.4-incubating%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81"></a>
+<h3 class="h4">2012年02月02日 - ManifoldCF 0.4-incubatingを公開しました！</h3>
+<p>開発者コミュニティ及びApacheインキュベータは4版を承認しました</p>
+<a name="N1029F"></a><a name="2011%E5%B9%B411%E6%9C%8808%E6%97%A5+-+%E3%83%90%E3%83%B3%E3%82%AF%E3%83%BC%E3%83%90%E3%83%BC%E3%81%A7ManifoldCF%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E8%AC%9B%E6%BC%94%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F"></a>
+<h3 class="h4">2011年11月08日 - バンクーバーでManifoldCFについて講演しました</h3>
+<p>Apache North America 2011, バンクーバー, ブリティッシュコロンビア, カナダで、ManifoldCFの概要について発表しました</p>
+<a name="N102A9"></a><a name="2011%E5%B9%B410%E6%9C%8819%E6%97%A5+-+%E3%83%90%E3%83%AB%E3%82%BB%E3%83%AD%E3%83%8A%E3%81%A7ManifoldCF%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E7%99%BA%E8%A1%A8%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F"></a>
+<h3 class="h4">2011年10月19日 - バルセロナでManifoldCFについて発表しました</h3>
+<p>Apache Eurocon 2011, バルセロナ, カタルーニャ, スペインで、ManifoldCFの権限機能について発表しました</p>
+<a name="N102B3"></a><a name="2011%E5%B9%B409%E6%9C%8820%E6%97%A5+-+ManifoldCF+0.3-incubating%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81"></a>
+<h3 class="h4">2011年09月20日 - ManifoldCF 0.3-incubatingを公開しました！</h3>
+<p>開発者コミュニティ及びApacheインキュベータは3版を承認しました</p>
+<a name="N102BD"></a><a name="2011%E5%B9%B405%E6%9C%8817%E6%97%A5+-+ManifoldCF+0.2-incubating%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81"></a>
+<h3 class="h4">2011年05月17日 - ManifoldCF 0.2-incubatingを公開しました！</h3>
+<p>開発者コミュニティ及びApacheインキュベータは2版を承認しました</p>
+<a name="N102C7"></a><a name="2011%E5%B9%B401%E6%9C%8831%E6%97%A5+-+ManifoldCF+0.1-incubating%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81"></a>
+<h3 class="h4">2011年01月31日 - ManifoldCF 0.1-incubatingを公開しました！</h3>
+<p>開発者コミュニティ及びApacheインキュベータは初期リリースを承認しました</p>
+<a name="N102D1"></a><a name="2010%E5%B9%B410%E6%9C%8803%E6%97%A5+-+Apache%E3%82%B3%E3%83%8D%E3%82%AF%E3%82%BF%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0%E3%83%AF%E3%83%BC%E3%82%AF%E3%81%AF%E6%AD%A3%E5%BC%8F%E3%81%ABApache+ManifoldCF%E3%81%AB%E5%91%BD%E5%90%8D%E5%A4%89%E6%9B%B4%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F"></a>
+<h3 class="h4">2010年10月03日 - Apacheコネクタフレームワークは正式にApache ManifoldCFに命名変更しました</h3>
+<p>開発者コミュニティは２回目の名前変更を承認しました</p>
+<a name="N102DB"></a><a name="2010%E5%B9%B408%E6%9C%8819%E6%97%A5+-+Lucene%E3%82%B3%E3%83%8D%E3%82%AF%E3%82%BF%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0%E3%83%AF%E3%83%BC%E3%82%AF%E3%81%AFApache%E3%82%B3%E3%83%8D%E3%82%AF%E3%82%BF%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0%E3%83%AF%E3%83%BC%E3%82%AF%E3%81%AB%E5%91%BD%E5%90%8D%E5%A4%89%E6%9B%B4%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F"></a>
+<h3 class="h4">2010年08月19日 - LuceneコネクタフレームワークはApacheコネクタフレームワークに命名変更しました</h3>
+<p>開発者コミュニティは名前変更を承認しました</p>
+<a name="N102E5"></a><a name="2010%E5%B9%B407%E6%9C%8807%E6%97%A5+-+Lucene%E3%82%B3%E3%83%8D%E3%82%AF%E3%82%BF%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0%E3%83%AF%E3%83%BC%E3%82%AF%E3%81%AE%E5%88%9D%E6%9C%9F%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E3%81%8C%E6%8F%90%E6%A1%88%E3%81%95%E3%82%8C%E3%81%BE%E3%81%97%E3%81%9F"></a>
+<h3 class="h4">2010年07月07日 - Luceneコネクタフレームワークの初期リリースが提案されました</h3>
+<p>LCFの初期リリースの条件が提案されました</p>
+<a name="N102EF"></a><a name="2010%E5%B9%B405%E6%9C%8821%E6%97%A5+-+%E3%83%97%E3%83%A9%E3%83%8F%E3%81%A7Lucene%E3%82%B3%E3%83%8D%E3%82%AF%E3%82%BF%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0%E3%83%AF%E3%83%BC%E3%82%AF%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E7%99%BA%E8%A1%A8%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F"></a>
+<h3 class="h4">2010年05月21日 - プラハでLuceneコネクタフレームワークについて発表しました</h3>
+<p>Lucene/Solr Eurocon, プラハ, チェコ共和国で、LCFの紹介を発表しました</p>
+<a name="N102F9"></a><a name="2010%E5%B9%B401%E6%9C%8812%E6%97%A5+-+Lucene%E3%82%B3%E3%83%8D%E3%82%AF%E3%82%BF%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0%E3%83%AF%E3%83%BC%E3%82%AF%E3%82%92%E9%96%8B%E5%A7%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81"></a>
+<h3 class="h4">2010年01月12日 - Luceneコネクタフレームワークを開始しました！</h3>
+<p>LCFが正式にApache Software Foundationインキュベーションプロジェクトになりました</p>
 </div>
 
   
@@ -204,7 +643,7 @@ document.write("Last Published: " + document.lastModified);
 </div>
 <div class="copyright">
         Copyright &copy;
-         2009-2020 <a href="http://www.apache.org/licenses/">The Apache Software Foundation.</a>
+         2009-2022 <a href="http://www.apache.org/licenses/">The Apache Software Foundation.</a>
 </div>
 <div class="copyright">
     Apache ManifoldCF, ManifoldCF, Apache Forrest, Forrest, Apache Solr, Solr, Apache, the Apache feather logo, the Apache Forrest
@@ -216,7 +655,6 @@ document.write("Last Published: " + document.lastModified);
     QBase, MetaCarta, and GTS are trademarks of QBase, Inc.
     Meridio and Autonomy are trademarks of Hewlett Packard, Inc.
     Alfresco is a trademark of Alfresco Software, Inc.
-    Jira is a trademark of Atlassian, Inc.
   </div>
 <div id="logos"></div>
 <!--+

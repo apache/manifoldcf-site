@@ -1,0 +1,4 @@
+org.apache.manifoldcf.authorities.authorities.nuxeo
+org.apache.manifoldcf.crawler.connectors.nuxeo
+org.apache.manifoldcf.crawler.connectors.nuxeo.exception
+org.apache.manifoldcf.crawler.connectors.nuxeo.model
