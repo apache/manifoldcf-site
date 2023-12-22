@@ -1,3 +1,4 @@
+title: ManifoldCF Document Security
 
 # ManifoldCF Document Security
 

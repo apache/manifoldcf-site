@@ -1,6 +1,6 @@
+title: Welcome to Apache ManifoldCF!
 
 # Welcome to Apache ManifoldCF™!
-
 ## What Is Apache ManifoldCF?
 
 Apache ManifoldCF is an effort to provide an open source framework for connecting source content repositories like Microsoft Sharepoint and EMC Documentum, to target repositories or indexes, such as Apache Solr, Open Search Server, or ElasticSearch. Apache ManifoldCF also defines a security model for target repositories that permits them to enforce source-repository security policies.

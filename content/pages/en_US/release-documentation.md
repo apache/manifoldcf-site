@@ -1,3 +1,4 @@
+title: ManifoldCF Release Documentation
 
 # ManifoldCF Release Documentation
 
