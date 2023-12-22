@@ -1,3 +1,4 @@
+title: ManifoldCF - Books and Presentations
 
 # ManifoldCF - Books and Presentations
 

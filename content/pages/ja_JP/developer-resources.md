@@ -1,3 +1,4 @@
+title: ManifoldCF - 開発者リソース
 
 # ManifoldCF - 開発者リソース
 

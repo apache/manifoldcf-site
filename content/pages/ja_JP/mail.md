@@ -1,3 +1,4 @@
+title: ManifoldCF - メーリングリスト
 
 # ManifoldCF - メーリングリスト
 
