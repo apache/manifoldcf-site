@@ -1,3 +1,4 @@
+title: ManifoldCF - Developer Resources
 
 # ManifoldCF - Developer Resources
 

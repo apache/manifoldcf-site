@@ -1,3 +1,4 @@
+title: Verifying ManifoldCF releases
 
 # Verifying ManifoldCF releases
 

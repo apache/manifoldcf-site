@@ -1,6 +1,6 @@
 site:
   name: Apache ManifoldCF Website
-  description: The official website of the Apache ManifoldCF
+  description: The official website of Apache ManifoldCF
   domain: manifoldcf.apache.org
   logo: /extra/favicon.ico
   repository: https://github.com/apache/manifoldcf-site/blob/main/content/
