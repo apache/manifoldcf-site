@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"org.apache.manifoldcf.crawler.connectors.csv","l":"CSVConfig"},{"p":"org.apache.manifoldcf.crawler.connectors.csv","l":"CSVConnector"},{"p":"org.apache.manifoldcf.crawler.connectors.csv","l":"CSVUtils"},{"p":"org.apache.manifoldcf.crawler.connectors.csv","l":"Messages"}]

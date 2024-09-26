@@ -1,0 +1,1759 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="Apache Forrest" name="Generator">
+<meta name="Forrest-version" content="0.9">
+<meta name="Forrest-skin-name" content="lucene">
+<title>Programmatic Operation</title>
+<link type="text/css" href="../skin/basic.css" rel="stylesheet">
+<link media="screen" type="text/css" href="../skin/screen.css" rel="stylesheet">
+<link media="print" type="text/css" href="../skin/print.css" rel="stylesheet">
+<link type="text/css" href="../skin/profile.css" rel="stylesheet">
+<script src="../skin/getBlank.js" language="javascript" type="text/javascript"></script><script src="../skin/getMenu.js" language="javascript" type="text/javascript"></script><script src="../skin/fontsize.js" language="javascript" type="text/javascript"></script>
+<link rel="shortcut icon" href="../images/favicon.ico">
+</head>
+<body onload="init()">
+<script type="text/javascript">ndeSetTextSize();</script>
+<div id="top">
+<!--+
+    |breadtrail
+    +-->
+<div class="breadtrail">
+<a href="http://www.apache.org/">Apache</a> &gt; <a href="http://manifoldcf.apache.org">ManifoldCF</a> &gt; <a href="">Release Documentation</a><script src="../skin/breadcrumbs.js" language="JavaScript" type="text/javascript"></script>
+</div>
+<!--+
+    |header
+    +-->
+<div class="header">
+<!--+
+    |start group logo
+    +-->
+<div class="grouplogo">
+<a href="https://www.apache.org"><img class="logoImage" alt="Apache" src="../images/SupportApache-small-128.png" title="Apache Software Foundation"></a>
+</div>
+<!--+
+    |end group logo
+    +-->
+<!--+
+    |start Project Logo
+    +-->
+<div class="projectlogo">
+<a href="http://manifoldcf.apache.org"><img class="logoImage" alt="Apache ManifoldCF" src="../images/ManifoldCF-logo.PNG" title="ManifoldCF"></a>
+</div>
+<!--+
+    |end Project Logo
+    +-->
+<div class="projectlogo">
+<a href="https://www.apache.org/events/current-event.html"><img class="logoImage" src="https://www.apache.org/events/current-event-234x60.png"></a>
+</div>
+
+<!--+
+    |start Tabs
+    +-->
+<ul id="tabs">
+<li>
+<a class="unselected" href="..">Hello!</a>
+</li>
+<li class="current">
+<a class="selected" href="../en_US/index.html">English</a>
+</li>
+<li>
+<a class="unselected" href="../ja_JP/index.html">日本語</a>
+</li>
+<li>
+<a class="unselected" href="../zh_CN/index.html">中文</a>
+</li>
+</ul>
+<!--+
+    |end Tabs
+    +-->
+</div>
+</div>
+<div id="main">
+<div id="publishedStrip">
+<!--+
+    |start Subtabs
+    +-->
+<div id="level2tabs"></div>
+<!--+
+    |end Endtabs
+    +-->
+<script type="text/javascript"><!--
+document.write("Last Published: " + document.lastModified);
+//  --></script>
+</div>
+<!--+
+    |breadtrail
+    +-->
+<div class="breadtrail">
+
+             &nbsp;
+           </div>
+<!--+
+    |start Menu, mainarea
+    +-->
+<!--+
+    |start Menu
+    +-->
+<div id="menu">
+<div onclick="SwitchMenu('menu_selected_1.1', '../skin/')" id="menu_selected_1.1Title" class="menutitle" style="background-image: url('../skin/images/chapter_open.gif');">English</div>
+<div id="menu_selected_1.1" class="selectedmenuitemgroup" style="display: block;">
+<div class="menuitem">
+<a href="../en_US/index.html">Welcome</a>
+</div>
+<div onclick="SwitchMenu('menu_selected_1.1.2', '../skin/')" id="menu_selected_1.1.2Title" class="menutitle" style="background-image: url('../skin/images/chapter_open.gif');">Documentation</div>
+<div id="menu_selected_1.1.2" class="selectedmenuitemgroup" style="display: block;">
+<div class="menuitem">
+<a href="../en_US/concepts.html">Concepts</a>
+</div>
+<div class="menuitem">
+<a href="../en_US/included-connectors.html">Compatibility Matrix</a>
+</div>
+<div class="menuitem">
+<a href="../en_US/faq.html">Frequently Asked Questions</a>
+</div>
+<div class="menupage">
+<div class="menupagetitle">API Documentation</div>
+</div>
+<div class="menuitem">
+<a href="../en_US/javadoc.html">Javadoc</a>
+</div>
+<div class="menuitem">
+<a href="../en_US/how-to-build-and-deploy.html">Building and Deploying</a>
+</div>
+<div class="menuitem">
+<a href="../en_US/technical-resources.html">Technical Resources</a>
+</div>
+<div class="menuitem">
+<a href="../en_US/performance-tuning.html">Performance tuning</a>
+</div>
+<div class="menuitem">
+<a href="../en_US/script.html">Scripting Language</a>
+</div>
+<div class="menuitem">
+<a href="../en_US/end-user-documentation.html">End-user Documentation (HTML)</a>
+</div>
+<div class="menuitem">
+<a href="../en_US/end-user-documentation.pdf">End-user Documentation (PDF)</a>
+</div>
+</div>
+</div>
+<div id="credit"></div>
+<div id="roundbottom">
+<img style="display: none" class="corner" height="15" width="15" alt="" src="../skin/images/rc-b-l-15-1body-2menu-3menu.png"></div>
+<!--+
+  |alternative credits
+  +-->
+<div id="credit2"></div>
+</div>
+<!--+
+    |end Menu
+    +-->
+<!--+
+    |start content
+    +-->
+<div id="content">
+<h1>Programmatic Operation</h1>
+<div id="minitoc-area">
+<ul class="minitoc">
+<li>
+<a href="#Programmatic+Operation">Programmatic Operation</a>
+<ul class="minitoc">
+<li>
+<a href="#Control+by+Servlet+API">Control by Servlet API</a>
+<ul class="minitoc">
+<li>
+<a href="#URL+format">URL format</a>
+</li>
+<li>
+<a href="#JSON+equivalents+for+ManifoldCF">JSON equivalents for ManifoldCF</a>
+</li>
+<li>
+<a href="#Resources+and+commands">Resources and commands</a>
+</li>
+<li>
+<a href="#History+query+parameters">History query parameters</a>
+</li>
+<li>
+<a href="#Queue+query+parameters">Queue query parameters</a>
+</li>
+<li>
+<a href="#Authorization+domain+objects">Authorization domain objects</a>
+</li>
+<li>
+<a href="#Output+connector+objects">Output connector objects</a>
+</li>
+<li>
+<a href="#Transformation+connector+objects">Transformation connector objects</a>
+</li>
+<li>
+<a href="#Mapping+connector+objects">Mapping connector objects</a>
+</li>
+<li>
+<a href="#Authority+connector+objects">Authority connector objects</a>
+</li>
+<li>
+<a href="#Repository+connector+objects">Repository connector objects</a>
+</li>
+<li>
+<a href="#Notification+connector+objects">Notification connector objects</a>
+</li>
+<li>
+<a href="#Authority+group+objects">Authority group objects</a>
+</li>
+<li>
+<a href="#Output+connection+objects">Output connection objects</a>
+</li>
+<li>
+<a href="#Transformation+connection+objects">Transformation connection objects</a>
+</li>
+<li>
+<a href="#Mapping+connection+objects">Mapping connection objects</a>
+</li>
+<li>
+<a href="#Authority+connection+objects">Authority connection objects</a>
+</li>
+<li>
+<a href="#Repository+connection+objects">Repository connection objects</a>
+</li>
+<li>
+<a href="#Notification+connection+objects">Notification connection objects</a>
+</li>
+<li>
+<a href="#Job+objects">Job objects</a>
+</li>
+<li>
+<a href="#Job+status+objects">Job status objects</a>
+</li>
+<li>
+<a href="#Connection-type-specific+objects">Connection-type-specific objects</a>
+</li>
+<li>
+<a href="#File+system+connector">File system connector</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#Control+via+Commands">Control via Commands</a>
+</li>
+<li>
+<a href="#Control+by+direct+code">Control by direct code</a>
+</li>
+<li>
+<a href="#Caveats">Caveats</a>
+</li>
+</ul>
+</li>
+</ul>
+</div> 
+    
+<a name="N1000E"></a><a name="Programmatic+Operation"></a>
+<h2 class="h3">Programmatic Operation</h2>
+<div class="section">
+<p></p>
+<p>A certain subset of ManifoldCF users want to think of ManifoldCF as an engine that they can poke from whatever other system they are developing.  While
+        ManifoldCF is not precisely a document indexing engine per se, it can certainly be controlled programmatically.  Right now, there are three principle ways of
+        achieving this control.</p>
+<p></p>
+<a name="N1001B"></a><a name="Control+by+Servlet+API"></a>
+<h3 class="h4">Control by Servlet API</h3>
+<p></p>
+<p>ManifoldCF provides a servlet-based JSON API that gives you the complete ability to define connections and jobs, and control job execution.  You can read
+          about JSON <a href="http://www.json.org">here</a>.  The API is designed to be RESTful in character.  Thus, it makes full use of the HTTP verbs
+          GET, PUT, POST, and DELETE, and represents objects as URLs.</p>
+<a name="N1002A"></a><a name="URL+format"></a>
+<h4>URL format</h4>
+<p></p>
+<p>The basic format of the JSON servlet resource URLs is as follows:</p>
+<p></p>
+<p>http[s]://<em>&lt;server_and_port&gt;</em>/mcf-api-service/json/<em>&lt;resource&gt;</em>
+</p>
+<p></p>
+<p>The servlet ignores request data, except when the PUT or POST verb is used.  In that case, the request data is presumed to be a JSON object.  The servlet
+            responds either with an error response code (either 400 or 500) with an appropriate explanatory message, or with a 200 (OK), 201 (CREATED), 
+            401 (UNAUTHORIZED), or 404 (NOT FOUND) response code along with a response JSON object.</p>
+<p></p>
+<a name="N10047"></a><a name="JSON+equivalents+for+ManifoldCF"></a>
+<h4>JSON equivalents for ManifoldCF</h4>
+<p></p>
+<p>ManifoldCF treats certain JSON forms as equivalent, for the purposes of readability.  For example, the array form <strong>"foo" : [ { ... } ]</strong> is
+            treated equivalently to <strong>"foo" : { }</strong>, whenever there is only one array element.  This gives a coder some flexibility as to how s/he encodes
+            JSON in requests.  Please also be aware that similar compressions will occur in the JSON responses from the API servlet, and your code must be able to deal
+            with this possibility.  The following table describes some of the equivalences:</p>
+<p></p>
+<p></p>
+<p></p>
+<table class="ForrestTable" cellspacing="1" cellpadding="4">
+            
+<tr>
+<th colspan="1" rowspan="1">Form</th><th colspan="1" rowspan="1">Equivalent</th>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">[ { ... } ]</td><td colspan="1" rowspan="1">{ ... }</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"foo" : { "_value_" : "bar" }</td><td colspan="1" rowspan="1">"foo" : "bar"</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"_children_" : [ "foo":{ ... }, "foo":{ ... } ]</td><td colspan="1" rowspan="1">"foo" : [ { ... }, { ... } ]</td>
+</tr>
+          
+</table>
+<p></p>
+<a name="N1008C"></a><a name="Resources+and+commands"></a>
+<h4>Resources and commands</h4>
+<p></p>
+<p>The actual available resources and commands are as follows:</p>
+<p></p>
+<p></p>
+<p></p>
+<table class="ForrestTable" cellspacing="1" cellpadding="4">
+            
+<tr>
+<th colspan="1" rowspan="1">Resource</th><th colspan="1" rowspan="1">Verb</th><th colspan="1" rowspan="1">What it does</th><th colspan="1" rowspan="1">Input format/query args</th><th colspan="1" rowspan="1">Output format</th>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">LOGIN</td><td colspan="1" rowspan="1">POST</td><td colspan="1" rowspan="1">Log in the specified user</td><td colspan="1" rowspan="1">{"userID":<em>&lt;user_name&gt;</em>, "password":<em>&lt;password&gt;</em>}</td><td colspan="1" rowspan="1">{}</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">authorizationdomains</td><td colspan="1" rowspan="1">GET</td><td colspan="1" rowspan="1">List all registered authorization domains</td><td colspan="1" rowspan="1">N/A</td><td colspan="1" rowspan="1">{"authorizationdomain":[<em>&lt;list_of_authorization_domain_objects&gt;</em>]} <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">outputconnectors</td><td colspan="1" rowspan="1">GET</td><td colspan="1" rowspan="1">List all registered output connectors</td><td colspan="1" rowspan="1">N/A</td><td colspan="1" rowspan="1">{"outputconnector":[<em>&lt;list_of_output_connector_objects&gt;</em>]} <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">transformationconnectors</td><td colspan="1" rowspan="1">GET</td><td colspan="1" rowspan="1">List all registered transformation connectors</td><td colspan="1" rowspan="1">N/A</td><td colspan="1" rowspan="1">{"transformationconnector":[<em>&lt;list_of_transformation_connector_objects&gt;</em>]} <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">mappingconnectors</td><td colspan="1" rowspan="1">GET</td><td colspan="1" rowspan="1">List all registered mapping connectors</td><td colspan="1" rowspan="1">N/A</td><td colspan="1" rowspan="1">{"mappingconnector":[<em>&lt;list_of_mapping_connector_objects&gt;</em>]} <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">authorityconnectors</td><td colspan="1" rowspan="1">GET</td><td colspan="1" rowspan="1">List all registered authority connectors</td><td colspan="1" rowspan="1">N/A</td><td colspan="1" rowspan="1">{"authorityconnector":[<em>&lt;list_of_authority_connector_objects&gt;</em>]} <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">repositoryconnectors</td><td colspan="1" rowspan="1">GET</td><td colspan="1" rowspan="1">List all registered repository connectors</td><td colspan="1" rowspan="1">N/A</td><td colspan="1" rowspan="1">{"repositoryconnector":[<em>&lt;list_of_repository_connector_objects&gt;</em>]} <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">notificationconnectors</td><td colspan="1" rowspan="1">GET</td><td colspan="1" rowspan="1">List all registered notification connectors</td><td colspan="1" rowspan="1">N/A</td><td colspan="1" rowspan="1">{"notificationconnector":[<em>&lt;list_of_notification_connector_objects&gt;</em>]} <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">authoritygroups</td><td colspan="1" rowspan="1">GET</td><td colspan="1" rowspan="1">List all authority groups</td><td colspan="1" rowspan="1">N/A</td><td colspan="1" rowspan="1">{"authoritygroup":[<em>&lt;list_of_authority_group_objects&gt;</em>]} <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">authoritygroups/<em>&lt;encoded_group_name&gt;</em></td><td colspan="1" rowspan="1">GET</td><td colspan="1" rowspan="1">Get a specific authority group</td><td colspan="1" rowspan="1">N/A</td><td colspan="1" rowspan="1">{"authoritygroup":<em>&lt;authority_group_object&gt;</em>} <strong>OR</strong> { } <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">authoritygroups/<em>&lt;encoded_group_name&gt;</em></td><td colspan="1" rowspan="1">PUT</td><td colspan="1" rowspan="1">Save or create an authority group</td><td colspan="1" rowspan="1">{"authoritygroup":<em>&lt;authority_group_object&gt;</em>}</td><td colspan="1" rowspan="1">{ } <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">authoritygroups/<em>&lt;encoded_group_name&gt;</em></td><td colspan="1" rowspan="1">DELETE</td><td colspan="1" rowspan="1">Delete an authority group</td><td colspan="1" rowspan="1">N/A</td><td colspan="1" rowspan="1">{ } <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">outputconnections</td><td colspan="1" rowspan="1">GET</td><td colspan="1" rowspan="1">List all output connections</td><td colspan="1" rowspan="1">N/A</td><td colspan="1" rowspan="1">{"outputconnection":[<em>&lt;list_of_output_connection_objects&gt;</em>]} <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">outputconnections/<em>&lt;encoded_connection_name&gt;</em></td><td colspan="1" rowspan="1">GET</td><td colspan="1" rowspan="1">Get a specific output connection</td><td colspan="1" rowspan="1">N/A</td><td colspan="1" rowspan="1">{"outputconnection":<em>&lt;output_connection_object&gt;</em>} <strong>OR</strong> { } <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">outputconnections/<em>&lt;encoded_connection_name&gt;</em></td><td colspan="1" rowspan="1">PUT</td><td colspan="1" rowspan="1">Save or create an output connection</td><td colspan="1" rowspan="1">{"outputconnection":<em>&lt;output_connection_object&gt;</em>}</td><td colspan="1" rowspan="1">{ } <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">outputconnections/<em>&lt;encoded_connection_name&gt;</em></td><td colspan="1" rowspan="1">DELETE</td><td colspan="1" rowspan="1">Delete an output connection</td><td colspan="1" rowspan="1">N/A</td><td colspan="1" rowspan="1">{ } <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">status/outputconnections/<em>&lt;encoded_connection_name&gt;</em></td><td colspan="1" rowspan="1">GET</td><td colspan="1" rowspan="1">Check the status of an output connection</td><td colspan="1" rowspan="1">N/A</td><td colspan="1" rowspan="1">{"check_result":<em>&lt;message&gt;</em>} <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">info/outputconnections/<em>&lt;encoded_connection_name&gt;</em>/<em>&lt;connector_specific_resource&gt;</em></td><td colspan="1" rowspan="1">GET</td><td colspan="1" rowspan="1">Retrieve arbitrary connector-specific resource</td><td colspan="1" rowspan="1">N/A</td><td colspan="1" rowspan="1"><em>&lt;response_data&gt;</em> <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>} <strong>OR</strong> {"service_interruption":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">transformationconnections</td><td colspan="1" rowspan="1">GET</td><td colspan="1" rowspan="1">List all transformation connections</td><td colspan="1" rowspan="1">N/A</td><td colspan="1" rowspan="1">{"transformationconnection":[<em>&lt;list_of_transformation_connection_objects&gt;</em>]} <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">transformationconnections/<em>&lt;encoded_connection_name&gt;</em></td><td colspan="1" rowspan="1">GET</td><td colspan="1" rowspan="1">Get a specific transformation connection</td><td colspan="1" rowspan="1">N/A</td><td colspan="1" rowspan="1">{"transformationconnection":<em>&lt;transformation_connection_object&gt;</em>} <strong>OR</strong> { } <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">transformationconnections/<em>&lt;encoded_connection_name&gt;</em></td><td colspan="1" rowspan="1">PUT</td><td colspan="1" rowspan="1">Save or create a transformation connection</td><td colspan="1" rowspan="1">{"outputconnection":<em>&lt;transformation_connection_object&gt;</em>}</td><td colspan="1" rowspan="1">{ } <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">transformationconnections/<em>&lt;encoded_connection_name&gt;</em></td><td colspan="1" rowspan="1">DELETE</td><td colspan="1" rowspan="1">Delete a transformation connection</td><td colspan="1" rowspan="1">N/A</td><td colspan="1" rowspan="1">{ } <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">status/transformationconnections/<em>&lt;encoded_connection_name&gt;</em></td><td colspan="1" rowspan="1">GET</td><td colspan="1" rowspan="1">Check the status of a transformation connection</td><td colspan="1" rowspan="1">N/A</td><td colspan="1" rowspan="1">{"check_result":<em>&lt;message&gt;</em>} <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">info/transformationconnections/<em>&lt;encoded_connection_name&gt;</em>/<em>&lt;connector_specific_resource&gt;</em></td><td colspan="1" rowspan="1">GET</td><td colspan="1" rowspan="1">Retrieve arbitrary connector-specific resource</td><td colspan="1" rowspan="1">N/A</td><td colspan="1" rowspan="1"><em>&lt;response_data&gt;</em> <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>} <strong>OR</strong> {"service_interruption":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">clearversions/<em>&lt;encoded_output_connection_name&gt;</em></td><td colspan="1" rowspan="1">PUT</td><td colspan="1" rowspan="1">Forget previous indexed document versions</td><td colspan="1" rowspan="1">N/A</td><td colspan="1" rowspan="1">{ } <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">clearrecords/<em>&lt;encoded_output_connection_name&gt;</em></td><td colspan="1" rowspan="1">PUT</td><td colspan="1" rowspan="1">Remove all previous indexing records</td><td colspan="1" rowspan="1">N/A</td><td colspan="1" rowspan="1">{ } <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">mappingconnections</td><td colspan="1" rowspan="1">GET</td><td colspan="1" rowspan="1">List all mapping connections</td><td colspan="1" rowspan="1">N/A</td><td colspan="1" rowspan="1">{"mappingconnection":[<em>&lt;list_of_mapping_connection_objects&gt;</em>]} <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">mappingconnections/<em>&lt;encoded_connection_name&gt;</em></td><td colspan="1" rowspan="1">GET</td><td colspan="1" rowspan="1">Get a specific mapping connection</td><td colspan="1" rowspan="1">N/A</td><td colspan="1" rowspan="1">{"mappingconnection":<em>&lt;mapping_connection_object&gt;</em>} <strong>OR</strong> { } <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">mappingconnections/<em>&lt;encoded_connection_name&gt;</em></td><td colspan="1" rowspan="1">PUT</td><td colspan="1" rowspan="1">Save or create a mapping connection</td><td colspan="1" rowspan="1">{"mappingconnection":<em>&lt;mapping_connection_object&gt;</em>}</td><td colspan="1" rowspan="1">{ } <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">mappingconnections/<em>&lt;encoded_connection_name&gt;</em></td><td colspan="1" rowspan="1">DELETE</td><td colspan="1" rowspan="1">Delete a mapping connection</td><td colspan="1" rowspan="1">N/A</td><td colspan="1" rowspan="1">{ } <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">status/mappingconnections/<em>&lt;encoded_connection_name&gt;</em></td><td colspan="1" rowspan="1">GET</td><td colspan="1" rowspan="1">Check the status of a mapping connection</td><td colspan="1" rowspan="1">N/A</td><td colspan="1" rowspan="1">{"check_result":<em>&lt;message&gt;</em>} <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">authorityconnections</td><td colspan="1" rowspan="1">GET</td><td colspan="1" rowspan="1">List all authority connections</td><td colspan="1" rowspan="1">N/A</td><td colspan="1" rowspan="1">{"authorityconnection":[<em>&lt;list_of_authority_connection_objects&gt;</em>]} <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">authorityconnections/<em>&lt;encoded_connection_name&gt;</em></td><td colspan="1" rowspan="1">GET</td><td colspan="1" rowspan="1">Get a specific authority connection</td><td colspan="1" rowspan="1">N/A</td><td colspan="1" rowspan="1">{"authorityconnection":<em>&lt;authority_connection_object&gt;</em>} <strong>OR</strong> { } <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">authorityconnections/<em>&lt;encoded_connection_name&gt;</em></td><td colspan="1" rowspan="1">PUT</td><td colspan="1" rowspan="1">Save or create an authority connection</td><td colspan="1" rowspan="1">{"authorityconnection":<em>&lt;authority_connection_object&gt;</em>}</td><td colspan="1" rowspan="1">{ } <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">authorityconnections/<em>&lt;encoded_connection_name&gt;</em></td><td colspan="1" rowspan="1">DELETE</td><td colspan="1" rowspan="1">Delete an authority connection</td><td colspan="1" rowspan="1">N/A</td><td colspan="1" rowspan="1">{ } <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">status/authorityconnections/<em>&lt;encoded_connection_name&gt;</em></td><td colspan="1" rowspan="1">GET</td><td colspan="1" rowspan="1">Check the status of an authority connection</td><td colspan="1" rowspan="1">N/A</td><td colspan="1" rowspan="1">{"check_result":<em>&lt;message&gt;</em>} <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">repositoryconnections</td><td colspan="1" rowspan="1">GET</td><td colspan="1" rowspan="1">List all repository connections</td><td colspan="1" rowspan="1">N/A</td><td colspan="1" rowspan="1">{"repositoryconnection":[<em>&lt;list_of_repository_connection_objects&gt;</em>]} <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">repositoryconnections/<em>&lt;encoded_connection_name&gt;</em></td><td colspan="1" rowspan="1">GET</td><td colspan="1" rowspan="1">Get a specific repository connection</td><td colspan="1" rowspan="1">N/A</td><td colspan="1" rowspan="1">{"repositoryconnection":<em>&lt;repository_connection_object&gt;</em>} <strong>OR</strong> { } <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">repositoryconnections/<em>&lt;encoded_connection_name&gt;</em></td><td colspan="1" rowspan="1">PUT</td><td colspan="1" rowspan="1">Save or create a repository connection</td><td colspan="1" rowspan="1">{"repositoryconnection":<em>&lt;repository_connection_object&gt;</em>}</td><td colspan="1" rowspan="1">{ } <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">repositoryconnections/<em>&lt;encoded_connection_name&gt;</em></td><td colspan="1" rowspan="1">DELETE</td><td colspan="1" rowspan="1">Delete a repository connection</td><td colspan="1" rowspan="1">N/A</td><td colspan="1" rowspan="1">{ } <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">status/repositoryconnections/<em>&lt;encoded_connection_name&gt;</em></td><td colspan="1" rowspan="1">GET</td><td colspan="1" rowspan="1">Check the status of a repository connection</td><td colspan="1" rowspan="1">N/A</td><td colspan="1" rowspan="1">{"check_result":<em>&lt;message&gt;</em>} <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">info/repositoryconnections/<em>&lt;encoded_connection_name&gt;</em>/<em>&lt;connector_specific_resource&gt;</em></td><td colspan="1" rowspan="1">GET</td><td colspan="1" rowspan="1">Retrieve arbitrary connector-specific resource</td><td colspan="1" rowspan="1">N/A</td><td colspan="1" rowspan="1"><em>&lt;response_data&gt;</em> <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>} <strong>OR</strong> {"service_interruption":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">notificationconnections</td><td colspan="1" rowspan="1">GET</td><td colspan="1" rowspan="1">List all notification connections</td><td colspan="1" rowspan="1">N/A</td><td colspan="1" rowspan="1">{"notificationconnection":[<em>&lt;list_of_notification_connection_objects&gt;</em>]} <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">notificationconnections/<em>&lt;encoded_connection_name&gt;</em></td><td colspan="1" rowspan="1">GET</td><td colspan="1" rowspan="1">Get a specific notification connection</td><td colspan="1" rowspan="1">N/A</td><td colspan="1" rowspan="1">{"notificationconnection":<em>&lt;notification_connection_object&gt;</em>} <strong>OR</strong> { } <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">notificationconnections/<em>&lt;encoded_connection_name&gt;</em></td><td colspan="1" rowspan="1">PUT</td><td colspan="1" rowspan="1">Save or create a notification connection</td><td colspan="1" rowspan="1">{"notificationconnection":<em>&lt;notification_connection_object&gt;</em>}</td><td colspan="1" rowspan="1">{ } <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">notificationconnections/<em>&lt;encoded_connection_name&gt;</em></td><td colspan="1" rowspan="1">DELETE</td><td colspan="1" rowspan="1">Delete a notification connection</td><td colspan="1" rowspan="1">N/A</td><td colspan="1" rowspan="1">{ } <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">status/notificationconnections/<em>&lt;encoded_connection_name&gt;</em></td><td colspan="1" rowspan="1">GET</td><td colspan="1" rowspan="1">Check the status of a notification connection</td><td colspan="1" rowspan="1">N/A</td><td colspan="1" rowspan="1">{"check_result":<em>&lt;message&gt;</em>} <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">info/notificationconnections/<em>&lt;encoded_connection_name&gt;</em>/<em>&lt;connector_specific_resource&gt;</em></td><td colspan="1" rowspan="1">GET</td><td colspan="1" rowspan="1">Retrieve arbitrary connector-specific resource</td><td colspan="1" rowspan="1">N/A</td><td colspan="1" rowspan="1"><em>&lt;response_data&gt;</em> <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>} <strong>OR</strong> {"service_interruption":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">clearhistory/<em>&lt;encoded_repository_connection_name&gt;</em></td><td colspan="1" rowspan="1">PUT</td><td colspan="1" rowspan="1">Clear history linked with repository connection</td><td colspan="1" rowspan="1">N/A</td><td colspan="1" rowspan="1"><em>&lt;response_data&gt;</em> <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>} <strong>OR</strong> {"service_interruption":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">jobs</td><td colspan="1" rowspan="1">GET</td><td colspan="1" rowspan="1">List all job definitions</td><td colspan="1" rowspan="1">N/A</td><td colspan="1" rowspan="1">{"job":[<em>&lt;list_of_job_objects&gt;</em>]} <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">jobs</td><td colspan="1" rowspan="1">POST</td><td colspan="1" rowspan="1">Create a job</td><td colspan="1" rowspan="1">{"job":<em>&lt;job_object&gt;</em>}</td><td colspan="1" rowspan="1">{"job_id":<em>&lt;job_identifier&gt;</em>} <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">jobs/<em>&lt;job_id&gt;</em></td><td colspan="1" rowspan="1">GET</td><td colspan="1" rowspan="1">Get a specific job definition</td><td colspan="1" rowspan="1">N/A</td><td colspan="1" rowspan="1">{"job":<em>&lt;job_object_&gt;</em>} <strong>OR</strong> { } <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">jobs/<em>&lt;job_id&gt;</em></td><td colspan="1" rowspan="1">PUT</td><td colspan="1" rowspan="1">Save a job definition</td><td colspan="1" rowspan="1">{"job":<em>&lt;job_object&gt;</em>}</td><td colspan="1" rowspan="1">{ } <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">jobs/<em>&lt;job_id&gt;</em></td><td colspan="1" rowspan="1">DELETE</td><td colspan="1" rowspan="1">Delete a job definition</td><td colspan="1" rowspan="1">N/A</td><td colspan="1" rowspan="1">{ } <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">jobstatuses</td><td colspan="1" rowspan="1">GET</td><td colspan="1" rowspan="1">List all jobs and their status</td><td colspan="1" rowspan="1">maxcount=&lt;maximum_documents_to_count&gt;</td><td colspan="1" rowspan="1">{"jobstatus":[<em>&lt;list_of_job_status_objects&gt;</em>]} <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">jobstatuses/<em>&lt;job_id&gt;</em></td><td colspan="1" rowspan="1">GET</td><td colspan="1" rowspan="1">Get a specific job's status</td><td colspan="1" rowspan="1">maxcount=&lt;maximum_documents_to_count&gt;</td><td colspan="1" rowspan="1">{"jobstatus":<em>&lt;job_status_object&gt;</em>} <strong>OR</strong> { } <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>} </td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">jobstatusesnocounts<em>&lt;job_id&gt;</em></td><td colspan="1" rowspan="1">GET</td><td colspan="1" rowspan="1">List all jobs and their status, returning '0' for all counts</td><td colspan="1" rowspan="1">N/A</td><td colspan="1" rowspan="1">{"jobstatus":[<em>&lt;list_of_job_status_objects&gt;</em>]} <strong>OR</strong> { } <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>} </td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">jobstatusesnocounts/<em>&lt;job_id&gt;</em></td><td colspan="1" rowspan="1">GET</td><td colspan="1" rowspan="1">Get a specific job's status, returning '0' for all counts</td><td colspan="1" rowspan="1">N/A</td><td colspan="1" rowspan="1">{"jobstatus":<em>&lt;job_status_object&gt;</em>} <strong>OR</strong> { } <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>} </td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">start/<em>&lt;job_id&gt;</em></td><td colspan="1" rowspan="1">PUT</td><td colspan="1" rowspan="1">Start a specified job manually</td><td colspan="1" rowspan="1">N/A</td><td colspan="1" rowspan="1">{ } <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">startminimal/<em>&lt;job_id&gt;</em></td><td colspan="1" rowspan="1">PUT</td><td colspan="1" rowspan="1">Start a specified job manually, minimal run requested</td><td colspan="1" rowspan="1">N/A</td><td colspan="1" rowspan="1">{ } <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">abort/<em>&lt;job_id&gt;</em></td><td colspan="1" rowspan="1">PUT</td><td colspan="1" rowspan="1">Abort a specified job</td><td colspan="1" rowspan="1">N/A</td><td colspan="1" rowspan="1">{ } <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">restart/<em>&lt;job_id&gt;</em></td><td colspan="1" rowspan="1">PUT</td><td colspan="1" rowspan="1">Stop and start a specified job</td><td colspan="1" rowspan="1">N/A</td><td colspan="1" rowspan="1">{ } <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">restartminimal/<em>&lt;job_id&gt;</em></td><td colspan="1" rowspan="1">PUT</td><td colspan="1" rowspan="1">Stop and start a specified job, minimal run requested</td><td colspan="1" rowspan="1">N/A</td><td colspan="1" rowspan="1">{ } <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">pause/<em>&lt;job_id&gt;</em></td><td colspan="1" rowspan="1">PUT</td><td colspan="1" rowspan="1">Pause a specified job</td><td colspan="1" rowspan="1">N/A</td><td colspan="1" rowspan="1">{ } <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">resume/<em>&lt;job_id&gt;</em></td><td colspan="1" rowspan="1">PUT</td><td colspan="1" rowspan="1">Resume a specified job</td><td colspan="1" rowspan="1">N/A</td><td colspan="1" rowspan="1">{ } <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">reseed/<em>&lt;job_id&gt;</em></td><td colspan="1" rowspan="1">PUT</td><td colspan="1" rowspan="1">Reset incremental seeding for a specified job</td><td colspan="1" rowspan="1">N/A</td><td colspan="1" rowspan="1">{ } <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+
+            
+<tr>
+<td colspan="1" rowspan="1">repositoryconnectionhistory/<em>&lt;encoded_connection_name&gt;</em></td><td colspan="1" rowspan="1">GET</td><td colspan="1" rowspan="1">Get a history report</td><td colspan="1" rowspan="1"><em>&lt;history_query_parameters&gt;</em></td><td colspan="1" rowspan="1">{"row":[{"column":[{"name":<em>&lt;col_name&gt;</em>,"value":<em>&lt;col_value&gt;</em>}, ...]}, ...]} <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">repositoryconnectionquery/<em>&lt;encoded_connection_name&gt;</em></td><td colspan="1" rowspan="1">GET</td><td colspan="1" rowspan="1">Get a queue report</td><td colspan="1" rowspan="1"><em>&lt;queue_query_parameters&gt;</em></td><td colspan="1" rowspan="1">{"row":[{"column":[{"name":<em>&lt;col_name&gt;</em>,"value":<em>&lt;col_value&gt;</em>}, ...]}, ...]} <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">repositoryconnectionactivities/<em>&lt;encoded_connection_name&gt;</em></td><td colspan="1" rowspan="1">GET</td><td colspan="1" rowspan="1">Get a list of legal activities for a connection</td><td colspan="1" rowspan="1">N/A</td><td colspan="1" rowspan="1">{"activity":[<em>&lt;activity_name&gt;</em>, ...]} <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">repositoryconnectionjobs/<em>&lt;encoded_connection_name&gt;</em></td><td colspan="1" rowspan="1">GET</td><td colspan="1" rowspan="1">Get a list of jobs for a connection</td><td colspan="1" rowspan="1">N/A</td><td colspan="1" rowspan="1">{"job":[<em>&lt;list_of_job_objects&gt;</em>]} <strong>OR</strong> {"error":<em>&lt;error_text&gt;</em>}</td>
+</tr>
+
+          
+</table>
+<p></p>
+<a name="N109B3"></a><a name="History+query+parameters"></a>
+<h4>History query parameters</h4>
+<p></p>
+<p>The history query parameters and their meanings are as follows:</p>
+<table class="ForrestTable" cellspacing="1" cellpadding="4">
+            
+<tr>
+<th colspan="1" rowspan="1">Parameter</th><th colspan="1" rowspan="1">Report type</th><th colspan="1" rowspan="1">Multivalued?</th><th colspan="1" rowspan="1">Meaning</th>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">report</td><td colspan="1" rowspan="1">All</td><td colspan="1" rowspan="1">No</td><td colspan="1" rowspan="1">The kind of history report desired; legal values are "simple", "maxactivity", "maxbandwidth", and "result"; defaults to "simple"</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">starttime</td><td colspan="1" rowspan="1">All</td><td colspan="1" rowspan="1">No</td><td colspan="1" rowspan="1">Starting time in ms since epoch; defaults to "0"</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">endtime</td><td colspan="1" rowspan="1">All</td><td colspan="1" rowspan="1">No</td><td colspan="1" rowspan="1">Ending time in ms since epoch; defaults to now</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">activity</td><td colspan="1" rowspan="1">All</td><td colspan="1" rowspan="1">Yes</td><td colspan="1" rowspan="1">Which activities you want to see</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">entitymatch</td><td colspan="1" rowspan="1">All</td><td colspan="1" rowspan="1">No</td><td colspan="1" rowspan="1">Regular expression matching entity identifier; defaults to ""</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">entitymatch_insensitive</td><td colspan="1" rowspan="1">All</td><td colspan="1" rowspan="1">No</td><td colspan="1" rowspan="1">Case insensitive version of entitymatch</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">resultcodematch</td><td colspan="1" rowspan="1">All</td><td colspan="1" rowspan="1">No</td><td colspan="1" rowspan="1">Regular expression match result code; defaults to ""</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">resultcodematch_insensitive</td><td colspan="1" rowspan="1">All</td><td colspan="1" rowspan="1">No</td><td colspan="1" rowspan="1">Case insensitive version of resultcodematch</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">sortcolumn</td><td colspan="1" rowspan="1">All</td><td colspan="1" rowspan="1">Yes</td><td colspan="1" rowspan="1">Result column to sort the result by</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">sortcolumn_direction</td><td colspan="1" rowspan="1">All</td><td colspan="1" rowspan="1">Yes</td><td colspan="1" rowspan="1">Direction to sort the corresponding column ("ascending" or "descending")</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">startrow</td><td colspan="1" rowspan="1">All</td><td colspan="1" rowspan="1">No</td><td colspan="1" rowspan="1">Starting row in resultset to return; defaults to 0</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">rowcount</td><td colspan="1" rowspan="1">All</td><td colspan="1" rowspan="1">No</td><td colspan="1" rowspan="1">Maximum number of rows to return; defaults to 20</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">idbucket</td><td colspan="1" rowspan="1">maxactivity, maxbandwidth, result</td><td colspan="1" rowspan="1">No</td><td colspan="1" rowspan="1">Regular expression selecting which part of the entity identifier to use as an aggregation key; defaults to "()"</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">idbucket_insensitive</td><td colspan="1" rowspan="1">maxactivity, maxbandwidth, result</td><td colspan="1" rowspan="1">No</td><td colspan="1" rowspan="1">Case insensitive version of idbucket</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">resultcodebucket</td><td colspan="1" rowspan="1">result</td><td colspan="1" rowspan="1">No</td><td colspan="1" rowspan="1">Regular expression selecting which part of the result code to use as an aggregation key; defaults to "(.*)"</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">resultcodebucket_insensitive</td><td colspan="1" rowspan="1">result</td><td colspan="1" rowspan="1">No</td><td colspan="1" rowspan="1">Case insensitive version of resultcodebucket</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">interval</td><td colspan="1" rowspan="1">maxactivity, maxbandwidth</td><td colspan="1" rowspan="1">No</td><td colspan="1" rowspan="1">Size of window in milliseconds for assessing rate; defaults to 300000</td>
+</tr>
+          
+</table>
+<p></p>
+<p>Each report type has different return columns, as listed below:</p>
+<p></p>
+<table class="ForrestTable" cellspacing="1" cellpadding="4">
+            
+<tr>
+<th colspan="1" rowspan="1">Report type</th><th colspan="1" rowspan="1">Return columns</th>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">simple</td><td colspan="1" rowspan="1">starttime, resultcode, resultdesc, identifier, activity, bytes, elapsedtime</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">maxactivity</td><td colspan="1" rowspan="1">starttime, endtime, activitycount, idbucket</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">maxbandwidth</td><td colspan="1" rowspan="1">starttime, endtime, bytecount, idbucket</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">result</td><td colspan="1" rowspan="1">idbucket, resultcodebucket, eventcount</td>
+</tr>
+          
+</table>
+<a name="N10B42"></a><a name="Queue+query+parameters"></a>
+<h4>Queue query parameters</h4>
+<p></p>
+<p>The queue query parameters and their meanings are as follows:</p>
+<table class="ForrestTable" cellspacing="1" cellpadding="4">
+            
+<tr>
+<th colspan="1" rowspan="1">Parameter</th><th colspan="1" rowspan="1">Report type</th><th colspan="1" rowspan="1">Multivalued?</th><th colspan="1" rowspan="1">Meaning</th>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">report</td><td colspan="1" rowspan="1">All</td><td colspan="1" rowspan="1">No</td><td colspan="1" rowspan="1">The kind of queue report desired; legal values are "document" or "status"; defaults to "document"</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">now</td><td colspan="1" rowspan="1">All</td><td colspan="1" rowspan="1">No</td><td colspan="1" rowspan="1">The time in milliseconds since epoch to perform the queue assessment relative to; defaults to current time</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">idmatch</td><td colspan="1" rowspan="1">All</td><td colspan="1" rowspan="1">No</td><td colspan="1" rowspan="1">Regular expression matching document identifier; defaults to ""</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">idmatch_insensitive</td><td colspan="1" rowspan="1">All</td><td colspan="1" rowspan="1">No</td><td colspan="1" rowspan="1">Case insensitive version of idmatch</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">statematch</td><td colspan="1" rowspan="1">All</td><td colspan="1" rowspan="1">Yes</td><td colspan="1" rowspan="1">State to match; valid values are "neverprocessed", "previouslyprocessed", "outofscope"</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">statusmatch</td><td colspan="1" rowspan="1">All</td><td colspan="1" rowspan="1">Yes</td><td colspan="1" rowspan="1">Status to match; valid values are "inactive", "processing", "expiring", "deleting", "readyforprocessing", "readyforexpiration", "waitingforprocessing", "waitingforexpiration", "waitingforever", and "hopcountexceeded"</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">sortcolumn</td><td colspan="1" rowspan="1">All</td><td colspan="1" rowspan="1">Yes</td><td colspan="1" rowspan="1">Result column to sort the result by</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">sortcolumn_direction</td><td colspan="1" rowspan="1">All</td><td colspan="1" rowspan="1">Yes</td><td colspan="1" rowspan="1">Direction to sort the corresponding column ("ascending" or "descending")</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">startrow</td><td colspan="1" rowspan="1">All</td><td colspan="1" rowspan="1">No</td><td colspan="1" rowspan="1">Starting row in resultset to return; defaults to 0</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">rowcount</td><td colspan="1" rowspan="1">All</td><td colspan="1" rowspan="1">No</td><td colspan="1" rowspan="1">Maximum number of rows to return; defaults to 20</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">idbucket</td><td colspan="1" rowspan="1">status</td><td colspan="1" rowspan="1">No</td><td colspan="1" rowspan="1">Regular expression selecting which part of the document identifier to use as an aggregation key; defaults to "()"</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">idbucket_insensitive</td><td colspan="1" rowspan="1">status</td><td colspan="1" rowspan="1">No</td><td colspan="1" rowspan="1">Case insensitive version of idbucket</td>
+</tr>
+          
+</table>
+<p></p>
+<p>Each report type has different return columns, as listed below:</p>
+<p></p>
+<table class="ForrestTable" cellspacing="1" cellpadding="4">
+            
+<tr>
+<th colspan="1" rowspan="1">Report type</th><th colspan="1" rowspan="1">Return columns</th>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">document</td><td colspan="1" rowspan="1">identifier, job, state, status, scheduled, action, retrycount, retrylimit</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">status</td><td colspan="1" rowspan="1">idbucket, inactive, processing, expiring, deleting, processready, expireready, processwaiting, expirewaiting, waitingforever, hopcountexceeded</td>
+</tr>
+          
+</table>
+<a name="N10C63"></a><a name="Authorization+domain+objects"></a>
+<h4>Authorization domain objects</h4>
+<p></p>
+<p>The JSON fields an authorization domain object has are as follows:</p>
+<p></p>
+<table class="ForrestTable" cellspacing="1" cellpadding="4">
+            
+<tr>
+<th colspan="1" rowspan="1">Field</th><th colspan="1" rowspan="1">Meaning</th>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"description"</td><td colspan="1" rowspan="1">The optional description of the authorization domain</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"domain_name"</td><td colspan="1" rowspan="1">The internal name of the authorization domain, i.e. what is sent to the Authority Service</td>
+</tr>
+          
+</table>
+<p></p>
+<a name="N10C94"></a><a name="Output+connector+objects"></a>
+<h4>Output connector objects</h4>
+<p></p>
+<p>The JSON fields an output connector object has are as follows:</p>
+<p></p>
+<table class="ForrestTable" cellspacing="1" cellpadding="4">
+            
+<tr>
+<th colspan="1" rowspan="1">Field</th><th colspan="1" rowspan="1">Meaning</th>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"description"</td><td colspan="1" rowspan="1">The optional description of the connector</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"class_name"</td><td colspan="1" rowspan="1">The class name of the class implementing the connector</td>
+</tr>
+          
+</table>
+<p></p>
+<a name="N10CC5"></a><a name="Transformation+connector+objects"></a>
+<h4>Transformation connector objects</h4>
+<p></p>
+<p>The JSON fields a transformation connector object has are as follows:</p>
+<p></p>
+<table class="ForrestTable" cellspacing="1" cellpadding="4">
+            
+<tr>
+<th colspan="1" rowspan="1">Field</th><th colspan="1" rowspan="1">Meaning</th>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"description"</td><td colspan="1" rowspan="1">The optional description of the connector</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"class_name"</td><td colspan="1" rowspan="1">The class name of the class implementing the connector</td>
+</tr>
+          
+</table>
+<p></p>
+<a name="N10CF6"></a><a name="Mapping+connector+objects"></a>
+<h4>Mapping connector objects</h4>
+<p></p>
+<p>The JSON fields a mapping connector object has are as follows:</p>
+<p></p>
+<table class="ForrestTable" cellspacing="1" cellpadding="4">
+            
+<tr>
+<th colspan="1" rowspan="1">Field</th><th colspan="1" rowspan="1">Meaning</th>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"description"</td><td colspan="1" rowspan="1">The optional description of the connector</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"class_name"</td><td colspan="1" rowspan="1">The class name of the class implementing the connector</td>
+</tr>
+          
+</table>
+<p></p>
+<a name="N10D27"></a><a name="Authority+connector+objects"></a>
+<h4>Authority connector objects</h4>
+<p></p>
+<p>The JSON fields an authority connector object has are as follows:</p>
+<p></p>
+<table class="ForrestTable" cellspacing="1" cellpadding="4">
+            
+<tr>
+<th colspan="1" rowspan="1">Field</th><th colspan="1" rowspan="1">Meaning</th>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"description"</td><td colspan="1" rowspan="1">The optional description of the connector</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"class_name"</td><td colspan="1" rowspan="1">The class name of the class implementing the connector</td>
+</tr>
+          
+</table>
+<p></p>
+<a name="N10D58"></a><a name="Repository+connector+objects"></a>
+<h4>Repository connector objects</h4>
+<p></p>
+<p>The JSON fields a repository connector object has are as follows:</p>
+<p></p>
+<table class="ForrestTable" cellspacing="1" cellpadding="4">
+            
+<tr>
+<th colspan="1" rowspan="1">Field</th><th colspan="1" rowspan="1">Meaning</th>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"description"</td><td colspan="1" rowspan="1">The optional description of the connector</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"class_name"</td><td colspan="1" rowspan="1">The class name of the class implementing the connector</td>
+</tr>
+          
+</table>
+<p></p>
+<a name="N10D89"></a><a name="Notification+connector+objects"></a>
+<h4>Notification connector objects</h4>
+<p></p>
+<p>The JSON fields a repository connector object has are as follows:</p>
+<p></p>
+<table class="ForrestTable" cellspacing="1" cellpadding="4">
+            
+<tr>
+<th colspan="1" rowspan="1">Field</th><th colspan="1" rowspan="1">Meaning</th>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"description"</td><td colspan="1" rowspan="1">The optional description of the connector</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"class_name"</td><td colspan="1" rowspan="1">The class name of the class implementing the connector</td>
+</tr>
+          
+</table>
+<p></p>
+<a name="N10DBA"></a><a name="Authority+group+objects"></a>
+<h4>Authority group objects</h4>
+<p></p>
+<p>Authority group names, when they are part of a URL, should be encoded as follows:</p>
+<p></p>
+<ol>
+            
+<li>All instances of '.' should be replaced by '..'.</li>
+            
+<li>All instances of '/' should be replaced by '.+'.</li>
+            
+<li>The URL should be encoded using standard URL utf-8-based %-encoding.</li>
+          
+</ol>
+<p></p>
+<p>The JSON fields an authority group object has are as follows:</p>
+<p></p>
+<table class="ForrestTable" cellspacing="1" cellpadding="4">
+            
+<tr>
+<th colspan="1" rowspan="1">Field</th><th colspan="1" rowspan="1">Meaning</th>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"name"</td><td colspan="1" rowspan="1">The unique name of the group</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"description"</td><td colspan="1" rowspan="1">The description of the group</td>
+</tr>
+          
+</table>
+<p></p>
+<a name="N10DFE"></a><a name="Output+connection+objects"></a>
+<h4>Output connection objects</h4>
+<p></p>
+<p>Output connection names, when they are part of a URL, should be encoded as follows:</p>
+<p></p>
+<ol>
+            
+<li>All instances of '.' should be replaced by '..'.</li>
+            
+<li>All instances of '/' should be replaced by '.+'.</li>
+            
+<li>The URL should be encoded using standard URL utf-8-based %-encoding.</li>
+          
+</ol>
+<p></p>
+<p>The JSON fields an output connection object has are as follows:</p>
+<p></p>
+<table class="ForrestTable" cellspacing="1" cellpadding="4">
+            
+<tr>
+<th colspan="1" rowspan="1">Field</th><th colspan="1" rowspan="1">Meaning</th>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"name"</td><td colspan="1" rowspan="1">The unique name of the connection</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"description"</td><td colspan="1" rowspan="1">The description of the connection</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"class_name"</td><td colspan="1" rowspan="1">The java class name of the class implementing the connection</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"max_connections"</td><td colspan="1" rowspan="1">The total number of outstanding connections allowed to exist at a time</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"configuration"</td><td colspan="1" rowspan="1">The configuration object for the connection, which is specific to the connection class</td>
+</tr>
+          
+</table>
+<p></p>
+<a name="N10E60"></a><a name="Transformation+connection+objects"></a>
+<h4>Transformation connection objects</h4>
+<p></p>
+<p>Transformation connection names, when they are part of a URL, should be encoded as follows:</p>
+<p></p>
+<ol>
+            
+<li>All instances of '.' should be replaced by '..'.</li>
+            
+<li>All instances of '/' should be replaced by '.+'.</li>
+            
+<li>The URL should be encoded using standard URL utf-8-based %-encoding.</li>
+          
+</ol>
+<p></p>
+<p>The JSON fields an output connection object has are as follows:</p>
+<p></p>
+<table class="ForrestTable" cellspacing="1" cellpadding="4">
+            
+<tr>
+<th colspan="1" rowspan="1">Field</th><th colspan="1" rowspan="1">Meaning</th>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"name"</td><td colspan="1" rowspan="1">The unique name of the connection</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"description"</td><td colspan="1" rowspan="1">The description of the connection</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"class_name"</td><td colspan="1" rowspan="1">The java class name of the class implementing the connection</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"max_connections"</td><td colspan="1" rowspan="1">The total number of outstanding connections allowed to exist at a time</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"configuration"</td><td colspan="1" rowspan="1">The configuration object for the connection, which is specific to the connection class</td>
+</tr>
+          
+</table>
+<p></p>
+<a name="N10EC2"></a><a name="Mapping+connection+objects"></a>
+<h4>Mapping connection objects</h4>
+<p></p>
+<p>Mapping connection names, when they are part of a URL, should be encoded as follows:</p>
+<p></p>
+<ol>
+            
+<li>All instances of '.' should be replaced by '..'.</li>
+            
+<li>All instances of '/' should be replaced by '.+'.</li>
+            
+<li>The URL should be encoded using standard URL utf-8-based %-encoding.</li>
+          
+</ol>
+<p></p>
+<p>The JSON fields for a mapping connection object are as follows:</p>
+<p></p>
+<table class="ForrestTable" cellspacing="1" cellpadding="4">
+            
+<tr>
+<th colspan="1" rowspan="1">Field</th><th colspan="1" rowspan="1">Meaning</th>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"name"</td><td colspan="1" rowspan="1">The unique name of the connection</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"description"</td><td colspan="1" rowspan="1">The description of the connection</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"class_name"</td><td colspan="1" rowspan="1">The java class name of the class implementing the connection</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"max_connections"</td><td colspan="1" rowspan="1">The total number of outstanding connections allowed to exist at a time</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"configuration"</td><td colspan="1" rowspan="1">The configuration object for the connection, which is specific to the connection class</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"prerequisite"</td><td colspan="1" rowspan="1">The mapping connection prerequisite, if any</td>
+</tr>
+          
+</table>
+<p></p>
+<a name="N10F2E"></a><a name="Authority+connection+objects"></a>
+<h4>Authority connection objects</h4>
+<p></p>
+<p>Authority connection names, when they are part of a URL, should be encoded as follows:</p>
+<p></p>
+<ol>
+            
+<li>All instances of '.' should be replaced by '..'.</li>
+            
+<li>All instances of '/' should be replaced by '.+'.</li>
+            
+<li>The URL should be encoded using standard URL utf-8-based %-encoding.</li>
+          
+</ol>
+<p></p>
+<p>The JSON fields for an authority connection object are as follows:</p>
+<p></p>
+<table class="ForrestTable" cellspacing="1" cellpadding="4">
+            
+<tr>
+<th colspan="1" rowspan="1">Field</th><th colspan="1" rowspan="1">Meaning</th>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"name"</td><td colspan="1" rowspan="1">The unique name of the connection</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"description"</td><td colspan="1" rowspan="1">The description of the connection</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"class_name"</td><td colspan="1" rowspan="1">The java class name of the class implementing the connection</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"max_connections"</td><td colspan="1" rowspan="1">The total number of outstanding connections allowed to exist at a time</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"configuration"</td><td colspan="1" rowspan="1">The configuration object for the connection, which is specific to the connection class</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"prerequisite"</td><td colspan="1" rowspan="1">The mapping connection prerequisite, if any</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"authdomain"</td><td colspan="1" rowspan="1">The authorization domain for the authority connection, if any</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"authgroup"</td><td colspan="1" rowspan="1">The required authority group for the authority connection</td>
+</tr>
+          
+</table>
+<p></p>
+<a name="N10FAE"></a><a name="Repository+connection+objects"></a>
+<h4>Repository connection objects</h4>
+<p></p>
+<p>Repository connection names, when they are part of a URL, should be encoded as follows:</p>
+<p></p>
+<ol>
+            
+<li>All instances of '.' should be replaced by '..'.</li>
+            
+<li>All instances of '/' should be replaced by '.+'.</li>
+            
+<li>The URL should be encoded using standard URL utf-8-based %-encoding.</li>
+          
+</ol>
+<p></p>
+<p>The JSON fields for a repository connection object are as follows:</p>
+<p></p>
+<table class="ForrestTable" cellspacing="1" cellpadding="4">
+            
+<tr>
+<th colspan="1" rowspan="1">Field</th><th colspan="1" rowspan="1">Meaning</th>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"name"</td><td colspan="1" rowspan="1">The unique name of the connection</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"description"</td><td colspan="1" rowspan="1">The description of the connection</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"class_name"</td><td colspan="1" rowspan="1">The java class name of the class implementing the connection</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"max_connections"</td><td colspan="1" rowspan="1">The total number of outstanding connections allowed to exist at a time</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"configuration"</td><td colspan="1" rowspan="1">The configuration object for the connection, which is specific to the connection class</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"acl_authority"</td><td colspan="1" rowspan="1">The (optional) name of the authority group that will enforce security for this connection</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"throttle"</td><td colspan="1" rowspan="1">An array of throttle objects, which control how quickly documents can be requested from this connection</td>
+</tr>
+          
+</table>
+<p></p>
+<p>Each throttle object has the following fields:</p>
+<p></p>
+<table class="ForrestTable" cellspacing="1" cellpadding="4">
+            
+<tr>
+<th colspan="1" rowspan="1">Field</th><th colspan="1" rowspan="1">Meaning</th>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"match"</td><td colspan="1" rowspan="1">The regular expression which is used to match a document's bins to determine if the throttle should be applied</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"match_description"</td><td colspan="1" rowspan="1">Optional text describing the meaning of the throttle</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"rate"</td><td colspan="1" rowspan="1">The maximum fetch rate to use if the throttle applies, in fetches per minute</td>
+</tr>
+          
+</table>
+<p></p>
+<a name="N11056"></a><a name="Notification+connection+objects"></a>
+<h4>Notification connection objects</h4>
+<p></p>
+<p>Notification connection names, when they are part of a URL, should be encoded as follows:</p>
+<p></p>
+<ol>
+            
+<li>All instances of '.' should be replaced by '..'.</li>
+            
+<li>All instances of '/' should be replaced by '.+'.</li>
+            
+<li>The URL should be encoded using standard URL utf-8-based %-encoding.</li>
+          
+</ol>
+<p></p>
+<p>The JSON fields for a notification connection object are as follows:</p>
+<p></p>
+<table class="ForrestTable" cellspacing="1" cellpadding="4">
+            
+<tr>
+<th colspan="1" rowspan="1">Field</th><th colspan="1" rowspan="1">Meaning</th>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"name"</td><td colspan="1" rowspan="1">The unique name of the connection</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"description"</td><td colspan="1" rowspan="1">The description of the connection</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"class_name"</td><td colspan="1" rowspan="1">The java class name of the class implementing the connection</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"max_connections"</td><td colspan="1" rowspan="1">The total number of outstanding connections allowed to exist at a time</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"configuration"</td><td colspan="1" rowspan="1">The configuration object for the connection, which is specific to the connection class</td>
+</tr>
+          
+</table>
+<p></p>
+<a name="N110B8"></a><a name="Job+objects"></a>
+<h4>Job objects</h4>
+<p></p>
+<p>The JSON fields for a job are is as follows:</p>
+<p></p>
+<table class="ForrestTable" cellspacing="1" cellpadding="4">
+            
+<tr>
+<th colspan="1" rowspan="1">Field</th><th colspan="1" rowspan="1">Meaning</th>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"id"</td><td colspan="1" rowspan="1">The job's identifier, if present.  If not present, ManifoldCF will create one (and will also create the job when saved).</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"description"</td><td colspan="1" rowspan="1">Text describing the job</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"repository_connection"</td><td colspan="1" rowspan="1">The name of the repository connection to use with the job</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"document_specification"</td><td colspan="1" rowspan="1">The document specification object for the job, whose format is repository-connection specific</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"start_mode"</td><td colspan="1" rowspan="1">The start mode for the job, which can be one of "schedule window start", "schedule window anytime", or "manual"</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"run_mode"</td><td colspan="1" rowspan="1">The run mode for the job, which can be either "continuous" or "scan once"</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"hopcount_mode"</td><td colspan="1" rowspan="1">The hopcount mode for the job, which can be either "accurate", "no delete", "never delete"</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"priority"</td><td colspan="1" rowspan="1">The job's priority, typically "5"</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"recrawl_interval"</td><td colspan="1" rowspan="1">The default time between recrawl of documents (if the job is "continuous"), in milliseconds, or "infinite" for infinity</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"max_recrawl_interval"</td><td colspan="1" rowspan="1">The maximum time between recrawl of documents (if the job is "continuous"), in milliseconds, or "infinite" for infinity</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"expiration_interval"</td><td colspan="1" rowspan="1">The time until a document expires (if the job is "continuous"), in milliseconds, or "infinite" for infinity</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"reseed_interval"</td><td colspan="1" rowspan="1">The time between reseeding operations (if the job is "continuous"), in milliseconds, or "infinite" for infinity</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"hopcount"</td><td colspan="1" rowspan="1">An array of hopcount objects, describing the link types and associated maximum hops permitted for the job</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"schedule"</td><td colspan="1" rowspan="1">An array of schedule objects, describing when the job should be started and run</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"pipelinestage"</td><td colspan="1" rowspan="1">An array of pipelinestage objects, describing what the transformation pipeline is</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"notificationstage"</td><td colspan="1" rowspan="1">An array of notificationstage objects, describing what the notifications are</td>
+</tr>
+          
+</table>
+<p></p>
+<p>Each pipelinestage object has the following fields:</p>
+<p></p>
+<table class="ForrestTable" cellspacing="1" cellpadding="4">
+            
+<tr>
+<th colspan="1" rowspan="1">Field</th><th colspan="1" rowspan="1">Meaning</th>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"stage_id"</td><td colspan="1" rowspan="1">The unique identifier for the pipeline stage</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"stage_prerequisite"</td><td colspan="1" rowspan="1">The unique identifier for the preceding pipeline stage; may be missing if none</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"stage_isoutput"</td><td colspan="1" rowspan="1">"true" if the stage is an output connection</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"stage_connectionname"</td><td colspan="1" rowspan="1">The connection name for the pipeline stage</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"stage_description"</td><td colspan="1" rowspan="1">A description of the pipeline stage</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"stage_specification"</td><td colspan="1" rowspan="1">The specification string for the pipeline stage</td>
+</tr>
+          
+</table>
+<p></p>
+<p>Each notificationstage object has the following fields:</p>
+<p></p>
+<table class="ForrestTable" cellspacing="1" cellpadding="4">
+            
+<tr>
+<th colspan="1" rowspan="1">Field</th><th colspan="1" rowspan="1">Meaning</th>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"stage_id"</td><td colspan="1" rowspan="1">The unique identifier for the notification stage</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"stage_connectionname"</td><td colspan="1" rowspan="1">The connection name for the notification stage</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"stage_description"</td><td colspan="1" rowspan="1">A description of the notification stage</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"stage_specification"</td><td colspan="1" rowspan="1">The specification string for the notification stage</td>
+</tr>
+          
+</table>
+<p></p>
+<p>Each hopcount object has the following fields:</p>
+<p></p>
+<table class="ForrestTable" cellspacing="1" cellpadding="4">
+            
+<tr>
+<th colspan="1" rowspan="1">Field</th><th colspan="1" rowspan="1">Meaning</th>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"link_type"</td><td colspan="1" rowspan="1">The connection-type-dependent type of a link for which a hop count restriction is specified</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"count"</td><td colspan="1" rowspan="1">The maximum number of hops allowed for the associated link type, starting at a seed</td>
+</tr>
+          
+</table>
+<p></p>
+<p>Each schedule object has the following fields:</p>
+<p></p>
+<table class="ForrestTable" cellspacing="1" cellpadding="4">
+            
+<tr>
+<th colspan="1" rowspan="1">Field</th><th colspan="1" rowspan="1">Meaning</th>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"timezone"</td><td colspan="1" rowspan="1">The optional time zone for the schedule object; if not present the default server time zone is used</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"duration"</td><td colspan="1" rowspan="1">The optional length of the described time window, in milliseconds; if not present, duration is considered infinite</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"dayofweek"</td><td colspan="1" rowspan="1">The optional day-of-the-week enumeration object</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"monthofyear"</td><td colspan="1" rowspan="1">The optional month-of-the-year enumeration object</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"dayofmonth"</td><td colspan="1" rowspan="1">The optional day-of-the-month enumeration object</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"year"</td><td colspan="1" rowspan="1">The optional year enumeration object</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"hourofday"</td><td colspan="1" rowspan="1">The optional hour-of-the-day enumeration object</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"minutesofhour"</td><td colspan="1" rowspan="1">The optional minutes-of-the-hour enumeration object</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"requestminimum"</td><td colspan="1" rowspan="1">Optional flag indicating whether the job run will be minimal or not ("true" means minimal)</td>
+</tr>
+          
+</table>
+<p></p>
+<p>Each enumeration object describes an array of integers using the form:</p>
+<p></p>
+<p>{"value":[<em>&lt;integer_list&gt;</em>]}</p>
+<p></p>
+<p>Each integer is a zero-based index describing which entity is being specified.  For example, for "dayofweek", 0 corresponds to Sunday, etc., and thus "dayofweek":{"value":[0,6]} would describe Saturdays and Sundays.</p>
+<p></p>
+<a name="N112A9"></a><a name="Job+status+objects"></a>
+<h4>Job status objects</h4>
+<p></p>
+<p>The JSON fields of a job status object are as follows:</p>
+<p></p>
+<table class="ForrestTable" cellspacing="1" cellpadding="4">
+            
+<tr>
+<th colspan="1" rowspan="1">Field</th><th colspan="1" rowspan="1">Meaning</th>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"job_id"</td><td colspan="1" rowspan="1">The job identifier</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"status"</td><td colspan="1" rowspan="1">The job status, having the possible values: "not yet run", "running", "paused", "done", "waiting", "stopping", "resuming", "starting up", "cleaning up", "error", "aborting", "restarting", "running no connector", and "terminating"</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"error_text"</td><td colspan="1" rowspan="1">The error text, if the status is "error"</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"start_time"</td><td colspan="1" rowspan="1">The job start time, in milliseconds since Jan 1, 1970</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"end_time"</td><td colspan="1" rowspan="1">The job end time, in milliseconds since Jan 1, 1970</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"documents_in_queue"</td><td colspan="1" rowspan="1">The total number of documents in the queue for the job</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"documents_outstanding"</td><td colspan="1" rowspan="1">The number of documents for the job that are currently considered 'active'</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1">"documents_processed"</td><td colspan="1" rowspan="1">The number of documents that in the queue for the job that have been processed at least once</td>
+</tr>
+          
+</table>
+<p></p>
+<a name="N11316"></a><a name="Connection-type-specific+objects"></a>
+<h4>Connection-type-specific objects</h4>
+<p></p>
+<p>As you may note when trying to use the above JSON API methods, you cannot get very far in defining connections or jobs without knowing the JSON format of a connection's configuration information, or a job's connection-specific document specification and output specification information.  The form of these objects is controlled by the Java implementation of the underlying connector, and is translated directly into JSON, so if you write your own connector you should be able to figure out what it will be in the API.  For connectors already part of ManifoldCF, it remains an ongoing task to document these connector-specific objects.  This task is not yet underway.</p>
+<p></p>
+<p>Luckily, it is pretty easy to learn a lot about the objects in question by simply creating connections and jobs in the ManifoldCF crawler UI, and then inspecting the resulting JSON objects through the API.  In this way, it should be possible to do a decent job of coding most API-based integrations.  The one place where difficulties will certainly occur will be if you try to completely replace the ManifoldCF crawler UI with one of your own.  This is because most connectors have methods that communicate with their respective back-ends in order to allow the user to select appropriate values.  For example, the path drill-down that is presented by the LiveLink connector requires that the connector interrogate the appropriate LiveLink repository in order to populate its path selection pull-downs.  There is, at this time, only one sanctioned way to accomplish the same job using the API, which is to use the appropriate "<em>connection_type</em>/execute/<em>type-specific_command</em>" command to perform the necessary functions.  Some set of useful functions has been coded for every appropriate connector, but the exact commands for every connector, and their JSON syntax, remains undocumented for now.</p>
+<p></p>
+<a name="N1132F"></a><a name="File+system+connector"></a>
+<h4>File system connector</h4>
+<p></p>
+<p>The file system connector has no configuration information, and no connector-specific commands.  However, it does have document specification information.  The information looks something like this:</p>
+<p></p>
+<p>{"startpoint":[{"_attribute_path":"c:\path_to_files","include":[{"_attribute_type":"file","_attribute_match":"*.txt"},{"_attribute_type":"file","_attribute_match":"*.doc"\,"_attribute_type":"directory","_attribute_match":"*"],"exclude":["*.mov"]]}</p>
+<p></p>
+<p>As you can see, multiple starting paths are possible, and the inclusion and exclusion rules also can be one or multiple.</p>
+<p></p>
+<p></p>
+<a name="N1134A"></a><a name="Control+via+Commands"></a>
+<h3 class="h4">Control via Commands</h3>
+<p></p>
+<p>For script writers, there currently exist a number of ManifoldCF execution commands.  These commands are primarily rich in the area of definition of connections and jobs, controlling jobs, and running reports.  The following table lists the current suite.</p>
+<p></p>
+<table class="ForrestTable" cellspacing="1" cellpadding="4">
+          
+<tr>
+<th colspan="1" rowspan="1">Command</th><th colspan="1" rowspan="1">What it does</th>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">org.apache.manifoldcf.agents.DefineOutputConnection</td><td colspan="1" rowspan="1">Create a new output connection</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">org.apache.manifoldcf.agents.DeleteOutputConnection</td><td colspan="1" rowspan="1">Delete an existing output connection</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">org.apache.manifoldcf.agents.DefineTransformationConnection</td><td colspan="1" rowspan="1">Create a new transformation connection</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">org.apache.manifoldcf.agents.DeleteTransformationConnection</td><td colspan="1" rowspan="1">Delete an existing transformation connection</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">org.apache.manifoldcf.authorities.ChangeAuthSpec</td><td colspan="1" rowspan="1">Modify an authority's configuration information</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">org.apache.manifoldcf.authorities.CheckAll</td><td colspan="1" rowspan="1">Check all authorities to be sure they are functioning</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">org.apache.manifoldcf.authorities.DefineAuthorityConnection</td><td colspan="1" rowspan="1">Create a new authority connection</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">org.apache.manifoldcf.authorities.DeleteAuthorityConnection</td><td colspan="1" rowspan="1">Delete an existing authority connection</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">org.apache.manifoldcf.authorities.DefineMappingConnection</td><td colspan="1" rowspan="1">Create a new mapping connection</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">org.apache.manifoldcf.authorities.DeleteMappingConnection</td><td colspan="1" rowspan="1">Delete an existing mapping connection</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">org.apache.manifoldcf.crawler.AbortJob</td><td colspan="1" rowspan="1">Abort a running job</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">org.apache.manifoldcf.crawler.AddScheduledTime</td><td colspan="1" rowspan="1">Add a schedule record to a job</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">org.apache.manifoldcf.crawler.ChangeJobDocSpec</td><td colspan="1" rowspan="1">Modify a job's specification information</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">org.apache.manifoldcf.crawler.DefineJob</td><td colspan="1" rowspan="1">Create a new job</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">org.apache.manifoldcf.crawler.DefineRepositoryConnection</td><td colspan="1" rowspan="1">Create a new repository connection</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">org.apache.manifoldcf.crawler.DeleteJob</td><td colspan="1" rowspan="1">Delete an existing job</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">org.apache.manifoldcf.crawler.DeleteRepositoryConnection</td><td colspan="1" rowspan="1">Delete an existing repository connection</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">org.apache.manifoldcf.crawler.ExportConfiguration</td><td colspan="1" rowspan="1">Write the complete list of all connection definitions and job specifications to a file</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">org.apache.manifoldcf.crawler.FindJob</td><td colspan="1" rowspan="1">Locate a job identifier given a job's name</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">org.apache.manifoldcf.crawler.GetJobSchedule</td><td colspan="1" rowspan="1">Find a job's schedule given a job's identifier</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">org.apache.manifoldcf.crawler.ImportConfiguration</td><td colspan="1" rowspan="1">Import configuration as written by a previous ExportConfiguration command</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">org.apache.manifoldcf.crawler.ListJobStatuses</td><td colspan="1" rowspan="1">List the status of all jobs</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">org.apache.manifoldcf.crawler.ListJobs</td><td colspan="1" rowspan="1">List the identifiers for all jobs</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">org.apache.manifoldcf.crawler.PauseJob</td><td colspan="1" rowspan="1">Given a job identifier, pause the specified job</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">org.apache.manifoldcf.crawler.RestartJob</td><td colspan="1" rowspan="1">Given a job identifier, restart the specified job</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">org.apache.manifoldcf.crawler.RunDocumentStatus</td><td colspan="1" rowspan="1">Run a document status report</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">org.apache.manifoldcf.crawler.RunMaxActivityHistory</td><td colspan="1" rowspan="1">Run a maximum activity report</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">org.apache.manifoldcf.crawler.RunMaxBandwidthHistory</td><td colspan="1" rowspan="1">Run a maximum bandwidth report</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">org.apache.manifoldcf.crawler.RunQueueStatus</td><td colspan="1" rowspan="1">Run a queue status report</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">org.apache.manifoldcf.crawler.RunResultHistory</td><td colspan="1" rowspan="1">Run a result history report</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">org.apache.manifoldcf.crawler.RunSimpleHistory</td><td colspan="1" rowspan="1">Run a simply history report</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">org.apache.manifoldcf.crawler.StartJob</td><td colspan="1" rowspan="1">Start a job</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">org.apache.manifoldcf.crawler.WaitForJobDeleted</td><td colspan="1" rowspan="1">After a job has been deleted, wait until the delete has completed</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">org.apache.manifoldcf.crawler.WaitForJobInactive</td><td colspan="1" rowspan="1">After a job has been started or aborted, wait until the job ceases all activity</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">org.apache.manifoldcf.crawler.WaitJobPaused</td><td colspan="1" rowspan="1">After a job has been paused, wait for the pause to take effect</td>
+</tr>
+        
+</table>
+<p></p>
+<a name="N114C5"></a><a name="Control+by+direct+code"></a>
+<h3 class="h4">Control by direct code</h3>
+<p></p>
+<p>Control by direct java code is quite a reasonable thing to do.  The sources of the above commands should give a pretty clear idea how to proceed, if that's what you
+          want to do.</p>
+<p></p>
+<p></p>
+<a name="N114D5"></a><a name="Caveats"></a>
+<h3 class="h4">Caveats</h3>
+<p></p>
+<p>The above commands know nothing about the differences between connection types.  Instead, they deal with configuration and specification information in the
+          form of XML documents.  Normally, these XML documents are hidden from a system integrator, unless they happen to look into the database with a tool such as
+          psql.  But the API commands above often will require such XML documents to be included as part of the command execution.</p>
+<p></p>
+<p>This has one major consequence.  Any application that would manipulate connections and jobs directly cannot be connection-type independent - these
+          applications must know the proper form of XML to submit to the command.  So, it is not possible to use these command APIs to write one's own UI wrapper,
+          without sacrificing some of the repository independence that ManifoldCF by itself maintains.</p>
+</div>
+  
+</div>
+<!--+
+    |end content
+    +-->
+<div class="clearboth">&nbsp;</div>
+</div>
+<div id="footer">
+<!--+
+    |start bottomstrip
+    +-->
+<div class="lastmodified">
+<script type="text/javascript"><!--
+document.write("Last Published: " + document.lastModified);
+//  --></script>
+</div>
+<div class="copyright">
+        Copyright &copy;
+         2009-2024 <a href="http://www.apache.org/licenses/">The Apache Software Foundation.</a>
+</div>
+<div class="copyright">
+    Apache ManifoldCF, ManifoldCF, Apache Forrest, Forrest, Apache Solr, Solr, Apache, the Apache feather logo, the Apache Forrest
+    logo, and the Apache ManifoldCF logo are trademarks of The Apache Software Foundation.
+    Documentum and EMC are a trademarks of EMC Corporation.
+    SharePoint, Windows, and Microsoft are trademarks of Microsoft, Inc.
+    FileNet P8 and IBM are trademarks of IBM, Inc.
+    LiveLink and OpenText are trademarks of OpenText, Inc.
+    QBase, MetaCarta, and GTS are trademarks of QBase, Inc.
+    Meridio and Autonomy are trademarks of Hewlett Packard, Inc.
+    Alfresco is a trademark of Alfresco Software, Inc.
+    Jira is a trademark of Atlassian, Inc.
+  </div>
+<!--+
+    |end bottomstrip
+    +-->
+</div>
+</body>
+</html>
