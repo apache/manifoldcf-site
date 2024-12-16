@@ -1,0 +1,955 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="Apache Forrest" name="Generator">
+<meta name="Forrest-version" content="0.9">
+<meta name="Forrest-skin-name" content="lucene">
+<title>ManifoldCF Scripting Language</title>
+<link type="text/css" href="../skin/basic.css" rel="stylesheet">
+<link media="screen" type="text/css" href="../skin/screen.css" rel="stylesheet">
+<link media="print" type="text/css" href="../skin/print.css" rel="stylesheet">
+<link type="text/css" href="../skin/profile.css" rel="stylesheet">
+<script src="../skin/getBlank.js" language="javascript" type="text/javascript"></script><script src="../skin/getMenu.js" language="javascript" type="text/javascript"></script><script src="../skin/fontsize.js" language="javascript" type="text/javascript"></script>
+<link rel="shortcut icon" href="../images/favicon.ico">
+</head>
+<body onload="init()">
+<script type="text/javascript">ndeSetTextSize();</script>
+<div id="top">
+<!--+
+    |breadtrail
+    +-->
+<div class="breadtrail">
+<a href="http://www.apache.org/">Apache</a> &gt; <a href="http://manifoldcf.apache.org">ManifoldCF</a> &gt; <a href="">Release Documentation</a><script src="../skin/breadcrumbs.js" language="JavaScript" type="text/javascript"></script>
+</div>
+<!--+
+    |header
+    +-->
+<div class="header">
+<!--+
+    |start group logo
+    +-->
+<div class="grouplogo">
+<a href="https://www.apache.org"><img class="logoImage" alt="Apache" src="../images/SupportApache-small-128.png" title="Apache Software Foundation"></a>
+</div>
+<!--+
+    |end group logo
+    +-->
+<!--+
+    |start Project Logo
+    +-->
+<div class="projectlogo">
+<a href="http://manifoldcf.apache.org"><img class="logoImage" alt="Apache ManifoldCF" src="../images/ManifoldCF-logo.PNG" title="ManifoldCF"></a>
+</div>
+<!--+
+    |end Project Logo
+    +-->
+<div class="projectlogo">
+<a href="https://www.apache.org/events/current-event.html"><img class="logoImage" src="https://www.apache.org/events/current-event-234x60.png"></a>
+</div>
+
+<!--+
+    |start Tabs
+    +-->
+<ul id="tabs">
+<li>
+<a class="unselected" href="..">Hello!</a>
+</li>
+<li class="current">
+<a class="selected" href="../en_US/index.html">English</a>
+</li>
+<li>
+<a class="unselected" href="../ja_JP/index.html">日本語</a>
+</li>
+<li>
+<a class="unselected" href="../zh_CN/index.html">中文</a>
+</li>
+</ul>
+<!--+
+    |end Tabs
+    +-->
+</div>
+</div>
+<div id="main">
+<div id="publishedStrip">
+<!--+
+    |start Subtabs
+    +-->
+<div id="level2tabs"></div>
+<!--+
+    |end Endtabs
+    +-->
+<script type="text/javascript"><!--
+document.write("Last Published: " + document.lastModified);
+//  --></script>
+</div>
+<!--+
+    |breadtrail
+    +-->
+<div class="breadtrail">
+
+             &nbsp;
+           </div>
+<!--+
+    |start Menu, mainarea
+    +-->
+<!--+
+    |start Menu
+    +-->
+<div id="menu">
+<div onclick="SwitchMenu('menu_selected_1.1', '../skin/')" id="menu_selected_1.1Title" class="menutitle" style="background-image: url('../skin/images/chapter_open.gif');">English</div>
+<div id="menu_selected_1.1" class="selectedmenuitemgroup" style="display: block;">
+<div class="menuitem">
+<a href="../en_US/index.html">Welcome</a>
+</div>
+<div onclick="SwitchMenu('menu_selected_1.1.2', '../skin/')" id="menu_selected_1.1.2Title" class="menutitle" style="background-image: url('../skin/images/chapter_open.gif');">Documentation</div>
+<div id="menu_selected_1.1.2" class="selectedmenuitemgroup" style="display: block;">
+<div class="menuitem">
+<a href="../en_US/concepts.html">Concepts</a>
+</div>
+<div class="menuitem">
+<a href="../en_US/included-connectors.html">Compatibility Matrix</a>
+</div>
+<div class="menuitem">
+<a href="../en_US/faq.html">Frequently Asked Questions</a>
+</div>
+<div class="menuitem">
+<a href="../en_US/programmatic-operation.html">API Documentation</a>
+</div>
+<div class="menuitem">
+<a href="../en_US/javadoc.html">Javadoc</a>
+</div>
+<div class="menuitem">
+<a href="../en_US/how-to-build-and-deploy.html">Building and Deploying</a>
+</div>
+<div class="menuitem">
+<a href="../en_US/technical-resources.html">Technical Resources</a>
+</div>
+<div class="menuitem">
+<a href="../en_US/performance-tuning.html">Performance tuning</a>
+</div>
+<div class="menupage">
+<div class="menupagetitle">Scripting Language</div>
+</div>
+<div class="menuitem">
+<a href="../en_US/end-user-documentation.html">End-user Documentation (HTML)</a>
+</div>
+<div class="menuitem">
+<a href="../en_US/end-user-documentation.pdf">End-user Documentation (PDF)</a>
+</div>
+</div>
+</div>
+<div id="credit"></div>
+<div id="roundbottom">
+<img style="display: none" class="corner" height="15" width="15" alt="" src="../skin/images/rc-b-l-15-1body-2menu-3menu.png"></div>
+<!--+
+  |alternative credits
+  +-->
+<div id="credit2"></div>
+</div>
+<!--+
+    |end Menu
+    +-->
+<!--+
+    |start content
+    +-->
+<div id="content">
+<h1>ManifoldCF Scripting Language</h1>
+<div id="minitoc-area">
+<ul class="minitoc">
+<li>
+<a href="#Overview">Overview</a>
+</li>
+<li>
+<a href="#How+to+use+the+script+interpreter">How to use the script interpreter</a>
+<ul class="minitoc">
+<li>
+<a href="#Running+the+script+interpreter+by+hand">Running the script interpreter by hand</a>
+</li>
+<li>
+<a href="#Running+the+script+interpreter+using+Ant">Running the script interpreter using Ant</a>
+</li>
+<li>
+<a href="#Running+the+script+interpreter+using+Maven">Running the script interpreter using Maven</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#Script+language+syntax">Script language syntax</a>
+</li>
+<li>
+<a href="#Script+language+variables">Script language variables</a>
+<ul class="minitoc">
+<li>
+<a href="#Integers">Integers</a>
+</li>
+<li>
+<a href="#Strings">Strings</a>
+</li>
+<li>
+<a href="#Floating-point+numbers">Floating-point numbers</a>
+</li>
+<li>
+<a href="#Booleans">Booleans</a>
+</li>
+<li>
+<a href="#Arrays">Arrays</a>
+</li>
+<li>
+<a href="#Dictionaries">Dictionaries</a>
+</li>
+<li>
+<a href="#Configurations">Configurations</a>
+</li>
+<li>
+<a href="#Configuration+nodes">Configuration nodes</a>
+</li>
+<li>
+<a href="#URLs">URLs</a>
+</li>
+<li>
+<a href="#Query+Arguments">Query Arguments</a>
+</li>
+<li>
+<a href="#Connection+names">Connection names</a>
+</li>
+<li>
+<a href="#Results">Results</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#Statements">Statements</a>
+</li>
+</ul>
+</div> 
+    
+<a name="N1000E"></a><a name="Overview"></a>
+<h2 class="h3">Overview</h2>
+<div class="section">
+<p></p>
+<p>The ManifoldCF scripting language allows symbolic communication with the ManifoldCF API Service
+        in order to define connections and jobs, and perform crawls.  The language provides support for JSON-like hierarchical
+        documents, as well as the ability to construct properly encoded REST URLs.  It also has support for simple control flow
+        and error handling.</p>
+</div>
+    
+    
+<a name="N1001A"></a><a name="How+to+use+the+script+interpreter"></a>
+<h2 class="h3">How to use the script interpreter</h2>
+<div class="section">
+<p></p>
+<p>The ManifoldCF script interpreter can be used in two ways - either as a real-time shell (executing a script as it is typed),
+        or interpreting a script file.  The main class of the interpreter is <em>org.apache.manifoldcf.scriptengine.ScriptParser</em>,
+        and the two ways of invoking it are:</p>
+<pre class="code">
+java -cp ... org.apache.manifoldcf.scriptengine.ScriptParser
+      </pre>
+<p>or:</p>
+<pre class="code">
+java -cp ... org.apache.manifoldcf.scriptengine.ScriptParser &lt;script_file&gt; &lt;arg1&gt; ... &lt;argN&gt;
+      </pre>
+<p>If you choose to invoke ScriptParser in interactive mode, simply type your script one line at a time.  Any errors will be reported immediately,
+        and the ScriptParser will accordingly exit.  You can also type ^Z to terminate the script.</p>
+<p>If you use ScriptParser with a scripting file, that file will be read and interpreted.  The arguments you provide will be loaded into an array
+        of strings, which is accessible from your script as the variable named <em>__args__</em>.</p>
+<a name="N1003C"></a><a name="Running+the+script+interpreter+by+hand"></a>
+<h3 class="h4">Running the script interpreter by hand</h3>
+<p></p>
+<p>When you build ManifoldCF, the required dependent jars for the scripting language are copied to <em>dist/script-engine/lib</em>.
+          You can run the interpreter in interactive mode by typing:</p>
+<pre class="code">
+cd dist\script-engine
+run-script.bat &lt;args&gt;
+        </pre>
+<p>Or, on Linux:</p>
+<pre class="code">
+cd dist/script-engine
+run-script.sh &lt;args&gt;
+        </pre>
+<p>You will need to set the environment variable <strong>ENGINE_HOME</strong> to point at the <em>dist/script-engine</em> directory beforehand, so that
+            the scripts can locate the appropriate jars.</p>
+<a name="N1005F"></a><a name="Running+the+script+interpreter+using+Ant"></a>
+<h3 class="h4">Running the script interpreter using Ant</h3>
+<p></p>
+<p>You can also start the script interpreter with all the correct required jars using Ant.  Simply type the following:</p>
+<pre class="code">
+ant run-script-interpreter
+        </pre>
+<p>This will start the script interpreter in interactive mode only.</p>
+<a name="N10072"></a><a name="Running+the+script+interpreter+using+Maven"></a>
+<h3 class="h4">Running the script interpreter using Maven</h3>
+<p></p>
+<p>You can also run the script interpreter using maven.  The commands are:</p>
+<pre class="code">
+cd framework/script-engine
+mvn exec:exec
+        </pre>
+<p>This, once again, will start the interpreter in interactive mode.</p>
+</div>
+
+    
+<a name="N10086"></a><a name="Script+language+syntax"></a>
+<h2 class="h3">Script language syntax</h2>
+<div class="section">
+<p></p>
+<p>A ManifoldCF script is not sensitive to whitespace or indenting.  All comments begin with a '#' character and end with the end of that line.
+        Unquoted tokens can include alphanumeric characters, plus '_', '$', and '@'.  Numeric tokens always begin with a number ('0'-'9'), and are
+        considered floating-point if they include a decimal point ('.').  Otherwise they are integers.  String tokens can be quoted with either a double quote
+        ('"') or a single quote, and within strings characters can be escaped with a preceding backslash ('\').</p>
+<p>A ManifoldCF script has a syntax that is readily described with a BNF grammar.  See below.</p>
+<pre class="code">
+program:
+--&gt; statements
+  
+statements:
+--&gt; statement1 ... statementN
+
+statement:
+--&gt; 'set' expression '=' expression ';'
+--&gt; 'print' expression ';'
+--&gt; 'if' expression 'then' statements ['else' statements] ';'
+--&gt; 'while' expression 'do' statements ';'
+--&gt; 'break' ';'
+--&gt; 'error' expression ';'
+--&gt; 'insert' expression 'into' expression ['at' expression] ';'
+--&gt; 'remove' expression 'from' expression ';'
+--&gt; 'wait' expression ';'
+--&gt; 'GET' expression '=' expression ';'
+--&gt; 'PUT' expression '=' expression 'to' expression ';'
+--&gt; 'POST' expression '=' expression 'to' expression ';'
+--&gt; 'DELETE' expression ';'
+
+expression:
+--&gt; '(' expression ')'
+--&gt; expression '&amp;&amp;' expression
+--&gt; expression '||' expression
+--&gt; '!' expression
+--&gt; expression '&amp;' expression
+--&gt; expression '|' expression
+--&gt; expression '==' expression
+--&gt; expression '!=' expression
+--&gt; expression '&gt;=' expression
+--&gt; expression '&lt;=' expression
+--&gt; expression '&gt;' expression
+--&gt; expression '&lt;' expression
+--&gt; expression '+' expression
+--&gt; expression '-' expression
+--&gt; expression '*' expression
+--&gt; expression '/' expression
+--&gt; '-' expression
+--&gt; '[' [expression [',' expression ...]] ']'
+--&gt; '{' [expression [',' expression ...]] '}'
+--&gt; '&lt;&lt;' expression ':' expression ':' [expression '=' expression [',' expression '=' expression ...]] ':' [expression [',' expression ...]] '&gt;&gt;'
+--&gt; expression '[' expression ']'
+--&gt; expression '.' token
+--&gt; token
+--&gt; string
+--&gt; number
+--&gt; 'true' | 'false'
+--&gt; 'null'
+--&gt; 'new' newexpression
+--&gt; 'isnull' expression
+
+newexpression:
+--&gt; 'url' expression
+--&gt; 'connectionname' expression
+--&gt; 'configuration'
+--&gt; 'configurationnode' expression
+--&gt; 'array'
+--&gt; 'dictionary'
+--&gt; 'queryarg' expression ['=' expression] 
+
+      </pre>
+</div>
+    
+    
+<a name="N10099"></a><a name="Script+language+variables"></a>
+<h2 class="h3">Script language variables</h2>
+<div class="section">
+<p></p>
+<p>Variables in the ManifoldCF scripting language determine the behavior of all aspects of expression evaluation, with the exception of operator precedence.
+        In particular, every canonical variable has the ability to support arbitrary <em>attributes</em> (which are named properties of the variable), 
+        <em>subscripts</em> (children which are accessed by a numeric subscript), and all other <em>operations</em>, such as '+' or '=='.  Not all kinds of
+        variable instance will in fact support all such features.  Should you try to use a feature with a variable that does not support it, you will receive a
+        ScriptException telling you what you did wrong.</p>
+<p>Since the actual operation details are bound to the variable, for binary operations the left-hand variable typically determines what actually takes place.  For example:</p>
+<pre class="code">
+print 3+7;
+     [java] 10
+print "3"+7;
+     [java] 37
+      </pre>
+<p>There is, of course, a way to caste a variable to a different type.  For example:</p>
+<pre class="code">
+print "3".__int__+7;
+     [java] 10
+      </pre>
+<p>Here, we are using the built-in attribute <em>__int__</em> to obtain the integer equivalent of the original string variable "3".  See the following table for
+        a list of some of the standard attributes and their meanings:</p>
+<table class="ForrestTable" cellspacing="1" cellpadding="4">
+        
+<caption>Standard attributes</caption>
+        
+<tr>
+<th colspan="1" rowspan="1">Attribute name</th><th colspan="1" rowspan="1">Meaning</th>
+</tr>
+        
+<tr>
+<td colspan="1" rowspan="1">__script__</td><td colspan="1" rowspan="1">Returns the script code that would create this variable</td>
+</tr>
+        
+<tr>
+<td colspan="1" rowspan="1">__string__</td><td colspan="1" rowspan="1">Returns the string value of the variable, if any</td>
+</tr>
+        
+<tr>
+<td colspan="1" rowspan="1">__int__</td><td colspan="1" rowspan="1">Returns the integer value of the variable, if any</td>
+</tr>
+        
+<tr>
+<td colspan="1" rowspan="1">__float__</td><td colspan="1" rowspan="1">Returns the floating-point value of the variable, if any</td>
+</tr>
+        
+<tr>
+<td colspan="1" rowspan="1">__boolean__</td><td colspan="1" rowspan="1">Returns the boolean value of the variable, if any</td>
+</tr>
+        
+<tr>
+<td colspan="1" rowspan="1">__size__</td><td colspan="1" rowspan="1">Typically returns the number of subscript children</td>
+</tr>
+        
+<tr>
+<td colspan="1" rowspan="1">__type__</td><td colspan="1" rowspan="1">Returns the 'type' of the variable</td>
+</tr>
+        
+<tr>
+<td colspan="1" rowspan="1">__value__</td><td colspan="1" rowspan="1">Returns the 'value' of the variable</td>
+</tr>
+        
+<tr>
+<td colspan="1" rowspan="1">__dict__</td><td colspan="1" rowspan="1">Returns a dictionary equivalent of the variable</td>
+</tr>
+        
+<tr>
+<td colspan="1" rowspan="1">__OK__</td><td colspan="1" rowspan="1">Returns a boolean 'true' if the variable was "OK", false otherwise</td>
+</tr>
+        
+<tr>
+<td colspan="1" rowspan="1">__NOTFOUND__</td><td colspan="1" rowspan="1">Returns a boolean 'true' if the variable was "NOTFOUND", false otherwise</td>
+</tr>
+        
+<tr>
+<td colspan="1" rowspan="1">__CREATED__</td><td colspan="1" rowspan="1">Returns a boolean 'true' if the variable was "CREATED", false otherwise</td>
+</tr>
+      
+</table>
+<p>Obviously, only some variables will support each of the standard attributes.  You will receive a script exception if you try to obtain a non-existent
+        attribute for a variable.</p>
+<a name="N1014C"></a><a name="Integers"></a>
+<h3 class="h4">Integers</h3>
+<p>Integer variable types are created by non-quoted numeric values that do not have a '.' in them.  For example, the character '4' will create an integer
+          variable type with a value of 4.</p>
+<p>The operations supported for this variable type, and their meanings, are listed in the table below:</p>
+<table class="ForrestTable" cellspacing="1" cellpadding="4">
+          
+<caption>Integer operations</caption>
+          
+<tr>
+<th colspan="1" rowspan="1">Operation</th><th colspan="1" rowspan="1">Meaning</th><th colspan="1" rowspan="1">Example</th>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">binary +</td><td colspan="1" rowspan="1">Addition, yielding an integer</td><td colspan="1" rowspan="1">4+7</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">binary -</td><td colspan="1" rowspan="1">Subtraction, yielding an integer</td><td colspan="1" rowspan="1">7-4</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">binary *</td><td colspan="1" rowspan="1">Multiplication, yielding an integer</td><td colspan="1" rowspan="1">7*4</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">binary /</td><td colspan="1" rowspan="1">Division, yielding an integer</td><td colspan="1" rowspan="1">7/4</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">unary -</td><td colspan="1" rowspan="1">Negation, yielding an integer</td><td colspan="1" rowspan="1">-4</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">binary ==</td><td colspan="1" rowspan="1">Equality comparison, yielding a boolean</td><td colspan="1" rowspan="1">7 == 4</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">binary !=</td><td colspan="1" rowspan="1">Inequality comparison, yielding a boolean</td><td colspan="1" rowspan="1">7 != 4</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">binary &gt;=</td><td colspan="1" rowspan="1">Greater or equals comparison, yielding a boolean</td><td colspan="1" rowspan="1">7 &gt;= 4</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">binary &lt;=</td><td colspan="1" rowspan="1">Less or equals comparison, yielding a boolean</td><td colspan="1" rowspan="1">7 &lt;= 4</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">binary &gt;</td><td colspan="1" rowspan="1">Greater comparison, yielding a boolean</td><td colspan="1" rowspan="1">7 &gt; 4</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">binary &lt;</td><td colspan="1" rowspan="1">Less comparison, yielding a boolean</td><td colspan="1" rowspan="1">7 &lt; 4</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">binary &amp;</td><td colspan="1" rowspan="1">Bitwise AND, yielding an integer</td><td colspan="1" rowspan="1">7 &amp; 4</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">binary |</td><td colspan="1" rowspan="1">Bitwise OR, yielding an integer</td><td colspan="1" rowspan="1">7 | 4</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">unary !</td><td colspan="1" rowspan="1">Bitwise NOT, yielding an integer</td><td colspan="1" rowspan="1">! 7</td>
+</tr>
+        
+</table>
+<p>In addition, the standard attributes <em>__script__</em>, <em>__string__</em>, <em>__int__</em>, and <em>__float__</em> are supported 
+          by integer types.</p>
+<a name="N10240"></a><a name="Strings"></a>
+<h3 class="h4">Strings</h3>
+<p>String variable types are created by quoted sequences of characters.  For example, the character '"hello world"' will create a string
+          variable type with an (unquoted) value of "hello world".</p>
+<p>The operations supported for this variable type, and their meanings, are listed in the table below:</p>
+<table class="ForrestTable" cellspacing="1" cellpadding="4">
+          
+<caption>String operations</caption>
+          
+<tr>
+<th colspan="1" rowspan="1">Operation</th><th colspan="1" rowspan="1">Meaning</th><th colspan="1" rowspan="1">Example</th>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">binary +</td><td colspan="1" rowspan="1">Concatenation, yielding a string</td><td colspan="1" rowspan="1">"hi" + "there"</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">binary ==</td><td colspan="1" rowspan="1">Equality comparison, yielding a boolean</td><td colspan="1" rowspan="1">"hi" == "there"</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">binary !=</td><td colspan="1" rowspan="1">Inequality comparison, yielding a boolean</td><td colspan="1" rowspan="1">"hi" != "there"</td>
+</tr>
+        
+</table>
+<p>In addition, the standard attributes <em>__script__</em>, <em>__string__</em>, <em>__int__</em>, and <em>__float__</em> are supported 
+          by string types.</p>
+<a name="N1029A"></a><a name="Floating-point+numbers"></a>
+<h3 class="h4">Floating-point numbers</h3>
+<p>Float variable types are created by non-quoted numeric values that have a '.' in them.  For example, the token '4.1' will create a float
+          variable type with a value of 4.1</p>
+<p>The operations supported for this variable type, and their meanings, are listed in the table below:</p>
+<table class="ForrestTable" cellspacing="1" cellpadding="4">
+          
+<caption>Float operations</caption>
+          
+<tr>
+<th colspan="1" rowspan="1">Operation</th><th colspan="1" rowspan="1">Meaning</th><th colspan="1" rowspan="1">Example</th>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">binary +</td><td colspan="1" rowspan="1">Addition, yielding a float</td><td colspan="1" rowspan="1">4.0+7.0</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">binary -</td><td colspan="1" rowspan="1">Subtraction, yielding a float</td><td colspan="1" rowspan="1">7.0-4.0</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">binary *</td><td colspan="1" rowspan="1">Multiplication, yielding a float</td><td colspan="1" rowspan="1">7.0*4.0</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">binary /</td><td colspan="1" rowspan="1">Division, yielding a float</td><td colspan="1" rowspan="1">7.0/4.0</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">unary -</td><td colspan="1" rowspan="1">Negation, yielding a float</td><td colspan="1" rowspan="1">-4.0</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">binary ==</td><td colspan="1" rowspan="1">Equality comparison, yielding a boolean</td><td colspan="1" rowspan="1">7.0 == 4.0</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">binary !=</td><td colspan="1" rowspan="1">Inequality comparison, yielding a boolean</td><td colspan="1" rowspan="1">7.0 != 4.0</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">binary &gt;=</td><td colspan="1" rowspan="1">Greater or equals comparison, yielding a boolean</td><td colspan="1" rowspan="1">7.0 &gt;= 4.0</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">binary &lt;=</td><td colspan="1" rowspan="1">Less or equals comparison, yielding a boolean</td><td colspan="1" rowspan="1">7.0 &lt;= 4.0</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">binary &gt;</td><td colspan="1" rowspan="1">Greater comparison, yielding a boolean</td><td colspan="1" rowspan="1">7.0 &gt; 4.0</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">binary &lt;</td><td colspan="1" rowspan="1">Less comparison, yielding a boolean</td><td colspan="1" rowspan="1">7.0 &lt; 4.0</td>
+</tr>
+        
+</table>
+<p>In addition, the standard attributes <em>__script__</em>, <em>__string__</em>, <em>__int__</em>, and <em>__float__</em> are supported 
+          by float types.</p>
+<a name="N10364"></a><a name="Booleans"></a>
+<h3 class="h4">Booleans</h3>
+<p>Boolean variable types are created by the keywords <strong>true</strong> and <strong>false</strong>.  For example, the code 'true' will create a boolean
+          variable type with a value of "true".</p>
+<p>The operations supported for this variable type, and their meanings, are listed in the table below:</p>
+<table class="ForrestTable" cellspacing="1" cellpadding="4">
+          
+<caption>Boolean operations</caption>
+          
+<tr>
+<th colspan="1" rowspan="1">Operation</th><th colspan="1" rowspan="1">Meaning</th><th colspan="1" rowspan="1">Example</th>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">binary ==</td><td colspan="1" rowspan="1">Equality comparison, yielding a boolean</td><td colspan="1" rowspan="1">7.0 == 4.0</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">binary !=</td><td colspan="1" rowspan="1">Inequality comparison, yielding a boolean</td><td colspan="1" rowspan="1">7.0 != 4.0</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">binary &amp;&amp;</td><td colspan="1" rowspan="1">AND logical operation, yielding a boolean</td><td colspan="1" rowspan="1">true &amp;&amp; false</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">binary ||</td><td colspan="1" rowspan="1">OR logical operation, yielding a boolean</td><td colspan="1" rowspan="1">true || false</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">binary &amp;</td><td colspan="1" rowspan="1">AND logical operation, yielding a boolean</td><td colspan="1" rowspan="1">true &amp; false</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">binary |</td><td colspan="1" rowspan="1">OR logical operation, yielding a boolean</td><td colspan="1" rowspan="1">true | false</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">unary !</td><td colspan="1" rowspan="1">NOT logical operation, yielding a boolean</td><td colspan="1" rowspan="1">! true</td>
+</tr>
+        
+</table>
+<p>In addition, the standard attributes <em>__script__</em> and <em>__boolean__</em> are supported 
+          by boolean types.</p>
+<a name="N103F6"></a><a name="Arrays"></a>
+<h3 class="h4">Arrays</h3>
+<p>Array variable types are created by an initializer of the form <strong>[</strong> [<em>expression</em> [<strong>,</strong> <em>expression</em> ...]] <strong>]</strong>.  For example, the script code '[3, 4]' will create an array
+          variable type with two values,  the integer "3" and the integer "4".</p>
+<p>The operations supported for this variable type, and their meanings, are listed in the table below:</p>
+<table class="ForrestTable" cellspacing="1" cellpadding="4">
+          
+<caption>Array operations</caption>
+          
+<tr>
+<th colspan="1" rowspan="1">Operation</th><th colspan="1" rowspan="1">Meaning</th><th colspan="1" rowspan="1">Example</th>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">subscript []</td><td colspan="1" rowspan="1">Find the specified subscript variable, yielding the variable</td><td colspan="1" rowspan="1">[3,4] [0]</td>
+</tr>
+        
+</table>
+<p>In addition, the standard attributes <em>__script__</em> and <em>__size__</em> are supported 
+          by array types, as well as the <em>insert</em> and <em>remove</em> statements.</p>
+<a name="N10443"></a><a name="Dictionaries"></a>
+<h3 class="h4">Dictionaries</h3>
+<p>Dictionary variable types are created using the "new" operator, e.g. <strong>new</strong> <strong>dictionary</strong>.</p>
+<p>The operations supported for this variable type, and their meanings, are listed in the table below:</p>
+<table class="ForrestTable" cellspacing="1" cellpadding="4">
+          
+<caption>Array operations</caption>
+          
+<tr>
+<th colspan="1" rowspan="1">Operation</th><th colspan="1" rowspan="1">Meaning</th><th colspan="1" rowspan="1">Example</th>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">subscript []</td><td colspan="1" rowspan="1">Find the specified key, yielding the keyed variable</td><td colspan="1" rowspan="1">mydict ["keyname"]</td>
+</tr>
+        
+</table>
+<p>In addition, the standard attributes <em>__script__</em> and <em>__size__</em> are supported 
+          by dictionary types.</p>
+<a name="N10481"></a><a name="Configurations"></a>
+<h3 class="h4">Configurations</h3>
+<p>Configuration variables contain the equivalent of the JSON used to communicate with the ManifoldCF API.  They can be created using an initializer
+          of the form <strong>{</strong> [<em>expression</em> [<strong>,</strong> <em>expression</em> ...]] <strong>}</strong>.  For example, the script code '{ &lt;&lt; "outputconnector" : "" :  : , &lt;&lt; "description" : "Solr" :  :  &gt;&gt;, &lt;&lt; "class_name" : "org.apache.manifoldcf.agents.output.solr.SolrConnector" :  :  &gt;&gt; &gt;&gt; }'
+          would create a configuration variable equivalent to one that might be returned from the ManifoldCF API if it was queried for the output connectors registered by the system.</p>
+<p>The operations supported for this variable type, and their meanings are listed in the table below:</p>
+<table class="ForrestTable" cellspacing="1" cellpadding="4">
+          
+<caption>Configuration operations</caption>
+          
+<tr>
+<th colspan="1" rowspan="1">Operation</th><th colspan="1" rowspan="1">Meaning</th><th colspan="1" rowspan="1">Example</th>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">subscript []</td><td colspan="1" rowspan="1">Find the specified child configuration node variable, yielding the variable</td><td colspan="1" rowspan="1">myconfig [0]</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">binary +</td><td colspan="1" rowspan="1">Append a configuration child node variable to the list</td><td colspan="1" rowspan="1">myconfig + &lt;&lt; "something" : "somethingvalue" : : &gt;&gt;</td>
+</tr>
+        
+</table>
+<p>In addition, the standard attributes <em>__script__</em>, <em>__dict__</em>, and <em>__size__</em> are supported 
+          by configuration variable types, as well as the <em>insert</em> and <em>remove</em> statements.</p>
+<a name="N104DF"></a><a name="Configuration+nodes"></a>
+<h3 class="h4">Configuration nodes</h3>
+<p>Configuration node variable types are children of configuration variable types or configuration node variable types.  They have several components, as listed below:</p>
+<ul>
+          
+<li>A type</li>
+          
+<li>A value</li>
+          
+<li>Attributes, described as a set of name/value pairs</li>
+          
+<li>Children, which must be configuration node variable types</li>
+        
+</ul>
+<p>Configuration node variable types can be created using an initializer of the form <strong>&lt;&lt;</strong> <em>expression</em> <strong>:</strong> <em>expression</em> <strong>:</strong> [<em>expression</em> <strong>=</strong> <em>expression</em> [<strong>,</strong> <em>expression</em> <strong>=</strong> <em>expression</em> ...]] <strong>:</strong> [<em>expression</em> [<strong>,</strong> <em>expression</em> ... ]] '&gt;&gt;'.
+          The first expression represents the type of the node.  The second is the node's value.  The series of '=' expressions represents attribute names and values.  The last series represents
+          the children of the node.  For example, the script code '&lt;&lt; "description" : "Solr" :  :  &gt;&gt;' represents a node of type 'description' with a value of 'Solr', with no attributes or children.</p>
+<p>The operations supported for this variable type, and their meanings are listed in the table below:</p>
+<table class="ForrestTable" cellspacing="1" cellpadding="4">
+          
+<caption>Configuration node operations</caption>
+          
+<tr>
+<th colspan="1" rowspan="1">Operation</th><th colspan="1" rowspan="1">Meaning</th><th colspan="1" rowspan="1">Example</th>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">subscript []</td><td colspan="1" rowspan="1">Find the specified child configuration node variable, yielding the variable</td><td colspan="1" rowspan="1">myconfig [0]</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">binary +</td><td colspan="1" rowspan="1">Append a configuration child node variable to the list</td><td colspan="1" rowspan="1">myconfig + &lt;&lt; "something" : "somethingvalue" : : &gt;&gt;</td>
+</tr>
+        
+</table>
+<p>In addition, the standard attributes <em>__script__</em>, <em>__string__</em>, <em>__size__</em>, <em>__type__</em>, <em>__dict__</em> and <em>__value__</em> are supported 
+          by configuration node variable types, as well as the <em>insert</em> and <em>remove</em> statements.</p>
+<a name="N10579"></a><a name="URLs"></a>
+<h3 class="h4">URLs</h3>
+<p>URL variable types exist to take care of the details of URL encoding while assembling the REST URL's needed to describe objects in ManifoldCF's REST API.  A URL variable
+          type can be created using a 'new' operation of the form <strong>new</strong> <strong>url</strong> <em>expression</em>, where the expression is the already-encoded root path.  For example, the script code 'new url "http://localhost:8345/mcf-api-service/json"'
+          would create a URL variable type with the root path "http://localhost:8345/mcf-api-service/json".</p>
+<p>The operations supported for this variable type, and their meanings are listed in the table below:</p>
+<table class="ForrestTable" cellspacing="1" cellpadding="4">
+          
+<caption>URL operations</caption>
+          
+<tr>
+<th colspan="1" rowspan="1">Operation</th><th colspan="1" rowspan="1">Meaning</th><th colspan="1" rowspan="1">Example</th>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">binary ==</td><td colspan="1" rowspan="1">Equals comparison, yielding a boolean</td><td colspan="1" rowspan="1">url1 == url2</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">binary !=</td><td colspan="1" rowspan="1">Non-equals comparison, yielding a boolean</td><td colspan="1" rowspan="1">url1 != url2</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">binary +</td><td colspan="1" rowspan="1">Append and encode another path or query argument element, yielding a URL</td><td colspan="1" rowspan="1">url1 + "repositoryconnections"</td>
+</tr>
+        
+</table>
+<p>In addition, the standard attributes <em>__script__</em> and <em>__string__</em>  are supported 
+          by URL variable types.</p>
+<a name="N105D6"></a><a name="Query+Arguments"></a>
+<h3 class="h4">Query Arguments</h3>
+<p>Query Argument variable types exist to take care of the details of URL encoding while assembling the query arguments of a REST URL for ManifoldCF's REST API.  A Query Argument variable
+          type can be created using a 'new' operation of the form <strong>new</strong> <strong>queryarg</strong> <em>expression</em> [<strong>=</strong> <em>expression</em>], where the first expression is the
+          query argument name, and the second optional expression is the query argument value.  For example, the script code 'new queryarg "report" = "simple"'
+          would create a Query Argument variable type representing the query argument "report=simple".  To add query arguments to a URL, simply add them using the '+' operator,
+          for example "urlvar = urlvar + new queryarg 'report' = 'simple';" .</p>
+<p>The operations supported for this variable type, and their meanings are listed in the table below:</p>
+<table class="ForrestTable" cellspacing="1" cellpadding="4">
+          
+<caption>Query Argument operations</caption>
+          
+<tr>
+<th colspan="1" rowspan="1">Operation</th><th colspan="1" rowspan="1">Meaning</th><th colspan="1" rowspan="1">Example</th>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">binary ==</td><td colspan="1" rowspan="1">Equals comparison, yielding a boolean</td><td colspan="1" rowspan="1">arg1 == arg2</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">binary !=</td><td colspan="1" rowspan="1">Non-equals comparison, yielding a boolean</td><td colspan="1" rowspan="1">arg1 != arg2</td>
+</tr>
+        
+</table>
+<p>In addition, the standard attributes <em>__script__</em> and <em>__string__</em>  are supported 
+          by Query Argument variable types.</p>
+<a name="N1062B"></a><a name="Connection+names"></a>
+<h3 class="h4">Connection names</h3>
+<p>Connection name variable types exist to perform the extra URL encoding needed for ManifoldCF's REST API.  Connection names must be specially encoded so that they do not
+          contain slash characters ('/').  Connection name variable types take care of this encoding.</p>
+<p>You can create a connection name variable type using the following syntax: <strong>new</strong> <strong>connectionname</strong> <em>expression</em>, where the expression is the name of the connection.
+        </p>
+<p>The operations supported for this variable type, and their meanings are listed in the table below:</p>
+<table class="ForrestTable" cellspacing="1" cellpadding="4">
+          
+<caption>URL operations</caption>
+          
+<tr>
+<th colspan="1" rowspan="1">Operation</th><th colspan="1" rowspan="1">Meaning</th><th colspan="1" rowspan="1">Example</th>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">binary ==</td><td colspan="1" rowspan="1">Equals comparison, yielding a boolean</td><td colspan="1" rowspan="1">cn1 == cn2</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">binary !=</td><td colspan="1" rowspan="1">Non-equals comparison, yielding a boolean</td><td colspan="1" rowspan="1">cn1 != cn2</td>
+</tr>
+        
+</table>
+<p>In addition, the standard attributes <em>__script__</em> and <em>__string__</em>  are supported 
+          by connection name variable types.</p>
+<a name="N1067D"></a><a name="Results"></a>
+<h3 class="h4">Results</h3>
+<p>Result variable types capture the result of a GET, PUT, POST, or DELETE statement.  They consist of two parts:</p>
+<ul>
+          
+<li>A result code</li>
+          
+<li>A result configuration value</li>
+        
+</ul>
+<p>There is no way to directly create a result variable type, nor does it support any operations.  However, the standard attributes <em>__script__</em>, <em>__string__</em>,
+          <em>__value__</em>, <em>__OK__</em>, <em>__NOTFOUND__</em>, and <em>__CREATED__</em> are all supported by result variable types.</p>
+</div>
+    
+    
+<a name="N106A6"></a><a name="Statements"></a>
+<h2 class="h3">Statements</h2>
+<div class="section">
+<p>The statements available to a ManifoldCF script programmer are designed to support interaction with the ManifoldCF API.  Thus, there is support for
+        all four HTTP verbs, as well as basic variable setting and control flow.  The table below describes each statement type:</p>
+<table class="ForrestTable" cellspacing="1" cellpadding="4">
+        
+<caption>Statement types</caption>
+        
+<tr>
+<th colspan="1" rowspan="1">Statement</th><th colspan="1" rowspan="1">Meaning</th><th colspan="1" rowspan="1">Example</th>
+</tr>
+        
+<tr>
+<td colspan="1" rowspan="1">'set' expression '=' expression ';'</td><td colspan="1" rowspan="1">Sets the variable described by the first expression with the value computed for the second</td><td colspan="1" rowspan="1">set myvar = 4 + 5;</td>
+</tr>
+        
+<tr>
+<td colspan="1" rowspan="1">'print' expression ';'</td><td colspan="1" rowspan="1">Prints the string value of the expression to stdout</td><td colspan="1" rowspan="1">print "hello world";</td>
+</tr>
+        
+<tr>
+<td colspan="1" rowspan="1">'if' expression 'then' statements ['else' statements] ';'</td><td colspan="1" rowspan="1">If the boolean value of the expression is 'true', executes the first set of statements, otherwise executes the (optional) second set</td><td colspan="1" rowspan="1">if true then print "hello"; else print "there"; ;</td>
+</tr>
+        
+<tr>
+<td colspan="1" rowspan="1">'while' expression 'do' statements ';'</td><td colspan="1" rowspan="1">While expression is true, execute the specified statements, and repeat</td><td colspan="1" rowspan="1">while count &gt; 0 do set count = count - 1; ;</td>
+</tr>
+        
+<tr>
+<td colspan="1" rowspan="1">'break' ';'</td><td colspan="1" rowspan="1">Exits from the nearest enclosing while loop</td><td colspan="1" rowspan="1">while true do break; ;</td>
+</tr>
+        
+<tr>
+<td colspan="1" rowspan="1">'error' expression ';'</td><td colspan="1" rowspan="1">Aborts the script with a script exception based on the string value of the expression</td><td colspan="1" rowspan="1">error "bad stuff";</td>
+</tr>
+        
+<tr>
+<td colspan="1" rowspan="1">'wait' expression ';'</td><td colspan="1" rowspan="1">Waits the number of milliseconds corresponding to the integer value of the expression</td><td colspan="1" rowspan="1">wait 1000;</td>
+</tr>
+        
+<tr>
+<td colspan="1" rowspan="1">'insert' expression 'into' expression ['at' expression] ';'</td><td colspan="1" rowspan="1">Inserts the first expression into the second variable expression, either at the end or optionally at the position specified by the third expression</td><td colspan="1" rowspan="1">insert 4 into myarray at 0 ;</td>
+</tr>
+        
+<tr>
+<td colspan="1" rowspan="1">'delete' expression 'from' expression ';'</td><td colspan="1" rowspan="1">Deletes the element described by the first expression from the second expression</td><td colspan="1" rowspan="1">delete 0 from myarray ;</td>
+</tr>
+        
+<tr>
+<td colspan="1" rowspan="1">'GET' expression '=' expression ';'</td><td colspan="1" rowspan="1">Perform an HTTP GET from the URL specified in the second expression capturing the result in the first expression</td><td colspan="1" rowspan="1">GET result = new url "http://localhost:8345/mcf-api-service/json/repositoryconnections" ;</td>
+</tr>
+        
+<tr>
+<td colspan="1" rowspan="1">'DELETE' expression '=' expression ';'</td><td colspan="1" rowspan="1">Perform an HTTP DELETE on the URL specified in the second expression capturing the result in the first expression</td><td colspan="1" rowspan="1">DELETE result = myurl ;</td>
+</tr>
+        
+<tr>
+<td colspan="1" rowspan="1">'PUT' expression '=' expression 'to' expression ';'</td><td colspan="1" rowspan="1">Perform an HTTP PUT of the second expression to the URL specified in the third expression capturing the result in the first expression</td><td colspan="1" rowspan="1">PUT result = configurationObject to myurl ;</td>
+</tr>
+        
+<tr>
+<td colspan="1" rowspan="1">'POST' expression '=' expression 'to' expression ';'</td><td colspan="1" rowspan="1">Perform an HTTP POST of the second expression to the URL specified in the third expression capturing the result in the first expression</td><td colspan="1" rowspan="1">POST result = configurationObject to myurl ;</td>
+</tr>
+      
+</table>
+</div>
+  
+</div>
+<!--+
+    |end content
+    +-->
+<div class="clearboth">&nbsp;</div>
+</div>
+<div id="footer">
+<!--+
+    |start bottomstrip
+    +-->
+<div class="lastmodified">
+<script type="text/javascript"><!--
+document.write("Last Published: " + document.lastModified);
+//  --></script>
+</div>
+<div class="copyright">
+        Copyright &copy;
+         2009-2024 <a href="http://www.apache.org/licenses/">The Apache Software Foundation.</a>
+</div>
+<div class="copyright">
+    Apache ManifoldCF, ManifoldCF, Apache Forrest, Forrest, Apache Solr, Solr, Apache, the Apache feather logo, the Apache Forrest
+    logo, and the Apache ManifoldCF logo are trademarks of The Apache Software Foundation.
+    Documentum and EMC are a trademarks of EMC Corporation.
+    SharePoint, Windows, and Microsoft are trademarks of Microsoft, Inc.
+    FileNet P8 and IBM are trademarks of IBM, Inc.
+    LiveLink and OpenText are trademarks of OpenText, Inc.
+    QBase, MetaCarta, and GTS are trademarks of QBase, Inc.
+    Meridio and Autonomy are trademarks of Hewlett Packard, Inc.
+    Alfresco is a trademark of Alfresco Software, Inc.
+    Jira is a trademark of Atlassian, Inc.
+  </div>
+<!--+
+    |end bottomstrip
+    +-->
+</div>
+</body>
+</html>
