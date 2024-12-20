@@ -1,0 +1,492 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="Apache Forrest" name="Generator">
+<meta name="Forrest-version" content="0.9">
+<meta name="Forrest-skin-name" content="lucene">
+<title>Writing output connectors</title>
+<link type="text/css" href="../skin/basic.css" rel="stylesheet">
+<link media="screen" type="text/css" href="../skin/screen.css" rel="stylesheet">
+<link media="print" type="text/css" href="../skin/print.css" rel="stylesheet">
+<link type="text/css" href="../skin/profile.css" rel="stylesheet">
+<script src="../skin/getBlank.js" language="javascript" type="text/javascript"></script><script src="../skin/getMenu.js" language="javascript" type="text/javascript"></script><script src="../skin/fontsize.js" language="javascript" type="text/javascript"></script>
+<link rel="shortcut icon" href="../images/favicon.ico">
+</head>
+<body onload="init()">
+<script type="text/javascript">ndeSetTextSize();</script>
+<div id="top">
+<!--+
+    |breadtrail
+    +-->
+<div class="breadtrail">
+<a href="http://www.apache.org/">Apache</a> &gt; <a href="http://manifoldcf.apache.org">ManifoldCF</a> &gt; <a href="">Release Documentation</a><script src="../skin/breadcrumbs.js" language="JavaScript" type="text/javascript"></script>
+</div>
+<!--+
+    |header
+    +-->
+<div class="header">
+<!--+
+    |start group logo
+    +-->
+<div class="grouplogo">
+<a href="https://www.apache.org"><img class="logoImage" alt="Apache" src="../images/SupportApache-small-128.png" title="Apache Software Foundation"></a>
+</div>
+<!--+
+    |end group logo
+    +-->
+<!--+
+    |start Project Logo
+    +-->
+<div class="projectlogo">
+<a href="http://manifoldcf.apache.org"><img class="logoImage" alt="Apache ManifoldCF" src="../images/ManifoldCF-logo.PNG" title="ManifoldCF"></a>
+</div>
+<!--+
+    |end Project Logo
+    +-->
+<div class="projectlogo">
+<a href="https://www.apache.org/events/current-event.html"><img class="logoImage" src="https://www.apache.org/events/current-event-234x60.png"></a>
+</div>
+
+<!--+
+    |start Tabs
+    +-->
+<ul id="tabs">
+<li>
+<a class="unselected" href="..">Hello!</a>
+</li>
+<li>
+<a class="unselected" href="../en_US/index.html">English</a>
+</li>
+<li>
+<a class="unselected" href="../ja_JP/index.html">日本語</a>
+</li>
+<li>
+<a class="unselected" href="../zh_CN/index.html">中文</a>
+</li>
+</ul>
+<!--+
+    |end Tabs
+    +-->
+</div>
+</div>
+<div id="main">
+<div id="publishedStrip">
+<!--+
+    |start Subtabs
+    +-->
+<div id="level2tabs"></div>
+<!--+
+    |end Endtabs
+    +-->
+<script type="text/javascript"><!--
+document.write("Last Published: " + document.lastModified);
+//  --></script>
+</div>
+<!--+
+    |breadtrail
+    +-->
+<div class="breadtrail">
+
+             &nbsp;
+           </div>
+<!--+
+    |start Menu, mainarea
+    +-->
+<!--+
+    |start Menu
+    +-->
+<div id="menu">
+<div onclick="SwitchMenu('menu_1.1', '../skin/')" id="menu_1.1Title" class="menutitle">English</div>
+<div id="menu_1.1" class="menuitemgroup">
+<div class="menuitem">
+<a href="../en_US/index.html">Welcome</a>
+</div>
+<div onclick="SwitchMenu('menu_1.1.2', '../skin/')" id="menu_1.1.2Title" class="menutitle">Documentation</div>
+<div id="menu_1.1.2" class="menuitemgroup">
+<div class="menuitem">
+<a href="../en_US/concepts.html">Concepts</a>
+</div>
+<div class="menuitem">
+<a href="../en_US/included-connectors.html">Compatibility Matrix</a>
+</div>
+<div class="menuitem">
+<a href="../en_US/faq.html">Frequently Asked Questions</a>
+</div>
+<div class="menuitem">
+<a href="../en_US/programmatic-operation.html">API Documentation</a>
+</div>
+<div class="menuitem">
+<a href="../en_US/javadoc.html">Javadoc</a>
+</div>
+<div class="menuitem">
+<a href="../en_US/how-to-build-and-deploy.html">Building and Deploying</a>
+</div>
+<div class="menuitem">
+<a href="../en_US/technical-resources.html">Technical Resources</a>
+</div>
+<div class="menuitem">
+<a href="../en_US/performance-tuning.html">Performance tuning</a>
+</div>
+<div class="menuitem">
+<a href="../en_US/script.html">Scripting Language</a>
+</div>
+<div class="menuitem">
+<a href="../en_US/end-user-documentation.html">End-user Documentation (HTML)</a>
+</div>
+<div class="menuitem">
+<a href="../en_US/end-user-documentation.pdf">End-user Documentation (PDF)</a>
+</div>
+</div>
+</div>
+<div onclick="SwitchMenu('menu_1.2', '../skin/')" id="menu_1.2Title" class="menutitle">日本語</div>
+<div id="menu_1.2" class="menuitemgroup">
+<div class="menuitem">
+<a href="../ja_JP/index.html">概要</a>
+</div>
+<div onclick="SwitchMenu('menu_1.2.2', '../skin/')" id="menu_1.2.2Title" class="menutitle">ドキュメント</div>
+<div id="menu_1.2.2" class="menuitemgroup">
+<div class="menuitem">
+<a href="../ja_JP/concepts.html">概要</a>
+</div>
+<div class="menuitem">
+<a href="../ja_JP/included-connectors.html">コネクタ一覧</a>
+</div>
+<div class="menuitem">
+<a href="../ja_JP/faq.html">Ｑ＆Ａ</a>
+</div>
+<div class="menuitem">
+<a href="../ja_JP/javadoc.html">Javadoc</a>
+</div>
+<div class="menuitem">
+<a href="../ja_JP/technical-resources.html">開発者リソース</a>
+</div>
+<div class="menuitem">
+<a href="../ja_JP/end-user-documentation.html">エンドユーザマニュアル (HTML)</a>
+</div>
+<div class="menuitem">
+<a href="../ja_JP/end-user-documentation.pdf">エンドユーザマニュアル (PDF)</a>
+</div>
+</div>
+</div>
+<div onclick="SwitchMenu('menu_1.3', '../skin/')" id="menu_1.3Title" class="menutitle">中文</div>
+<div id="menu_1.3" class="menuitemgroup">
+<div class="menuitem">
+<a href="../zh_CN/index.html">概要</a>
+</div>
+<div onclick="SwitchMenu('menu_1.3.2', '../skin/')" id="menu_1.3.2Title" class="menutitle">文档</div>
+<div id="menu_1.3.2" class="menuitemgroup">
+<div class="menuitem">
+<a href="../zh_CN/concepts.html">概要</a>
+</div>
+<div class="menuitem">
+<a href="../zh_CN/included-connectors.html">连接器一览</a>
+</div>
+<div class="menuitem">
+<a href="../zh_CN/faq.html">Q&amp;A</a>
+</div>
+<div class="menuitem">
+<a href="../zh_CN/javadoc.html">Javadoc</a>
+</div>
+<div class="menuitem">
+<a href="../zh_CN/technical-resources.html">开发人员资源</a>
+</div>
+<div class="menuitem">
+<a href="../zh_CN/end-user-documentation.html">用户手册(HTML)</a>
+</div>
+</div>
+</div>
+<div id="credit"></div>
+<div id="roundbottom">
+<img style="display: none" class="corner" height="15" width="15" alt="" src="../skin/images/rc-b-l-15-1body-2menu-3menu.png"></div>
+<!--+
+  |alternative credits
+  +-->
+<div id="credit2"></div>
+</div>
+<!--+
+    |end Menu
+    +-->
+<!--+
+    |start content
+    +-->
+<div id="content">
+<h1>Writing output connectors</h1>
+<div id="minitoc-area">
+<ul class="minitoc">
+<li>
+<a href="#Writing+an+Output+Connector">Writing an Output Connector</a>
+<ul class="minitoc">
+<li>
+<a href="#Key+concepts">Key concepts</a>
+</li>
+<li>
+<a href="#Implementing+the+Output+Connector+class">Implementing the Output Connector class</a>
+<ul class="minitoc">
+<li>
+<a href="#Principle+methods">Principle methods</a>
+</li>
+<li>
+<a href="#Choosing+the+form+of+the+output+version+string">Choosing the form of the output version string</a>
+</li>
+<li>
+<a href="#Notes+on+connector+UI+methods">Notes on connector UI methods</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#Implementation+support+provided+by+the+framework">Implementation support provided by the framework</a>
+</li>
+<li>
+<a href="#DO%27s+and+DON%27T+DO%27s">DO's and DON'T DO's</a>
+</li>
+</ul>
+</li>
+</ul>
+</div> 
+    
+<a name="N1000E"></a><a name="Writing+an+Output+Connector"></a>
+<h2 class="h3">Writing an Output Connector</h2>
+<div class="section">
+<p></p>
+<p>An output connector furnishes the mechanism by which content that has been fetched from a repository gets handed to a back-end repository for processing.  It also furnishes a mechanism for removing previously-processed content from that back end repository.</p>
+<p></p>
+<p>As is the case with all connectors under the ManifoldCF umbrella, an output connector consists of a single part, which is:</p>
+<p></p>
+<ul>
+        
+<li>A class implementing an interface (in this case, <em>org.apache.manifoldcf.agents.interfaces.IOutputConnector</em>)</li>
+      
+</ul>
+<p></p>
+<a name="N1002B"></a><a name="Key+concepts"></a>
+<h3 class="h4">Key concepts</h3>
+<p></p>
+<p>The output connector abstraction makes use of, or introduces, the following concepts:</p>
+<p></p>
+<table class="ForrestTable" cellspacing="1" cellpadding="4">
+          
+<tr>
+<th colspan="1" rowspan="1">Concept</th><th colspan="1" rowspan="1">What it is</th>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">Configuration parameters</td><td colspan="1" rowspan="1">A hierarchical structure, internally represented as an XML document, which describes a specific configuration of a specific output connector, i.e. <strong>how</strong> the connector should do its job; see <em>org.apache.manifoldcf.core.interfaces.ConfigParams</em></td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">Output connection</td><td colspan="1" rowspan="1">An output connector instance that has been furnished with configuration data</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">Document URI</td><td colspan="1" rowspan="1">The unique URI (or, in some cases, file IRI) of a document, which is meant to be displayed in search engine results as the link to the document</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">Repository document</td><td colspan="1" rowspan="1">An object that describes a document's contents, including raw document data (as a stream), metadata (as either strings or streams), and access tokens; see <em>org.apache.manifoldcf.agents.interfaces.RepositoryDocument</em></td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">Connection management/threading/pooling model</td><td colspan="1" rowspan="1">How an individual output connector class instance is managed and used</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">Activity infrastructure</td><td colspan="1" rowspan="1">The framework API provided to specific methods allowing those methods to perform specific actions within the framework, e.g. recording activities; see <em>org.apache.manifoldcf.agents.interfaces.IOutputAddActivity</em> and <em>org.apache.manifoldcf.agents.interfaces.IOutputRemoveActivity</em></td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">Output specification</td><td colspan="1" rowspan="1">A hierarchical structure, internally represented as an XML document, which describes <strong>what</strong> a specific output connector should do in the context of a specific job; see <em>org.apache.manifoldcf.agents.interfaces.OutputSpecification</em></td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">Output version string</td><td colspan="1" rowspan="1">A simple string, used for comparison purposes, that allows ManifoldCF to figure out if an ingestion operation needs to be repeated as a result of changes to the output specification in effect for a document</td>
+</tr>
+          
+<tr>
+<td colspan="1" rowspan="1">Service interruption</td><td colspan="1" rowspan="1">A specific kind of exception that signals ManifoldCF that the output repository is unavailable, and gives a best estimate of when it might become available again; see <em>org.apache.manifoldcf.agents.interfaces.ServiceInterruption</em></td>
+</tr>
+        
+</table>
+<p></p>
+<p></p>
+<a name="N100B7"></a><a name="Implementing+the+Output+Connector+class"></a>
+<h3 class="h4">Implementing the Output Connector class</h3>
+<p></p>
+<p>A very good place to start is to read the javadoc for the output connector interface.  You will note that the javadoc describes the usage and pooling model for a connector class pretty thoroughly.  It is very important to understand the model thoroughly in order to write reliable connectors!  Use of static variables, for one thing, must be done in a very careful way, to avoid issues that would be hard to detect with a cursory test.</p>
+<p></p>
+<p>The second thing to do is to examine some of the provided output connector implementations.  The GTS connector, the SOLR connector, the OpenSearchServer connector, the ElasticSearch connector, and the Null Output connector all are output connectors which demonstrate (to some degree) the sorts of techniques you will need for an effective implementation.  You will also note that all of these connectors extend a framework-provided output connector base class, found at <em>org.apache.manifoldcf.agents.output.BaseOutputConnector</em>.  This base class furnishes some basic bookkeeping logic for managing the connector pool, as well as default implementations of some of the less typical functionality a connector may have.  For example, connectors are allowed to have database tables of their own, which are instantiated when the connector is registered, and are torn down when the connector is removed.  This is, however, not very typical, and the base implementation reflects that.</p>
+<p></p>
+<a name="N100CC"></a><a name="Principle+methods"></a>
+<h4>Principle methods</h4>
+<p></p>
+<p>The principle methods an implementer should be concerned with for creating an output connector are the following:</p>
+<p></p>
+<table class="ForrestTable" cellspacing="1" cellpadding="4">
+            
+<tr>
+<th colspan="1" rowspan="1">Method</th><th colspan="1" rowspan="1">What it should do</th>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1"><strong>checkMimetypeIndexable()</strong></td><td colspan="1" rowspan="1">Decide whether a document with a given mime type is indexable or not</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1"><strong>checkDocumentIndexable()</strong></td><td colspan="1" rowspan="1">Decide whether a file is indexable or not</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1"><strong>checkLengthIndexable()</strong></td><td colspan="1" rowspan="1">Decide whether a document of a given length is indexable or not</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1"><strong>checkURLIndexable()</strong></td><td colspan="1" rowspan="1">Decide whether a document with a given URL is indexable or not</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1"><strong>getPipelineDescription()</strong></td><td colspan="1" rowspan="1">Use the supplied output specification to come up with an output version string</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1"><strong>addOrReplaceDocument()</strong></td><td colspan="1" rowspan="1">Add or replace the specified document within the target repository, or signal if the document cannot be handled</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1"><strong>removeDocument()</strong></td><td colspan="1" rowspan="1">Remove the specified document from the target repository</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1"><strong>outputConfigurationHeader()</strong></td><td colspan="1" rowspan="1">Output the head-section part of an output connection <em>ConfigParams</em> editing page</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1"><strong>outputConfigurationBody()</strong></td><td colspan="1" rowspan="1">Output the body-section part of an output connection <em>ConfigParams</em> editing page</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1"><strong>processConfigurationPost()</strong></td><td colspan="1" rowspan="1">Receive and process form data from an output connection <em>ConfigParams</em> editing page</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1"><strong>viewConfiguration()</strong></td><td colspan="1" rowspan="1">Output the viewing HTML for an output connection <em>ConfigParams</em> object</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1"><strong>outputSpecificationHeader()</strong></td><td colspan="1" rowspan="1">Output the head-section part of a <em>Specification</em> editing page</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1"><strong>outputSpecificationBody()</strong></td><td colspan="1" rowspan="1">Output the body-section part of a <em>Specification</em> editing page</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1"><strong>processSpecificationPost()</strong></td><td colspan="1" rowspan="1">Receive and process form data from a <em>Specification</em> editing page</td>
+</tr>
+            
+<tr>
+<td colspan="1" rowspan="1"><strong>viewSpecification()</strong></td><td colspan="1" rowspan="1">Output the viewing page for a <em>Specification</em> object</td>
+</tr>
+          
+</table>
+<p></p>
+<p>These methods come in three broad classes: (a) functional methods for doing the work of the connector; (b) UI methods for configuring a connection; and (c) UI methods for editing the output specification for a job.  Together they do the heavy lifting of your connector.  But before you can write any code at all, you need to plan things out a bit.</p>
+<p></p>
+<a name="N101AB"></a><a name="Choosing+the+form+of+the+output+version+string"></a>
+<h4>Choosing the form of the output version string</h4>
+<p></p>
+<p>The output version string is used by ManifoldCF to determine whether or not the output specification or configuration changed in such a way as to require that the document be reprocessed.  ManifoldCF therefore requests the output version string for any document that is ready for processing, and usually does not process the document again if the returned output version string agrees with the output version string it has stored.</p>
+<p></p>
+<p>Thinking about it more carefully, it is clear that what an output connector writer needs to do is include everything in the output version string that could potentially affect how the document gets ingested, save that which is specific to the repository connector.  That may include bits of output connector configuration information, as well as data from the output specification.  When it's time to ingest, it's usually the correct thing to do to obtain the necessary data for ingestion out of the output version string, rather than calculating it or fetching it anew, because that guarantees that the document processing was done in a manner that agrees with its recorded output version string, thus eliminating any chance of ManifoldCF getting confused.</p>
+<p></p>
+<a name="N101BE"></a><a name="Notes+on+connector+UI+methods"></a>
+<h4>Notes on connector UI methods</h4>
+<p></p>
+<p>The crawler UI uses a tabbed layout structure, and thus each of the UI methods must properly implement the tabbed model.  This means that the "header" methods above must add the desired tab names to a specified array, and the "body" methods must provide appropriate HTML which handles both the case where a tab is displayed, and where it is not displayed.  Also, it makes sense to use the appropriate css definitions, so that the connector UI pages have a similar look-and-feel to the rest of ManifoldCF's crawler ui.  We strongly suggest starting with one of the supplied connector's UI code, both for a description of the arguments to each method, and for some decent ideas of ways to organize your connector's UI code.</p>
+<p></p>
+<p>Please also note that it is good practice to name the form fields in your HTML in such a way that they cannot collide with form fields that may come from the framework's HTML or any specific repository connector's HTML.  The <em>OutputSpecification</em> HTML especially may be prone to collisions, because within any given job, this HTML is included in the same page as HTML from the chosen repository connector.</p>
+<p></p>
+<p></p>
+<a name="N101D7"></a><a name="Implementation+support+provided+by+the+framework"></a>
+<h3 class="h4">Implementation support provided by the framework</h3>
+<p></p>
+<p>ManifoldCF's framework provides a number of helpful services designed to make the creation of a connector easier.  These services are summarized below.  (This is not an exhaustive list, by any means.)</p>
+<p></p>
+<ul>
+          
+<li>Lock management and synchronization (see <em>org.apache.manifoldcf.core.interfaces.LockManagerFactory</em>)</li>
+          
+<li>Cache management (see <em>org.apache.manifoldcf.core.interfaces.CacheManagerFactory</em>)</li>
+          
+<li>Local keystore management (see <em>org.apache.manifoldcf.core.KeystoreManagerFactory</em>)</li>
+          
+<li>Database management (see <em>org.apache.manifoldcf.core.DBInterfaceFactory</em>)</li>
+        
+</ul>
+<p></p>
+<p>For UI method support, these too are very useful:</p>
+<p></p>
+<ul>
+          
+<li>Multipart form processing (see <em>org.apache.manifoldcf.ui.multipart.MultipartWrapper</em>)</li>
+          
+<li>HTML encoding (see <em>org.apache.manifoldcf.ui.util.Encoder</em>)</li>
+          
+<li>HTML formatting (see <em>org.apache.manifoldcf.ui.util.Formatter</em>)</li>
+        
+</ul>
+<p></p>
+<a name="N1021E"></a><a name="DO%27s+and+DON%27T+DO%27s"></a>
+<h3 class="h4">DO's and DON'T DO's</h3>
+<p></p>
+<p>It's always a good idea to make use of an existing infrastructure component, if it's meant for that purpose, rather than inventing your own.  There are, however, some limitations we recommend you adhere to.</p>
+<p></p>
+<ul>
+          
+<li>DO make use of infrastructure components described in the section above</li>
+          
+<li>DON'T make use of infrastructure components that aren't mentioned, without checking first</li>
+          
+<li>NEVER write connector code that directly uses framework database tables, other than the ones installed and managed by your connector</li>
+        
+</ul>
+<p></p>
+<p>If you are tempted to violate these rules, it may well mean you don't understand something important.  At the very least, we'd like to know why.  Send email to dev@manifoldcf.apache.org with a description of your problem and how you are tempted to solve it.</p>
+</div>
+  
+</div>
+<!--+
+    |end content
+    +-->
+<div class="clearboth">&nbsp;</div>
+</div>
+<div id="footer">
+<!--+
+    |start bottomstrip
+    +-->
+<div class="lastmodified">
+<script type="text/javascript"><!--
+document.write("Last Published: " + document.lastModified);
+//  --></script>
+</div>
+<div class="copyright">
+        Copyright &copy;
+         2009-2024 <a href="http://www.apache.org/licenses/">The Apache Software Foundation.</a>
+</div>
+<div class="copyright">
+    Apache ManifoldCF, ManifoldCF, Apache Forrest, Forrest, Apache Solr, Solr, Apache, the Apache feather logo, the Apache Forrest
+    logo, and the Apache ManifoldCF logo are trademarks of The Apache Software Foundation.
+    Documentum and EMC are a trademarks of EMC Corporation.
+    SharePoint, Windows, and Microsoft are trademarks of Microsoft, Inc.
+    FileNet P8 and IBM are trademarks of IBM, Inc.
+    LiveLink and OpenText are trademarks of OpenText, Inc.
+    QBase, MetaCarta, and GTS are trademarks of QBase, Inc.
+    Meridio and Autonomy are trademarks of Hewlett Packard, Inc.
+    Alfresco is a trademark of Alfresco Software, Inc.
+    Jira is a trademark of Atlassian, Inc.
+  </div>
+<!--+
+    |end bottomstrip
+    +-->
+</div>
+</body>
+</html>

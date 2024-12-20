@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"org.apache.manifoldcf.authorities.authorities.alfrescowebscript"},{"l":"org.apache.manifoldcf.crawler.connectors.alfrescowebscript"}]

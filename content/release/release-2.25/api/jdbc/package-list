@@ -1,0 +1,3 @@
+org.apache.manifoldcf.authorities.authorities.jdbc
+org.apache.manifoldcf.crawler.connectors.jdbc
+org.apache.manifoldcf.jdbc
