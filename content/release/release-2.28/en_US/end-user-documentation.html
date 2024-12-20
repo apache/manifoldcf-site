@@ -1958,24 +1958,71 @@ document.write("Last Published: " + document.lastModified);
 <br>
 <a name="N10A31"></a><a name="genericauthorityjson"></a>
 <h3 class="h4">New Generic Authority (JSON format)</h3>
-<p>Generic authority is intended to be used with Generic Connector and provide authentication tokens based on generic API. The idea is that you can use it and implement only the API which is designed
-                    to be fine grained and as simple as it is possible to handle all tasks.</p>
-<p>API should be implemented as json web page (entry point) returning results based on provided GET params. It may be a simple server script or part of the bigger application.
-                    API can be secured with HTTP basic authentication.</p>
+<p>The goal of this connector is to have a new generic connector that can ingest data in JSON format. The existing generic connector into MCF crawls data from XML and works only with Java 8. 
+    This one is inspired from the original one but works into Java 11 and can crawl data into JSON format.</p>
+<p>The API should be implemented as json result page (entry point) returning results based on provided GET params. It may be a simple server script or part of the bigger application. API can 
+    be secured with HTTP basic authentication and can use HTTPS.</p>
+
 <br>
 <p>
-<b>[entrypoint]?username=UserName@Domain</b>
+<b>[entrypoint]?username=UserName</b>
 </p>
 <p>Parameters:</p>
 <ul>
                     
 <li>username - name of the user we want to resolve and fetch tokens.</li>
-                
+<br>
 </ul>
 <p>Result should be valid JSON document:</p>
 <pre class="code">
-	<p>{ &quot;tokens&quot;:[ &quot;token1&quot;, &quot;token2&quot;, &quot;token3&quot; ] }</p>
+    { 
+        "tokens": [ 
+            "token1", 
+            "token2", 
+            "token3" 
+        ] 
+        "toto"
+    }
 </pre>
+<p><b>Example: </b></p>
+
+<p>Query: https://api.fr?username=jeanlouis</p>
+
+<p>Response: </p>
+
+<pre class="code">
+    {
+        "tokens":[
+            "authenticated",
+            "administrator",
+            "administrateur_espace",
+            "toulon",
+            "membre_rh",
+            "administrateur_1",
+            "administrateur_537"
+        ]
+    }        
+</pre>
+<br>
+<h4>Configure the connector</h4>
+<p>In the "NewGeneric Parameters" tab :
+    <ul>
+        <li><b>URL</b>: This is the URL of the entrypoint</li>
+
+        <li><b>Login</b>: Set the username that has access to the JSON API REST endpoint if it is protected </li>
+        
+        <li><b>Password</b>: Set the password of the account that has access to the JSON API REST endpoint if it is protected </li>
+        
+        <li><b>Cache life time</b>: here you set the time a user's information is kept around</li>
+        
+        <li><b>Connection Timeout</b>: This is the timeout in milliseconds after which a connection attempt to the endpoint is considered failed</li>
+        
+        <li><b>Socket Timeout</b>: This is the timeout in milliseconds after which an endpoint request response reading attempt is considered failed</li>
+    </ul>
+</p>
+
+<div id="" style="text-align: left;">
+    <img id="" class="figure" alt="Generic Database Authority Connection, Database Type tab" src="images/en_US/newgeneric-authority-configure-json-parameters.PNG" width="45%"></div>
 <br>
 <br>
 <a name="N10A76"></a><a name="jdbcauthority"></a>
