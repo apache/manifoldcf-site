@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"org.apache.manifoldcf.agents.output.cmisoutput"},{"l":"org.apache.manifoldcf.authorities.authorities.cmis"},{"l":"org.apache.manifoldcf.crawler.connectors.cmis"}]

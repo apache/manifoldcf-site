@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"org.apache.manifoldcf.authorities.authorities.nuxeo"},{"l":"org.apache.manifoldcf.crawler.connectors.nuxeo"},{"l":"org.apache.manifoldcf.crawler.connectors.nuxeo.exception"},{"l":"org.apache.manifoldcf.crawler.connectors.nuxeo.model"}]

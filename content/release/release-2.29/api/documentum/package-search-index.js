@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"org.apache.manifoldcf.authorities.authorities.DCTM"},{"l":"org.apache.manifoldcf.crawler.common.DCTM"},{"l":"org.apache.manifoldcf.crawler.connectors.DCTM"}]
