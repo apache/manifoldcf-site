@@ -37,6 +37,20 @@
     <release>
       <Version>
         <name>apache-manifoldcf</name>
+        <created>2026-04-11</created>
+        <revision>2.30</revision>
+      </Version>
+    </release>
+    <release>
+      <Version>
+        <name>apache-manifoldcf</name>
+        <created>2025-09-12</created>
+        <revision>2.29</revision>
+      </Version>
+    </release>
+    <release>
+      <Version>
+        <name>apache-manifoldcf</name>
         <created>2025-01-15</created>
         <revision>2.28</revision>
       </Version>

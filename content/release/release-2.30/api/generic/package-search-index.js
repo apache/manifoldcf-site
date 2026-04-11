@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"org.apache.manifoldcf.authorities.authorities.generic"},{"l":"org.apache.manifoldcf.crawler.connectors.generic"},{"l":"org.apache.manifoldcf.crawler.connectors.generic.api"}]
