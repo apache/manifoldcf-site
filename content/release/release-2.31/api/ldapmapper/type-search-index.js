@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"org.apache.manifoldcf.authorities.mappers.ldap","l":"LDAPMapper"},{"p":"org.apache.manifoldcf.authorities.mappers.ldap","l":"Messages"}]

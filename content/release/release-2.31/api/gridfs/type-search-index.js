@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"org.apache.manifoldcf.crawler.connectors.gridfs","l":"GridFSConstants"},{"p":"org.apache.manifoldcf.crawler.connectors.gridfs","l":"GridFSRepositoryConnector"},{"p":"org.apache.manifoldcf.crawler.connectors.gridfs","l":"Messages"}]

@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"org.apache.manifoldcf.agents.transformation.htmlextractor"},{"l":"org.apache.manifoldcf.agents.transformation.htmlextractor.exception"}]

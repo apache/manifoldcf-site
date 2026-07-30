@@ -1,0 +1,3 @@
+org.apache.manifoldcf.agents.output.cmisoutput
+org.apache.manifoldcf.authorities.authorities.cmis
+org.apache.manifoldcf.crawler.connectors.cmis

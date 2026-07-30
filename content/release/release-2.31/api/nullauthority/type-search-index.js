@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"org.apache.manifoldcf.authorities.authorities.nullauthority","l":"Messages"},{"p":"org.apache.manifoldcf.authorities.authorities.nullauthority","l":"NullAuthority"}]
