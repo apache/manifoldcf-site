@@ -1,0 +1,5 @@
+# Apache ManifoldCF robots.txt
+User-agent: *
+Allow: /
+
+Sitemap: https://manifoldcf.apache.org/sitemap.xml
