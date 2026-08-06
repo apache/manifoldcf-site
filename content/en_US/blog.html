@@ -5,7 +5,7 @@
 <meta content="Apache Forrest" name="Generator">
 <meta name="Forrest-version" content="0.9">
 <meta name="Forrest-skin-name" content="lucene">
-<title>ManifoldCF Document Security</title>
+<title>ManifoldCF - Blog</title>
 <link type="text/css" href="../skin/basic.css" rel="stylesheet">
 <link media="screen" type="text/css" href="../skin/screen.css" rel="stylesheet">
 <link media="print" type="text/css" href="../skin/print.css" rel="stylesheet">
@@ -13,6 +13,70 @@
 <script src="../skin/getBlank.js" language="javascript" type="text/javascript"></script><script src="../skin/getMenu.js" language="javascript" type="text/javascript"></script><script src="../skin/fontsize.js" language="javascript" type="text/javascript"></script>
 <link rel="icon" type="image/png" href="../images/favicon.png" sizes="16x16">
 <link rel="shortcut icon" href="../images/favicon.png">
+<style type="text/css">
+.blog-post-card {
+  border: 1px solid #cfd8dc;
+  border-radius: 6px;
+  padding: 18px 22px;
+  margin-bottom: 24px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.blog-post-card:hover {
+  border-color: #29b6f6;
+  box-shadow: 0 4px 12px rgba(41,182,246,0.15);
+}
+.blog-title {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 1.35em;
+}
+.blog-title a {
+  color: #0f4c81;
+  text-decoration: none;
+  font-weight: bold;
+}
+.blog-title a:hover {
+  text-decoration: underline;
+  color: #0277bd;
+}
+.blog-meta {
+  font-size: 0.88em;
+  color: #607d8b;
+  margin-bottom: 12px;
+}
+.blog-meta span {
+  margin-right: 15px;
+}
+.blog-badge {
+  background-color: #e1f5fe;
+  color: #0288d1;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.82em;
+  font-weight: bold;
+}
+.blog-summary {
+  line-height: 1.55;
+  color: #37474f;
+  margin-bottom: 14px;
+}
+.read-more-btn {
+  display: inline-block;
+  background-color: #0f4c81;
+  color: #ffffff !important;
+  padding: 6px 14px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 0.9em;
+  font-weight: bold;
+}
+.read-more-btn:hover {
+  background-color: #0277bd;
+  text-decoration: none;
+}
+</style>
 </head>
 <body onload="init()">
 <script type="text/javascript">ndeSetTextSize();</script>
@@ -55,11 +119,11 @@
 <li>
 <a class="unselected" href="..">Hello!</a>
 </li>
-<li class="current">
-<a class="selected" href="../en_US/index.html">English</a>
-</li>
 <li>
-<a class="unselected" href="../en_US/blog.html">Blog</a>
+<a class="unselected" href="../en_US/index.html">English</a>
+</li>
+<li class="current">
+<a class="selected" href="../en_US/blog.html">Blog</a>
 </li>
 <li>
 <a class="unselected" href="../ja_JP/index.html">日本語</a>
@@ -144,16 +208,16 @@ document.write("Last Published: " + document.lastModified);
 <a href="../en_US/release-documentation.html">Release Documentation</a>
 </div>
 </div>
-<div onclick="SwitchMenu('menu_selected_1.1.6', '../skin/')" id="menu_selected_1.1.6Title" class="menutitle" style="background-image: url('../skin/images/chapter_open.gif');">Resources</div>
-<div id="menu_selected_1.1.6" class="selectedmenuitemgroup" style="display: block;">
+<div onclick="SwitchMenu('menu_1.1.6', '../skin/')" id="menu_1.1.6Title" class="menutitle">Resources</div>
+<div id="menu_1.1.6" class="menuitemgroup">
 <div class="menuitem">
 <a href="../en_US/mail.html">Mailing Lists</a>
 </div>
 <div class="menuitem">
 <a href="../en_US/developer-resources.html">Developer/Integrator Resources</a>
 </div>
-<div class="menupage">
-<div class="menupagetitle">Security Analysis</div>
+<div class="menuitem">
+<a href="../en_US/security.html">Security Analysis</a>
 </div>
 <div class="menuitem">
 <a href="http://www.apache.org/security/">Report Security Problems</a>
@@ -208,85 +272,73 @@ document.write("Last Published: " + document.lastModified);
     |start content
     +-->
 <div id="content">
-<h1>ManifoldCF Document Security</h1>
+<h1>Apache ManifoldCF&trade; Blog</h1>
 <div id="minitoc-area">
 <ul class="minitoc">
 <li>
-<a href="#Document+Security+Issues">Document Security Issues</a>
-<ul class="minitoc">
-<li>
-<a href="#Overview">Overview</a>
-<ul class="minitoc">
-<li>
-<a href="#How+Search+Engines+Work">How Search Engines Work</a>
+<a href="#articles">Latest Articles</a>
 </li>
 <li>
-<a href="#Security+Definitions">Security Definitions</a>
-</li>
-<li>
-<a href="#How+ManifoldCF+Applies+Security">How ManifoldCF Applies Security</a>
+<a href="#about-blog">About This Blog</a>
 </li>
 </ul>
-</li>
-<li>
-<a href="#Potential+Security+Issues+with+ManifoldCF">Potential Security Issues with ManifoldCF</a>
-<ul class="minitoc">
-<li>
-<a href="#Scoring-based+Discovery+of+Document+Keywords">Scoring-based Discovery of Document Keywords</a>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</div> 
-
-      
-<a name="N1000E"></a><a name="Document+Security+Issues"></a>
-<h2 class="h3">Document Security Issues</h2>
-<div class="section">
-<a name="N10014"></a><a name="Overview"></a>
-<h3 class="h4">Overview</h3>
-<p>ManifoldCF provides a security model for documents which is typically enforced by the search engine the documents are indexed
-                  with.  Often, this search engine is Apache Lucene, but others may be used either now or in the future.  This page describes
-                  how document security is enforced, and what the limitations are of this technique.</p>
-<a name="N1001D"></a><a name="How+Search+Engines+Work"></a>
-<h4>How Search Engines Work</h4>
-<p>A standard search engine has one or more <em>indexes</em>, which associate <em>terms</em> with <em>documents</em>.  A
-                    <em>query</em> is issued to the search engine, which uses one or more of the indexes to generate a list of documents.  The
-                    list of documents is then <em>scored</em>, which means that they are given a numeric ranking value based on how closely they
-                    match the query.  The scoring operation typically also makes use of statistic measures, such as how frequently a term appears in
-                    documents in the index.</p>
-<a name="N10036"></a><a name="Security+Definitions"></a>
-<h4>Security Definitions</h4>
-<p>Complete definitions of security usually include elements of <em>confidentiality</em>, <em>integrity</em>, and <em>availability</em>.
-                      Confidentiality has a strict definition, which not only prevents a user from seeing information belonging to another user, but also
-                      prevents a user from even knowing about the existence of information belonging to another user.  Integrity means that a user
-                      can see everything they are allowed to see.  And availability means that information is as available as possible to the user who
-                      is supposed to have access to it.</p>
-<a name="N10049"></a><a name="How+ManifoldCF+Applies+Security"></a>
-<h4>How ManifoldCF Applies Security</h4>
-<p>Typically, documents are excluded by what is known as <em>query modification</em>.  This means that the query presented to the
-                      search engine is modified in such a way as to exclude the documents that the user is not supposed to see.  This is typically done
-                      by a ManifoldCF Plugin, which the system integrator must use to apply user-level security.  The query modification is performed
-                      in such a way that it does not affect the relative scoring of documents.</p>
-<a name="N10057"></a><a name="Potential+Security+Issues+with+ManifoldCF"></a>
-<h3 class="h4">Potential Security Issues with ManifoldCF</h3>
-<a name="N1005D"></a><a name="Scoring-based+Discovery+of+Document+Keywords"></a>
-<h4>Scoring-based Discovery of Document Keywords</h4>
-<p>One way that confidentiality can be breached in part with a search engine like Lucene relies on the fact that its scoring uses
-                      global document statistics.  It is theoretically possible to determine information about how many documents contain a term, or
-                      whether the number of documents that contain the term changes over time, by submitting queries to the system and examining
-                      the relative ordering of the results.</p>
-<p>While this technically is a violation of the confidentiality principle, an attacker still cannot see the contents or extracts of
-                      documents that are restricted.  The ability of an unauthorized user to know about the existence of other documents with
-                      certain keywords may or may not be of concern to the system designers, depending on the situation.  But if it <strong>is</strong> a concern,
-                      the right solution is to modify how the search engine does scoring, so that it either does not score documents based on global term
-                      statistics, or perhaps it adjusts scores by a random factor, etc.  There exist papers on this subject, which we encourage
-                      especially security-conscious developers to consult.</p>
 </div>
 
-  
+<a name="N1000D"></a><a name="articles"></a>
+<h2 class="h3">Latest Articles</h2>
+<div class="section">
+
+<div class="blog-post-card">
+  <h3 class="blog-title"><a href="../en_US/blog-manifoldcf-2-31-release.html">Apache ManifoldCF 2.31 Released: The Java 25 Leap, Virtual Threads, and Next-Gen Core Modernization</a></h3>
+  <div class="blog-meta">
+    <span><strong>Date:</strong> July 31, 2026</span>
+    <span><strong>Author:</strong> Piergiorgio Lucidi</span>
+    <span class="blog-badge">Release</span>
+    <span class="blog-badge">Java 25</span>
+    <span class="blog-badge">Virtual Threads</span>
+    <span class="blog-badge">Performance</span>
+  </div>
+  <div class="blog-summary">
+    We are thrilled to announce the official release of Apache ManifoldCF 2.31! Key highlights under CONNECTORS-1784 include adopting Java 25 runtime capabilities, Virtual Threads (Project Loom) across the crawling engine, Jetty 12.1 web stack modernization, deleting over 88,000 lines of legacy connector code, and automated Docker CI/CD testing.
+  </div>
+  <a class="read-more-btn" href="../en_US/blog-manifoldcf-2-31-release.html">Read Full Article &rarr;</a>
+</div>
+
+<div class="blog-post-card">
+  <h3 class="blog-title"><a href="../en_US/blog-first-article.html">Welcome to the Apache ManifoldCF Blog: Connecting Enterprise Content to Search Engines</a></h3>
+  <div class="blog-meta">
+    <span><strong>Date:</strong> July 31, 2026</span>
+    <span><strong>Author:</strong> Apache ManifoldCF Team</span>
+    <span class="blog-badge">Architecture</span>
+    <span class="blog-badge">Security</span>
+    <span class="blog-badge">Connectors</span>
+  </div>
+  <div class="blog-summary">
+    Welcome to the official Apache ManifoldCF blog! In this introductory article, we explore how ManifoldCF bridges diverse enterprise content repositories—such as SharePoint, Confluence, FileNet, Documentum, HDFS, and Google Drive—with target search indexes like Apache Solr, Elasticsearch, and OpenSearch while enforcing fine-grained security ACLs.
+  </div>
+  <a class="read-more-btn" href="../en_US/blog-first-article.html">Read Full Article &rarr;</a>
+</div>
+
+</div>
+
+<a name="N1002A"></a><a name="about-blog"></a>
+<h2 class="h3">About This Blog</h2>
+<div class="section">
+<p>
+The Apache ManifoldCF Blog is the official platform for technical articles, architectural deep dives, release announcements, and integration guides written by the ManifoldCF committers and community.
+</p>
+<p>Here is what you can expect to find on this blog:</p>
+<ul>
+  <li><strong>Release Highlights &amp; Roadmap:</strong> Overview of new features, performance improvements, and connector updates.</li>
+  <li><strong>Connector Deep Dives:</strong> In-depth articles on configuring and customizing repository, authority, and output connectors.</li>
+  <li><strong>Security Trimming Best Practices:</strong> How to properly configure Authority Services to maintain strict document-level security across enterprise search systems.</li>
+  <li><strong>Community Spotlights &amp; Tutorials:</strong> Step-by-step guides for extending ManifoldCF and developing custom plugins.</li>
+</ul>
+<p>
+Have a topic you would like us to cover, or want to contribute an article? Reach out to our team on the <a href="../en_US/mail.html">Mailing Lists</a>!
+</p>
+</div>
+
 </div>
 <!--+
     |end content

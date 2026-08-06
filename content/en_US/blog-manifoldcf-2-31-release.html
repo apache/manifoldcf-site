@@ -1,0 +1,535 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="Apache Forrest" name="Generator">
+<meta name="Forrest-version" content="0.9">
+<meta name="Forrest-skin-name" content="lucene">
+<title>Apache ManifoldCF 2.31 Released: The Java 25 Leap, Virtual Threads, and Next-Gen Core Modernization</title>
+<link type="text/css" href="../skin/basic.css" rel="stylesheet">
+<link media="screen" type="text/css" href="../skin/screen.css" rel="stylesheet">
+<link media="print" type="text/css" href="../skin/print.css" rel="stylesheet">
+<link type="text/css" href="../skin/profile.css" rel="stylesheet">
+<script src="../skin/getBlank.js" language="javascript" type="text/javascript"></script><script src="../skin/getMenu.js" language="javascript" type="text/javascript"></script><script src="../skin/fontsize.js" language="javascript" type="text/javascript"></script>
+<link rel="icon" type="image/png" href="../images/favicon.png" sizes="16x16">
+<link rel="shortcut icon" href="../images/favicon.png">
+<style type="text/css">
+.article-header {
+  border-bottom: 2px solid #0f4c81;
+  padding-bottom: 15px;
+  margin-bottom: 25px;
+}
+.article-meta {
+  background-color: #f5f7fa;
+  border-left: 4px solid #0f4c81;
+  padding: 10px 15px;
+  font-size: 0.92em;
+  color: #455a64;
+  margin-bottom: 20px;
+}
+.article-meta span {
+  margin-right: 20px;
+}
+.article-badge {
+  background-color: #00838f;
+  color: #ffffff;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+.info-box {
+  background-color: #e8f5e9;
+  border-left: 4px solid #2e7d32;
+  padding: 14px 18px;
+  margin: 18px 0;
+  border-radius: 0 4px 4px 0;
+}
+.info-box-title {
+  font-weight: bold;
+  color: #1b5e20;
+  margin-bottom: 6px;
+}
+.architecture-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+.architecture-table th {
+  background-color: #0f4c81;
+  color: #ffffff;
+  padding: 10px 14px;
+  text-align: left;
+}
+.architecture-table td {
+  border: 1px solid #cfd8dc;
+  padding: 10px 14px;
+}
+.architecture-table tr:nth-child(even) {
+  background-color: #f8fafc;
+}
+.code-snippet {
+  background-color: #263238;
+  color: #eceff1;
+  padding: 14px;
+  border-radius: 6px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.9em;
+  overflow-x: auto;
+  margin: 16px 0;
+}
+.back-to-blog {
+  margin-top: 30px;
+  padding-top: 15px;
+  border-top: 1px solid #e0e0e0;
+}
+</style>
+</head>
+<body onload="init()">
+<script type="text/javascript">ndeSetTextSize();</script>
+<div id="top">
+<!--+
+    |breadtrail
+    +-->
+<div class="breadtrail">
+<a href="https://www.apache.org/">Apache</a> &gt; <a href="http://manifoldcf.apache.org">ManifoldCF</a> &gt; <a href="../en_US/blog.html">Blog</a><script src="../skin/breadcrumbs.js" language="JavaScript" type="text/javascript"></script>
+</div>
+<!--+
+    |header
+    +-->
+<div class="header">
+<!--+
+    |start group logo
+    +-->
+<div class="grouplogo">
+<a href="http://www.apache.org"><img class="logoImage" alt="Apache" src="../images/SupportApache-small.png" width="128px" height="128px" title="Apache Software Foundation"></a>
+</div>
+<!--+
+    |end group logo
+    +-->
+<!--+
+    |start Project Logo
+    +-->
+<div class="projectlogo">
+<a href="http://manifoldcf.apache.org"><img class="logoImage" alt="Apache ManifoldCF" src="../images/ManifoldCF-logo.PNG" title="ManifoldCF"></a>
+</div>
+<!--+
+    |end Project Logo
+    +-->
+<div class="projectlogo">
+<a href="https://www.apache.org/events/current-event.html"><img class="logoImage" src="https://www.apache.org/events/current-event-234x60.png"></a>
+</div>
+<!--+
+    |start Tabs
+    +-->
+<ul id="tabs">
+<li>
+<a class="unselected" href="..">Hello!</a>
+</li>
+<li>
+<a class="unselected" href="../en_US/index.html">English</a>
+</li>
+<li class="current">
+<a class="selected" href="../en_US/blog.html">Blog</a>
+</li>
+<li>
+<a class="unselected" href="../ja_JP/index.html">日本語</a>
+</li>
+<li>
+<a class="unselected" href="../zh_CN/index.html">中文</a>
+</li>
+<li>
+<a class="unselected" href="http://cwiki.apache.org/confluence/display/CONNECTORS/Index">Wiki</a>
+</li>
+</ul>
+<!--+
+    |end Tabs
+    +-->
+</div>
+</div>
+<div id="main">
+<div id="publishedStrip">
+<!--+
+    |start Subtabs
+    +-->
+<div id="level2tabs"></div>
+<!--+
+    |end Endtabs
+    +-->
+<script type="text/javascript"><!--
+document.write("Last Published: " + document.lastModified);
+//  --></script>
+</div>
+<!--+
+    |breadtrail
+    +-->
+<div class="breadtrail">
+
+             &nbsp;
+           </div>
+<!--+
+    |start Menu, mainarea
+    +-->
+<!--+
+    |start Menu
+    +-->
+<div id="menu">
+<div onclick="SwitchMenu('menu_selected_1.1', '../skin/')" id="menu_selected_1.1Title" class="menutitle" style="background-image: url('../skin/images/chapter_open.gif');">English</div>
+<div id="menu_selected_1.1" class="selectedmenuitemgroup" style="display: block;">
+<div class="menuitem">
+<a href="../en_US/index.html">Welcome</a>
+</div>
+<div class="menuitem">
+<a href="../en_US/download.html">Download</a>
+</div>
+<div onclick="SwitchMenu('menu_1.1.3', '../skin/')" id="menu_1.1.3Title" class="menutitle">License</div>
+<div id="menu_1.1.3" class="menuitemgroup">
+<div class="menuitem">
+<a href="http://www.apache.org/licenses/">Apache License</a>
+</div>
+</div>
+<div onclick="SwitchMenu('menu_1.1.4', '../skin/')" id="menu_1.1.4Title" class="menutitle">About</div>
+<div id="menu_1.1.4" class="menuitemgroup">
+<div class="menuitem">
+<a href="../en_US/who.html">Who We Are</a>
+</div>
+<div class="menuitem">
+<a href="http://www.manning.com/wright/">Get the Book</a>
+</div>
+<div class="menuitem">
+<a href="../en_US/books-and-presentations.html">Books and Presentations</a>
+</div>
+<div class="menuitem">
+<a href="http://www.cafepress.com/lucene/">Buy Stuff</a>
+</div>
+<div class="menuitem">
+<a href="http://www.apache.org/foundation/sponsorship.html">Sponsor Apache</a>
+</div>
+<div class="menuitem">
+<a href="http://www.apache.org/foundation/thanks.html">Sponsors of Apache</a>
+</div>
+</div>
+<div onclick="SwitchMenu('menu_1.1.5', '../skin/')" id="menu_1.1.5Title" class="menutitle">Documentation</div>
+<div id="menu_1.1.5" class="menuitemgroup">
+<div class="menuitem">
+<a href="../en_US/release-documentation.html">Release Documentation</a>
+</div>
+</div>
+<div onclick="SwitchMenu('menu_1.1.6', '../skin/')" id="menu_1.1.6Title" class="menutitle">Resources</div>
+<div id="menu_1.1.6" class="menuitemgroup">
+<div class="menuitem">
+<a href="../en_US/mail.html">Mailing Lists</a>
+</div>
+<div class="menuitem">
+<a href="../en_US/developer-resources.html">Developer/Integrator Resources</a>
+</div>
+<div class="menuitem">
+<a href="../en_US/security.html">Security Analysis</a>
+</div>
+<div class="menuitem">
+<a href="http://www.apache.org/security/">Report Security Problems</a>
+</div>
+</div>
+<div onclick="SwitchMenu('menu_1.1.7', '../skin/')" id="menu_1.1.7Title" class="menutitle">Related-Projects</div>
+<div id="menu_1.1.7" class="menuitemgroup">
+<div class="menuitem">
+<a href="http://incubator.apache.org/droids/">Droids</a>
+</div>
+<div class="menuitem">
+<a href="http://lucene.apache.org/core">Java</a>
+</div>
+<div class="menuitem">
+<a href="http://incubator.apache.org/lucene.net/">Lucene.Net</a>
+</div>
+<div class="menuitem">
+<a href="http://lucy.apache.org">Lucy</a>
+</div>
+<div class="menuitem">
+<a href="http://mahout.apache.org">Mahout</a>
+</div>
+<div class="menuitem">
+<a href="http://nutch.apache.org">Nutch</a>
+</div>
+<div class="menuitem">
+<a href="http://lucene.apache.org/openrelevance/">Open Relevance</a>
+</div>
+<div class="menuitem">
+<a href="http://lucene.apache.org/pylucene/">PyLucene</a>
+</div>
+<div class="menuitem">
+<a href="http://lucene.apache.org/solr/">Solr</a>
+</div>
+<div class="menuitem">
+<a href="http://tika.apache.org">Tika</a>
+</div>
+</div>
+</div>
+<div id="credit"></div>
+<div id="roundbottom">
+<img style="display: none" class="corner" height="15" width="15" alt="" src="../skin/images/rc-b-l-15-1body-2menu-3menu.png"></div>
+<!--+
+  |alternative credits
+  +-->
+<div id="credit2"></div>
+</div>
+<!--+
+    |end Menu
+    +-->
+<!--+
+    |start content
+    +-->
+<div id="content">
+
+<div class="article-header">
+  <h1>Apache ManifoldCF 2.31 Released: The Java 25 Leap, Virtual Threads, and Next-Gen Core Modernization</h1>
+</div>
+
+<div class="article-meta">
+  <span><strong>Published:</strong> July 31, 2026</span>
+  <span><strong>Author:</strong> Piergiorgio Lucidi</span>
+  <span class="article-badge">Release</span>
+  <span class="article-badge">Java 25</span>
+  <span class="article-badge">Virtual Threads</span>
+  <span class="article-badge">Performance</span>
+</div>
+
+<div id="minitoc-area">
+<ul class="minitoc">
+<li>
+<a href="#highlights">1. Key Highlights at a Glance</a>
+</li>
+<li>
+<a href="#java25-virtual-threads">2. The Java 25 Leap &amp; Virtual Thread Concurrency</a>
+</li>
+<li>
+<a href="#jetty12">3. Web Stack Modernization: Jetty 12.1 Integration</a>
+</li>
+<li>
+<a href="#pruning">4. Codebase Pruning: Streamlining Legacy Connectors</a>
+</li>
+<li>
+<a href="#logging">5. Logging &amp; Startup Diagnostics Cleanup</a>
+</li>
+<li>
+<a href="#cicd">6. Container-First &amp; CI/CD Enhancements</a>
+</li>
+<li>
+<a href="#upgrade">7. How to Upgrade to Apache ManifoldCF 2.31</a>
+</li>
+<li>
+<a href="#community">8. Acknowledgments &amp; Community</a>
+</li>
+</ul>
+</div>
+
+<a name="N10010"></a><a name="highlights"></a>
+<h2 class="h3">1. Key Highlights at a Glance</h2>
+<div class="section">
+<p>
+We are thrilled to announce the official release of <strong>Apache ManifoldCF 2.31</strong>! &#128640;
+</p>
+<p>
+This release marks one of the most significant architectural milestones in the history of the Apache ManifoldCF project under issue <strong>CONNECTORS-1784</strong> (<em>Core Performance &amp; Modernization: The Java 25 Leap</em>).
+</p>
+<p>
+With ManifoldCF 2.31, we have embraced modern Java runtime capabilities, adopting <strong>Java 25</strong>, introducing native support for <strong>Virtual Threads (Project Loom)</strong> across the crawling engine, upgrading our embedded web server stack to <strong>Jetty 12.1</strong>, pruning tens of thousands of lines of legacy code, and streamlining our Docker and CI/CD pipelines.
+</p>
+
+<table class="architecture-table">
+  <thead>
+    <tr>
+      <th>Feature / Area</th>
+      <th>Upgrade / Change</th>
+      <th>Key Benefit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Java Baseline</strong></td>
+      <td><strong>Java 25</strong> (with <code>--enable-preview</code>)</td>
+      <td>Modern JVM features, updated class formats, long-term stability</td>
+    </tr>
+    <tr>
+      <td><strong>Concurrency Engine</strong></td>
+      <td><strong>Virtual Threads</strong> (Project Loom)</td>
+      <td>Massively scalable concurrency with low OS thread &amp; memory overhead</td>
+    </tr>
+    <tr>
+      <td><strong>Embedded Web Server</strong></td>
+      <td><strong>Jetty 12.1</strong></td>
+      <td>Modern HTTP server stack, native virtual thread integration</td>
+    </tr>
+    <tr>
+      <td><strong>Codebase Pruning</strong></td>
+      <td>Removed Legacy Connectors (~88K lines deleted)</td>
+      <td>Leaner build, zero legacy bloat, smaller attack surface</td>
+    </tr>
+    <tr>
+      <td><strong>Logging System</strong></td>
+      <td>Log4j &amp; SLF4J startup optimizations</td>
+      <td>Silenced startup warnings, package-scan deprecations fixed</td>
+    </tr>
+    <tr>
+      <td><strong>DevOps &amp; Testing</strong></td>
+      <td>Docker Integration Test Suite &amp; GitHub Workflows</td>
+      <td>Automated Docker builds, continuous container testing</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<a name="N10030"></a><a name="java25-virtual-threads"></a>
+<h2 class="h3">2. The Java 25 Leap &amp; Virtual Thread Concurrency</h2>
+<div class="section">
+<p>
+Enterprise content integration engines spend a substantial portion of their execution lifecycle waiting on I/O operations—network latency from HTTP calls, REST endpoints, database queries, and repository API responses. In traditional architectures, each worker thread maps directly to an OS platform thread, consuming significant system memory (stack allocation) and causing expensive context switching when thousands of concurrent documents are fetched.
+</p>
+
+<div class="info-box">
+  <div class="info-box-title">What Changed in Core Architecture (CONNECTORS-1784)</div>
+  <ul>
+    <li><strong>CrawlerAgent &amp; Worker Threads:</strong> Document processing workers and queue dispatchers now utilize lightweight Java 25 Virtual Threads (<code>Executors.newVirtualThreadPerTaskExecutor()</code>).</li>
+    <li><strong>AgentsDaemon:</strong> Central service management converted to virtual thread execution.</li>
+    <li><strong>Network &amp; Socket Handlers:</strong> <code>InterruptibleSocketFactory</code>, <code>ThrottledFetcher</code>, and <code>CommonsHTTPSender</code> were reworked to ensure socket read/write operations unmount virtual threads cleanly without pinning carrier threads.</li>
+    <li><strong>Authority Servlets:</strong> <code>UserACLServlet</code> now serves high-concurrency permission check requests using virtual threads.</li>
+  </ul>
+</div>
+
+<p>
+<strong>Performance Impact:</strong> Virtual threads allow ManifoldCF to scale worker concurrency into thousands of simultaneous fetching operations per node without experiencing thread starvation or excessive memory growth.
+</p>
+</div>
+
+<a name="N10050"></a><a name="jetty12"></a>
+<h2 class="h3">3. Web Stack Modernization: Jetty 12.1 Integration</h2>
+<div class="section">
+<p>
+To support Java 25 and modern HTTP protocols, the embedded application container and test harnesses have been updated to <strong>Jetty 12.1</strong>.
+</p>
+<ul>
+  <li><strong>Virtual Thread Connector Engine:</strong> Jetty 12 natively supports Virtual Thread executors for handling incoming HTTP requests to the ManifoldCF UI and REST APIs.</li>
+  <li><strong>Updated Servlet Specs:</strong> Aligning with modern Java EE / Jakarta EE standards.</li>
+  <li><strong>Improved Security &amp; Performance:</strong> Lower connection latency and better resource cleanup during connector shutdown cycles.</li>
+</ul>
+</div>
+
+<a name="N10070"></a><a name="pruning"></a>
+<h2 class="h3">4. Codebase Pruning: Streamlining Legacy Connectors</h2>
+<div class="section">
+<p>
+Over the years, ManifoldCF accumulated legacy connectors for obsolete or proprietary systems (e.g., legacy Documentum, FileNet, and Meridio integration code) requiring legacy third-party SDKs that are no longer available in public repositories.
+</p>
+<p>
+In 2.31, we conducted a major cleanup, removing <strong>over 88,000 lines of unmaintained legacy code</strong>:
+</p>
+<ul>
+  <li><strong>Removed:</strong> Legacy Documentum, FileNet, and Meridio connector modules.</li>
+  <li><strong>Result:</strong> Faster build times with Apache Ant and Apache Maven, simplified dependency graph, reduced CVE risks, and a smaller Docker image footprint.</li>
+</ul>
+<div class="info-box">
+  <div class="info-box-title">Active Enterprise Connectors Preserved</div>
+  Active enterprise connectors (such as Solr, OpenSearch, Elasticsearch, CMIS, Web, JDBC, Google Drive, Amazon S3, SharePoint, Nuxeo, and Generic REST/JSON) remain fully supported and updated.
+</div>
+</div>
+
+<a name="N10090"></a><a name="logging"></a>
+<h2 class="h3">5. Logging &amp; Startup Diagnostics Cleanup</h2>
+<div class="section">
+<p>
+Starting up enterprise daemons should produce clean, predictable log output. In 2.31, we addressed two persistent logging friction points:
+</p>
+<ul>
+  <li><strong>Log4j Package Scanning:</strong> Resolved deprecation warnings regarding package scanning in Log4j configuration (<code>logging.xml</code>).</li>
+  <li><strong>SLF4J Provider Selection:</strong> Fixed missing SLF4J provider warnings at startup across single-process, multi-process, and Docker environments.</li>
+</ul>
+</div>
+
+<a name="N100B0"></a><a name="cicd"></a>
+<h2 class="h3">6. Container-First &amp; CI/CD Enhancements</h2>
+<div class="section">
+<p>
+With ManifoldCF increasingly deployed in modern Cloud Native environments (Kubernetes, AWS ECS, OpenShift), release 2.31 upgrades our infrastructure stack:
+</p>
+<ul>
+  <li><strong>Official Java 25 Dockerfile:</strong> Updated base images to Java 25 runtimes.</li>
+  <li><strong>Automated Docker Integration Tests:</strong> Added <code>docker-integration-test</code> module and GitHub Workflows to validate end-to-end containerized deployments automatically on every pull request and release build.</li>
+  <li><strong>Maven &amp; Release Workflows:</strong> Streamlined GitHub Actions for generating Release Candidates and publishing artifacts to Maven Central.</li>
+</ul>
+</div>
+
+<a name="N100D0"></a><a name="upgrade"></a>
+<h2 class="h3">7. How to Upgrade to Apache ManifoldCF 2.31</h2>
+<div class="section">
+<p><strong>Prerequisites:</strong> OpenJDK 25 or higher (with <code>--enable-preview</code> flag passed to JVM).</p>
+
+<p><strong>Ant Build &amp; Execution:</strong></p>
+<div class="code-snippet">
+# Build the complete release package
+ant clean build
+
+# Run single-process example with Java 25
+cd dist/example
+java --enable-preview -jar start.jar
+</div>
+
+<p><strong>Docker Quickstart:</strong></p>
+<div class="code-snippet">
+docker pull apache/manifoldcf:2.31
+docker run -d -p 8345:8345 --name manifoldcf apache/manifoldcf:2.31
+</div>
+</div>
+
+<a name="N100F0"></a><a name="community"></a>
+<h2 class="h3">8. Acknowledgments &amp; Community</h2>
+<div class="section">
+<p>
+This release was made possible by the dedicated work of the Apache ManifoldCF PMC and community contributors. Special thanks to all developers, testers, and users who provided feedback during the 2.31 development cycle!
+</p>
+<ul>
+  <li><strong>Website:</strong> <a href="https://manifoldcf.apache.org/">https://manifoldcf.apache.org/</a></li>
+  <li><strong>GitHub Repository:</strong> <a href="https://github.com/apache/manifoldcf">https://github.com/apache/manifoldcf</a></li>
+  <li><strong>Issue Tracker:</strong> <a href="https://issues.apache.org/jira/projects/CONNECTORS">Apache JIRA (CONNECTORS)</a></li>
+  <li><strong>Mailing Lists:</strong> <code>dev@manifoldcf.apache.org</code> / <code>user@manifoldcf.apache.org</code></li>
+</ul>
+
+<div class="back-to-blog">
+  <a href="../en_US/blog.html">&larr; Back to Main Blog Section</a>
+</div>
+</div>
+
+</div>
+<!--+
+    |end content
+    +-->
+<div class="clearboth">&nbsp;</div>
+</div>
+<div id="footer">
+<!--+
+    |start bottomstrip
+    +-->
+<div class="lastmodified">
+<script type="text/javascript"><!--
+document.write("Last Published: " + document.lastModified);
+//  --></script>
+</div>
+<div class="copyright">
+        Copyright &copy;
+         2009-2026 <a href="http://www.apache.org/licenses/">The Apache Software Foundation.</a>
+</div>
+<div class="copyright">
+    Apache ManifoldCF, ManifoldCF, Apache Forrest, Forrest, Apache Solr, Solr, Apache, the Apache feather logo, the Apache Forrest
+    logo, and the Apache ManifoldCF logo are trademarks of The Apache Software Foundation.
+    Documentum and EMC are a trademarks of EMC Corporation.
+    SharePoint, Windows, and Microsoft are trademarks of Microsoft, Inc.
+    FileNet P8 and IBM are trademarks of IBM, Inc.
+    LiveLink and OpenText are trademarks of OpenText, Inc.
+    QBase, MetaCarta, and GTS are trademarks of QBase, Inc.
+    Meridio and Autonomy are trademarks of Hewlett Packard, Inc.
+    Alfresco is a trademark of Alfresco Software, Inc.
+  </div>
+<!--+
+    |end bottomstrip
+    +-->
+</div>
+</body>
+</html>

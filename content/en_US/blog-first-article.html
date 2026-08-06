@@ -1,0 +1,482 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="Apache Forrest" name="Generator">
+<meta name="Forrest-version" content="0.9">
+<meta name="Forrest-skin-name" content="lucene">
+<title>Welcome to the Apache ManifoldCF Blog: Connecting Enterprise Content to Search Engines</title>
+<link type="text/css" href="../skin/basic.css" rel="stylesheet">
+<link media="screen" type="text/css" href="../skin/screen.css" rel="stylesheet">
+<link media="print" type="text/css" href="../skin/print.css" rel="stylesheet">
+<link type="text/css" href="../skin/profile.css" rel="stylesheet">
+<script src="../skin/getBlank.js" language="javascript" type="text/javascript"></script><script src="../skin/getMenu.js" language="javascript" type="text/javascript"></script><script src="../skin/fontsize.js" language="javascript" type="text/javascript"></script>
+<link rel="icon" type="image/png" href="../images/favicon.png" sizes="16x16">
+<link rel="shortcut icon" href="../images/favicon.png">
+<style type="text/css">
+.article-header {
+  border-bottom: 2px solid #0f4c81;
+  padding-bottom: 15px;
+  margin-bottom: 25px;
+}
+.article-meta {
+  background-color: #f5f7fa;
+  border-left: 4px solid #0f4c81;
+  padding: 10px 15px;
+  font-size: 0.92em;
+  color: #455a64;
+  margin-bottom: 20px;
+}
+.article-meta span {
+  margin-right: 20px;
+}
+.article-badge {
+  background-color: #00838f;
+  color: #ffffff;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+.info-box {
+  background-color: #e8f5e9;
+  border-left: 4px solid #2e7d32;
+  padding: 14px 18px;
+  margin: 18px 0;
+  border-radius: 0 4px 4px 0;
+}
+.info-box-title {
+  font-weight: bold;
+  color: #1b5e20;
+  margin-bottom: 6px;
+}
+.architecture-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+.architecture-table th {
+  background-color: #0f4c81;
+  color: #ffffff;
+  padding: 10px 14px;
+  text-align: left;
+}
+.architecture-table td {
+  border: 1px solid #cfd8dc;
+  padding: 10px 14px;
+}
+.architecture-table tr:nth-child(even) {
+  background-color: #f8fafc;
+}
+.code-snippet {
+  background-color: #263238;
+  color: #eceff1;
+  padding: 14px;
+  border-radius: 6px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.9em;
+  overflow-x: auto;
+  margin: 16px 0;
+}
+.back-to-blog {
+  margin-top: 30px;
+  padding-top: 15px;
+  border-top: 1px solid #e0e0e0;
+}
+</style>
+</head>
+<body onload="init()">
+<script type="text/javascript">ndeSetTextSize();</script>
+<div id="top">
+<!--+
+    |breadtrail
+    +-->
+<div class="breadtrail">
+<a href="https://www.apache.org/">Apache</a> &gt; <a href="http://manifoldcf.apache.org">ManifoldCF</a> &gt; <a href="../en_US/blog.html">Blog</a><script src="../skin/breadcrumbs.js" language="JavaScript" type="text/javascript"></script>
+</div>
+<!--+
+    |header
+    +-->
+<div class="header">
+<!--+
+    |start group logo
+    +-->
+<div class="grouplogo">
+<a href="http://www.apache.org"><img class="logoImage" alt="Apache" src="../images/SupportApache-small.png" width="128px" height="128px" title="Apache Software Foundation"></a>
+</div>
+<!--+
+    |end group logo
+    +-->
+<!--+
+    |start Project Logo
+    +-->
+<div class="projectlogo">
+<a href="http://manifoldcf.apache.org"><img class="logoImage" alt="Apache ManifoldCF" src="../images/ManifoldCF-logo.PNG" title="ManifoldCF"></a>
+</div>
+<!--+
+    |end Project Logo
+    +-->
+<div class="projectlogo">
+<a href="https://www.apache.org/events/current-event.html"><img class="logoImage" src="https://www.apache.org/events/current-event-234x60.png"></a>
+</div>
+<!--+
+    |start Tabs
+    +-->
+<ul id="tabs">
+<li>
+<a class="unselected" href="..">Hello!</a>
+</li>
+<li>
+<a class="unselected" href="../en_US/index.html">English</a>
+</li>
+<li class="current">
+<a class="selected" href="../en_US/blog.html">Blog</a>
+</li>
+<li>
+<a class="unselected" href="../ja_JP/index.html">日本語</a>
+</li>
+<li>
+<a class="unselected" href="../zh_CN/index.html">中文</a>
+</li>
+<li>
+<a class="unselected" href="http://cwiki.apache.org/confluence/display/CONNECTORS/Index">Wiki</a>
+</li>
+</ul>
+<!--+
+    |end Tabs
+    +-->
+</div>
+</div>
+<div id="main">
+<div id="publishedStrip">
+<!--+
+    |start Subtabs
+    +-->
+<div id="level2tabs"></div>
+<!--+
+    |end Endtabs
+    +-->
+<script type="text/javascript"><!--
+document.write("Last Published: " + document.lastModified);
+//  --></script>
+</div>
+<!--+
+    |breadtrail
+    +-->
+<div class="breadtrail">
+
+             &nbsp;
+           </div>
+<!--+
+    |start Menu, mainarea
+    +-->
+<!--+
+    |start Menu
+    +-->
+<div id="menu">
+<div onclick="SwitchMenu('menu_selected_1.1', '../skin/')" id="menu_selected_1.1Title" class="menutitle" style="background-image: url('../skin/images/chapter_open.gif');">English</div>
+<div id="menu_selected_1.1" class="selectedmenuitemgroup" style="display: block;">
+<div class="menuitem">
+<a href="../en_US/index.html">Welcome</a>
+</div>
+<div class="menuitem">
+<a href="../en_US/download.html">Download</a>
+</div>
+<div onclick="SwitchMenu('menu_1.1.3', '../skin/')" id="menu_1.1.3Title" class="menutitle">License</div>
+<div id="menu_1.1.3" class="menuitemgroup">
+<div class="menuitem">
+<a href="http://www.apache.org/licenses/">Apache License</a>
+</div>
+</div>
+<div onclick="SwitchMenu('menu_1.1.4', '../skin/')" id="menu_1.1.4Title" class="menutitle">About</div>
+<div id="menu_1.1.4" class="menuitemgroup">
+<div class="menuitem">
+<a href="../en_US/who.html">Who We Are</a>
+</div>
+<div class="menuitem">
+<a href="http://www.manning.com/wright/">Get the Book</a>
+</div>
+<div class="menuitem">
+<a href="../en_US/books-and-presentations.html">Books and Presentations</a>
+</div>
+<div class="menuitem">
+<a href="http://www.cafepress.com/lucene/">Buy Stuff</a>
+</div>
+<div class="menuitem">
+<a href="http://www.apache.org/foundation/sponsorship.html">Sponsor Apache</a>
+</div>
+<div class="menuitem">
+<a href="http://www.apache.org/foundation/thanks.html">Sponsors of Apache</a>
+</div>
+</div>
+<div onclick="SwitchMenu('menu_1.1.5', '../skin/')" id="menu_1.1.5Title" class="menutitle">Documentation</div>
+<div id="menu_1.1.5" class="menuitemgroup">
+<div class="menuitem">
+<a href="../en_US/release-documentation.html">Release Documentation</a>
+</div>
+</div>
+<div onclick="SwitchMenu('menu_1.1.6', '../skin/')" id="menu_1.1.6Title" class="menutitle">Resources</div>
+<div id="menu_1.1.6" class="menuitemgroup">
+<div class="menuitem">
+<a href="../en_US/mail.html">Mailing Lists</a>
+</div>
+<div class="menuitem">
+<a href="../en_US/developer-resources.html">Developer/Integrator Resources</a>
+</div>
+<div class="menuitem">
+<a href="../en_US/security.html">Security Analysis</a>
+</div>
+<div class="menuitem">
+<a href="http://www.apache.org/security/">Report Security Problems</a>
+</div>
+</div>
+<div onclick="SwitchMenu('menu_1.1.7', '../skin/')" id="menu_1.1.7Title" class="menutitle">Related-Projects</div>
+<div id="menu_1.1.7" class="menuitemgroup">
+<div class="menuitem">
+<a href="http://incubator.apache.org/droids/">Droids</a>
+</div>
+<div class="menuitem">
+<a href="http://lucene.apache.org/core">Java</a>
+</div>
+<div class="menuitem">
+<a href="http://incubator.apache.org/lucene.net/">Lucene.Net</a>
+</div>
+<div class="menuitem">
+<a href="http://lucy.apache.org">Lucy</a>
+</div>
+<div class="menuitem">
+<a href="http://mahout.apache.org">Mahout</a>
+</div>
+<div class="menuitem">
+<a href="http://nutch.apache.org">Nutch</a>
+</div>
+<div class="menuitem">
+<a href="http://lucene.apache.org/openrelevance/">Open Relevance</a>
+</div>
+<div class="menuitem">
+<a href="http://lucene.apache.org/pylucene/">PyLucene</a>
+</div>
+<div class="menuitem">
+<a href="http://lucene.apache.org/solr/">Solr</a>
+</div>
+<div class="menuitem">
+<a href="http://tika.apache.org">Tika</a>
+</div>
+</div>
+</div>
+<div id="credit"></div>
+<div id="roundbottom">
+<img style="display: none" class="corner" height="15" width="15" alt="" src="../skin/images/rc-b-l-15-1body-2menu-3menu.png"></div>
+<!--+
+  |alternative credits
+  +-->
+<div id="credit2"></div>
+</div>
+<!--+
+    |end Menu
+    +-->
+<!--+
+    |start content
+    +-->
+<div id="content">
+
+<div class="article-header">
+  <h1>Welcome to the Apache ManifoldCF Blog: Connecting Enterprise Content to Search Engines</h1>
+</div>
+
+<div class="article-meta">
+  <span><strong>Published:</strong> July 31, 2026</span>
+  <span><strong>Author:</strong> Apache ManifoldCF Project Team</span>
+  <span class="article-badge">Architecture</span>
+  <span class="article-badge">Security</span>
+  <span class="article-badge">Enterprise Search</span>
+</div>
+
+<div id="minitoc-area">
+<ul class="minitoc">
+<li>
+<a href="#intro">1. Introduction: The Enterprise Content Integration Challenge</a>
+</li>
+<li>
+<a href="#architecture">2. Core Architecture &amp; Connector Model</a>
+</li>
+<li>
+<a href="#security">3. Security Trimming &amp; ACL Enforcement</a>
+</li>
+<li>
+<a href="#connectors">4. Supported Repositories &amp; Output Targets</a>
+</li>
+<li>
+<a href="#future">5. Looking Ahead: Blog Roadmap &amp; Community</a>
+</li>
+</ul>
+</div>
+
+<a name="N10010"></a><a name="intro"></a>
+<h2 class="h3">1. Introduction: The Enterprise Content Integration Challenge</h2>
+<div class="section">
+<p>
+In modern enterprise environments, valuable unstructured content resides across dozens of disparate repositories—including Microsoft SharePoint, Atlassian Confluence, IBM FileNet, EMC Documentum, network file shares, databases, and cloud platforms like Google Drive and Salesforce.
+</p>
+<p>
+Building an effective search experience across these repositories requires solving two major challenges:
+</p>
+<ol>
+  <li><strong>High-performance, Incremental Ingestion:</strong> Reliably extracting documents, metadata, and updates from diverse repositories without placing undue load on source systems.</li>
+  <li><strong>Document-Level Security (ACL) Enforcement:</strong> Ensuring that users only see search results for documents they have explicit permission to access in the source repository.</li>
+</ol>
+<p>
+<strong>Apache ManifoldCF&trade;</strong> is an open-source framework specifically architected to solve both of these challenges seamlessly.
+</p>
+
+<div class="info-box">
+  <div class="info-box-title">Key Takeaway</div>
+  Apache ManifoldCF acts as an intelligent middleware layer that continuously crawls source repositories, extracts metadata and security ACLs, and feeds target search engines (like Solr, Elasticsearch, and OpenSearch) while maintaining security trimming.
+</div>
+</div>
+
+<a name="N10030"></a><a name="architecture"></a>
+<h2 class="h3">2. Core Architecture &amp; Connector Model</h2>
+<div class="section">
+<p>
+ManifoldCF's modular architecture relies on four distinct types of connectors:
+</p>
+
+<table class="architecture-table">
+  <thead>
+    <tr>
+      <th>Connector Type</th>
+      <th>Role &amp; Functionality</th>
+      <th>Example Connectors</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Repository Connectors</strong></td>
+      <td>Fetch documents, version strings, metadata, and raw content streams from source systems.</td>
+      <td>SharePoint, FileNet, Documentum, Jira, Confluence, Web, File System, HDFS, Google Drive</td>
+    </tr>
+    <tr>
+      <td><strong>Authority Connectors</strong></td>
+      <td>Query authentication systems to retrieve active user and group security tokens for search-time ACL filtering.</td>
+      <td>Active Directory, LDAP, SharePoint Authority, Salesforce Authority</td>
+    </tr>
+    <tr>
+      <td><strong>Transformation Connectors</strong></td>
+      <td>Process document streams between extraction and indexing (e.g., text extraction, metadata mapping).</td>
+      <td>Apache Tika, Metadata Extractor, OpenNLP, Content Limiter</td>
+    </tr>
+    <tr>
+      <td><strong>Output Connectors</strong></td>
+      <td>Receive processed document streams and push indexed data and security tokens to target repositories.</td>
+      <td>Apache Solr, Elasticsearch, OpenSearch, Amazon CloudSearch, Open Pipeline</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>
+A typical ManifoldCF ingestion job configures a <em>Repository Connector</em> to pull documents, optional <em>Transformation Connectors</em> to extract text, and an <em>Output Connector</em> to index data into Solr or Elasticsearch.
+</p>
+</div>
+
+<a name="N10060"></a><a name="security"></a>
+<h2 class="h3">3. Security Trimming &amp; ACL Enforcement</h2>
+<div class="section">
+<p>
+Unlike naive crawlers that ignore document permissions, ManifoldCF captures the exact Access Control Lists (ACLs) associated with each document.
+</p>
+<p>
+When indexing a document, ManifoldCF attaches security tokens representing:
+</p>
+<ul>
+  <li><strong>Allow Tokens:</strong> Groups/Users allowed to view the document.</li>
+  <li><strong>Deny Tokens:</strong> Groups/Users explicitly restricted from viewing the document.</li>
+  <li><strong>Parent/Folder Tokens:</strong> Hierarchical permission inheritance.</li>
+</ul>
+
+<p>
+At search time, the application queries ManifoldCF's <strong>Authority Service</strong> using the logged-in user's identity. The Authority Service returns the user's active security tokens, which are appended to the search query (e.g., in Apache Solr or Elasticsearch filters):
+</p>
+
+<div class="code-snippet">
+// Example Solr Filter Query generated by ManifoldCF Authority Service
+fq=(allow_token_document:"group_engineering" OR allow_token_document:"user_john_doe") 
+   AND NOT (deny_token_document:"group_restricted")
+</div>
+
+<p>
+This ensures instant, security-trimmed search results with zero latency impact during query time.
+</p>
+</div>
+
+<a name="N10090"></a><a name="connectors"></a>
+<h2 class="h3">4. Supported Repositories &amp; Output Targets</h2>
+<div class="section">
+<p>
+Apache ManifoldCF ships out-of-the-box support for a vast ecosystem of enterprise systems:
+</p>
+<ul>
+  <li><strong>Enterprise Content Management (ECM):</strong> EMC Documentum, IBM FileNet P8, OpenText LiveLink, Microsoft SharePoint.</li>
+  <li><strong>Collaboration &amp; Social:</strong> Atlassian Confluence, Atlassian Jira, Salesforce, Google Drive.</li>
+  <li><strong>Data Stores &amp; Files:</strong> Windows/Linux File Systems, HDFS, JDBC/SQL Databases, Web Crawling, RSS feeds.</li>
+  <li><strong>Search &amp; Storage Destinations:</strong> Apache Solr, Elasticsearch, OpenSearch, Amazon CloudSearch, File Output.</li>
+</ul>
+</div>
+
+<a name="N100B0"></a><a name="future"></a>
+<h2 class="h3">5. Looking Ahead: Blog Roadmap &amp; Community</h2>
+<div class="section">
+<p>
+This first article marks the beginning of our ongoing blog series. In upcoming posts, we will dive deep into:
+</p>
+<ul>
+  <li>Configuring high-throughput crawling for 10M+ document repositories.</li>
+  <li>Building custom Repository and Output Connectors in Java.</li>
+  <li>Deploying ManifoldCF on Kubernetes &amp; Docker container environments.</li>
+  <li>Case studies of real-world enterprise search deployments.</li>
+</ul>
+<p>
+We invite you to get involved with Apache ManifoldCF! Download the latest release from our <a href="../en_US/download.html">Download Page</a>, subscribe to our <a href="../en_US/mail.html">Mailing Lists</a>, or contribute on GitHub.
+</p>
+
+<div class="back-to-blog">
+  <a href="../en_US/blog.html">&larr; Back to Main Blog Section</a>
+</div>
+</div>
+
+</div>
+<!--+
+    |end content
+    +-->
+<div class="clearboth">&nbsp;</div>
+</div>
+<div id="footer">
+<!--+
+    |start bottomstrip
+    +-->
+<div class="lastmodified">
+<script type="text/javascript"><!--
+document.write("Last Published: " + document.lastModified);
+//  --></script>
+</div>
+<div class="copyright">
+        Copyright &copy;
+         2009-2026 <a href="http://www.apache.org/licenses/">The Apache Software Foundation.</a>
+</div>
+<div class="copyright">
+    Apache ManifoldCF, ManifoldCF, Apache Forrest, Forrest, Apache Solr, Solr, Apache, the Apache feather logo, the Apache Forrest
+    logo, and the Apache ManifoldCF logo are trademarks of The Apache Software Foundation.
+    Documentum and EMC are a trademarks of EMC Corporation.
+    SharePoint, Windows, and Microsoft are trademarks of Microsoft, Inc.
+    FileNet P8 and IBM are trademarks of IBM, Inc.
+    LiveLink and OpenText are trademarks of OpenText, Inc.
+    QBase, MetaCarta, and GTS are trademarks of QBase, Inc.
+    Meridio and Autonomy are trademarks of Hewlett Packard, Inc.
+    Alfresco is a trademark of Alfresco Software, Inc.
+  </div>
+<!--+
+    |end bottomstrip
+    +-->
+</div>
+</body>
+</html>
