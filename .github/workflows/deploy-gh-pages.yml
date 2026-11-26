@@ -84,3 +84,44 @@ jobs:
           else
             echo "No changes to publish to gh-pages."
           fi
+
+      - name: Build static site for ASF Staging (manifoldcf.staged.apache.org)
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        run: npm run build:asf-staging
+
+      - name: Publish to asf-staging branch
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        run: |
+          rm -rf /tmp/asf-staging
+          mkdir -p /tmp/asf-staging
+
+          if git ls-remote --exit-code --heads origin asf-staging >/dev/null 2>&1; then
+            git fetch --depth=1 origin asf-staging
+            git worktree add /tmp/asf-staging origin/asf-staging
+            cd /tmp/asf-staging
+            git checkout -B asf-staging
+          else
+            git worktree add --orphan -b asf-staging /tmp/asf-staging
+            cd /tmp/asf-staging
+            git rm -rf . >/dev/null 2>&1 || true
+          fi
+
+          cat > .asf.yaml <<'EOF'
+          staging:
+            profile: ~
+            whoami: asf-staging
+          EOF
+
+          mkdir -p content
+          rsync -av --delete "$GITHUB_WORKSPACE/dist/" content/
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+
+          if ! git diff --cached --quiet; then
+            git commit -m "Stage website to asf-staging from ${{ github.sha }}"
+            git push origin asf-staging
+          else
+            echo "No changes to publish to asf-staging."
+          fi

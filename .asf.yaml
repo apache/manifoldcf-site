@@ -1,10 +1,10 @@
 staging:
   whoami: asf-staging
-  profile:
+  profile: ~
   autostage: preview/*
 
 publish:
-  profile:
+  profile: ~
   whoami: asf-site
 
 github:

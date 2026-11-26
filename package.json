@@ -8,6 +8,7 @@
     "dev": "ASTRO_TELEMETRY_DISABLED=1 astro dev",
     "build": "ASTRO_TELEMETRY_DISABLED=1 astro build",
     "build:gh-pages": "ASTRO_TELEMETRY_DISABLED=1 SITE_URL=https://apache.github.io SITE_BASE=/manifoldcf-site astro build",
+    "build:asf-staging": "ASTRO_TELEMETRY_DISABLED=1 SITE_URL=https://manifoldcf.staged.apache.org SITE_BASE=/ astro build",
     "build:asf": "ASTRO_TELEMETRY_DISABLED=1 SITE_URL=https://manifoldcf.apache.org SITE_BASE=/ astro build",
     "preview": "ASTRO_TELEMETRY_DISABLED=1 astro preview",
     "check": "ASTRO_TELEMETRY_DISABLED=1 astro check"

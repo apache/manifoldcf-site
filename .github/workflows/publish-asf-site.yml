@@ -61,6 +61,12 @@ jobs:
           cd /tmp/asf-site
           git checkout -B asf-site
 
+          cat > .asf.yaml <<'EOF'
+          publish:
+            profile: ~
+            whoami: asf-site
+          EOF
+
           mkdir -p content
           # Sync newly built site into content/ while preserving historical release/ docs & Javadocs
           rsync -av --delete --exclude='release/' "$GITHUB_WORKSPACE/dist/" content/

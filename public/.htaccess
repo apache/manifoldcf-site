@@ -31,6 +31,14 @@ RewriteRule ^en_US/developer-resources\.html$ https://github.com/apache/manifold
 RewriteRule ^en_US/release-documentation\.html$ https://github.com/apache/manifoldcf/wiki/Release-Documentation [R=301,L,NC]
 RewriteRule ^en_US/security\.html$ /security/ [R=301,L,NC]
 
+# Legacy ja_JP and zh_CN HTML routes -> Modern Astro portal / GitHub Wiki
+RewriteRule ^(ja_JP|zh_CN)/?$ / [R=301,L,NC]
+RewriteRule ^(ja_JP|zh_CN)/index\.html$ / [R=301,L,NC]
+RewriteRule ^(ja_JP|zh_CN)/download\.html$ /downloads/ [R=301,L,NC]
+RewriteRule ^(ja_JP|zh_CN)/mail\.html$ /community/#mailing-lists [R=301,L,NC]
+RewriteRule ^(ja_JP|zh_CN)/developer-resources\.html$ https://github.com/apache/manifoldcf/wiki/Developer-Resources [R=301,L,NC]
+RewriteRule ^(ja_JP|zh_CN)/release-documentation\.html$ https://github.com/apache/manifoldcf/wiki/Release-Documentation [R=301,L,NC]
+
 # Legacy root-level documentation redirects -> GitHub Wiki
 RewriteRule ^end-user-documentation\.html$ https://github.com/apache/manifoldcf/wiki/End-User-Guide [R=301,L,NC]
 RewriteRule ^how-to-build-and-deploy\.html$ https://github.com/apache/manifoldcf/wiki/How-to-Build-and-Deploy [R=301,L,NC]
