@@ -1,0 +1,25 @@
+{
+  "name": "apache-manifoldcf-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Official website for Apache ManifoldCF",
+  "type": "module",
+  "scripts": {
+    "dev": "ASTRO_TELEMETRY_DISABLED=1 astro dev",
+    "build": "ASTRO_TELEMETRY_DISABLED=1 astro build",
+    "build:gh-pages": "ASTRO_TELEMETRY_DISABLED=1 SITE_URL=https://apache.github.io SITE_BASE=/manifoldcf-site astro build",
+    "build:asf": "ASTRO_TELEMETRY_DISABLED=1 SITE_URL=https://manifoldcf.apache.org SITE_BASE=/ astro build",
+    "preview": "ASTRO_TELEMETRY_DISABLED=1 astro preview",
+    "check": "ASTRO_TELEMETRY_DISABLED=1 astro check"
+  },
+  "dependencies": {
+    "@astrojs/rss": "^4.0.12",
+    "@astrojs/sitemap": "^3.3.0",
+    "@oddbird/popover-polyfill": "^0.6.1",
+    "astro": "^5.7.10"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.4",
+    "typescript": "^5.8.3"
+  }
+}

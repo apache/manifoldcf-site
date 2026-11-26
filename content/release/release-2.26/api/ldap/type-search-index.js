@@ -1,1 +1,0 @@
-typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"org.apache.manifoldcf.authorities.authorities.ldap","l":"LDAPAuthority"},{"p":"org.apache.manifoldcf.authorities.authorities.ldap","l":"LDAPAuthority.LdapAuthorizationResponseDescription"},{"p":"org.apache.manifoldcf.authorities.authorities.ldap","l":"Messages"}]

@@ -1,0 +1,466 @@
+---
+// Licensed to the Apache Software Foundation (ASF) under one or more
+// contributor license agreements.  See the NOTICE file distributed with
+// this work for additional information regarding copyright ownership.
+// The ASF licenses this file to You under the Apache License, Version 2.0
+// (the "License"); you may not use this file except in compliance with
+// the License.  You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ArchitectureDiagram from '../components/ArchitectureDiagram.astro';
+import CodeBlock from '../components/CodeBlock.astro';
+import { SITE, WIKI_BASE, WIKI_LINKS } from '../data/site';
+import { withBase } from '../utils/url';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const dockerQuickstart = `docker pull apache/manifoldcf:${SITE.latestVersion}
+docker run -d -p 8345:8345 --name manifoldcf apache/manifoldcf:${SITE.latestVersion}`;
+
+const springBootQuickstart = `ant clean build
+cd dist/example-spring-boot
+./start.sh
+# Modern Admin Console -> http://localhost:8345/ui/
+# OpenAPI / Swagger UI -> http://localhost:8345/mcf-api-service/swagger-ui`;
+
+const homeJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'Apache ManifoldCF',
+  softwareVersion: SITE.latestVersion,
+  operatingSystem: 'Cross-platform',
+  applicationCategory: 'DeveloperApplication',
+  description: SITE.description,
+  url: 'https://manifoldcf.apache.org/',
+  license: 'https://www.apache.org/licenses/LICENSE-2.0',
+  author: {
+    '@type': 'Organization',
+    name: 'The Apache Software Foundation',
+    url: 'https://www.apache.org/',
+  },
+};
+
+const formatDate = (date: Date) =>
+  new Intl.DateTimeFormat('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    timeZone: 'UTC',
+  }).format(date);
+---
+
+<BaseLayout title={SITE.title} description={SITE.description} jsonLd={homeJsonLd}>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="hero-badges">
+          <a class="badge" href={withBase('/blog/manifoldcf-2-31-release/')}>
+            Release {SITE.latestVersion} · Java 25 LTS &amp; Virtual Threads
+          </a>
+          <span class="badge badge-accent">Spring Boot 4.2 in trunk</span>
+        </div>
+
+        <h1 id="main-content" tabindex="-1">
+          Enterprise Content Integration with Native Security Trimming
+        </h1>
+
+        <p class="hero-lead">
+          <strong>Apache ManifoldCF&trade;</strong> is an open-source framework for crawling,
+          transforming, and indexing documents from heterogeneous enterprise repositories into
+          Apache Solr, OpenSearch, Elasticsearch, Kafka, HDFS, and MongoDB—while preserving
+          source-repository Access Control Lists (ACLs).
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href={withBase('/downloads/')}>
+            Download {SITE.latestVersion}
+          </a>
+          <a class="btn btn-secondary" href={WIKI_BASE} target="_blank" rel="noopener noreferrer">
+            Read Technical Wiki
+          </a>
+          <a class="btn btn-secondary" href={SITE.githubUrl} target="_blank" rel="noopener noreferrer">
+            View on GitHub
+          </a>
+        </div>
+
+        <div class="hero-meta">
+          <span class="badge badge-neutral">Apache License 2.0</span>
+          <span class="badge badge-neutral">Embedded Jetty 12.1</span>
+          <span class="badge badge-neutral">Project Loom Virtual Threads</span>
+          <span class="badge badge-neutral">35+ Pluggable Connectors</span>
+        </div>
+      </div>
+
+      <div class="hero-stack">
+        <CodeBlock
+          id="hero-docker-cmd"
+          label={`Quick Start · Docker (Release ${SITE.latestVersion})`}
+          code={dockerQuickstart}
+          copyLabel="Copy Docker quick start command"
+        />
+        <CodeBlock
+          id="hero-springboot-cmd"
+          label={`Preview · Spring Boot 4.2 Executable WAR (${SITE.nextVersion})`}
+          code={springBootQuickstart}
+          copyLabel="Copy Spring Boot quick start command"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Platform Pillars -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="eyebrow">Why Apache ManifoldCF</span>
+          <h2>Built for Secure, High-Throughput Enterprise Search</h2>
+        </div>
+        <p>
+          Designed from the ground up for incremental multi-repository ingestion, strict
+          document-level security enforcement, and modern cloud-native Java runtimes.
+        </p>
+      </div>
+
+      <div class="grid grid-4">
+        <article class="card">
+          <span class="card-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10" />
+              <path d="m9 12 2 2 4-4" />
+            </svg>
+          </span>
+          <h3>Native ACL Security Trimming</h3>
+          <p>
+            Captures allow, deny, and inherited folder ACLs at crawl time and resolves user
+            access tokens at query time via the Authority Service (<code>/UserACLs</code>).
+          </p>
+          <footer>
+            <a href={`${WIKI_BASE}/Document-Security-Model`} target="_blank" rel="noopener noreferrer">
+              Document Security Model
+            </a>
+          </footer>
+        </article>
+
+        <article class="card">
+          <span class="card-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z" />
+            </svg>
+          </span>
+          <h3>Java 25 &amp; Virtual Threads</h3>
+          <p>
+            Powered by Java 25 LTS, Project Loom Virtual Threads across <code>CrawlerAgent</code>,
+            <code>AgentsDaemon</code>, and <code>UserACLServlet</code>, plus embedded Jetty 12.1.
+          </p>
+          <footer>
+            <a href={withBase('/blog/manifoldcf-2-31-release/')}>
+              Read 2.31 Modernization Notes
+            </a>
+          </footer>
+        </article>
+
+        <article class="card">
+          <span class="card-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2" />
+              <path d="M3 9h18M9 21V9" />
+            </svg>
+          </span>
+          <h3>Spring Boot 4.2 &amp; REST API v2</h3>
+          <p>
+            In <code>trunk</code> (<code>{SITE.nextVersion}</code>): unified executable WAR,
+            Modern Admin Console (<code>/ui/</code>), OpenAPI 3 / Swagger UI, and GitOps YAML/JSON.
+          </p>
+          <footer>
+            <a href={`${WIKI_BASE}/Spring-Boot-and-Modern-Admin-Console`} target="_blank" rel="noopener noreferrer">
+              Explore Spring Boot Guide
+            </a>
+          </footer>
+        </article>
+
+        <article class="card">
+          <span class="card-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="6" cy="6" r="3" />
+              <circle cx="18" cy="6" r="3" />
+              <circle cx="12" cy="18" r="3" />
+              <path d="M8.6 7.5 11 15.2M15.4 7.5 13 15.2M9 6h6" />
+            </svg>
+          </span>
+          <h3>Modular Connector Ecosystem</h3>
+          <p>
+            Connect SharePoint, CMIS, S3, Google Drive, Confluence, Jira, JDBC, and Web to Solr,
+            OpenSearch, Elasticsearch, Kafka, HDFS, and MongoDB—or extend with the SDK.
+          </p>
+          <footer>
+            <a href={withBase('/architecture/')}>
+              Explore Architecture &amp; Connectors
+            </a>
+          </footer>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Architecture Diagram -->
+  <section class="section section-tinted">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="eyebrow">System Architecture</span>
+          <h2>End-to-End Content &amp; Permission Pipeline</h2>
+        </div>
+        <a class="btn btn-secondary btn-sm" href={withBase('/architecture/')}>
+          Full Architecture Overview
+        </a>
+      </div>
+
+      <ArchitectureDiagram />
+    </div>
+  </section>
+
+  <!-- Platform Runtime Baseline Table -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="eyebrow">Platform Baseline</span>
+          <h2>Current Release vs. Development Trunk</h2>
+        </div>
+        <p>
+          All legacy endpoints (<code>/mcf-crawler-ui</code>, <code>/mcf-api-service</code>,
+          <code>/mcf-authority-service</code>) remain backwards compatible across both lines.
+        </p>
+      </div>
+
+      <div tabindex="0" role="region" aria-labelledby="platform-table-caption" class="table-wrapper">
+        <table>
+          <caption id="platform-table-caption">
+            Apache ManifoldCF Runtime Comparison: Release {SITE.latestVersion} vs Development ({SITE.nextVersion})
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">Component</th>
+              <th scope="col">Current Release ({SITE.latestVersion})</th>
+              <th scope="col">Development (trunk / {SITE.nextVersion})</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Java Baseline</th>
+              <td data-label={`Current Release (${SITE.latestVersion})`}>Java 25 LTS (<code>--enable-preview</code>)</td>
+              <td data-label={`Development (${SITE.nextVersion})`}>Java 25 LTS (<code>--enable-preview</code>)</td>
+            </tr>
+            <tr>
+              <th scope="row">Concurrency</th>
+              <td data-label={`Current Release (${SITE.latestVersion})`}>Project Loom Virtual Threads (<code>CrawlerAgent</code>, <code>AgentsDaemon</code>, <code>UserACLServlet</code>)</td>
+              <td data-label={`Development (${SITE.nextVersion})`}>Project Loom Virtual Threads (<code>spring.threads.virtual.enabled=true</code>)</td>
+            </tr>
+            <tr>
+              <th scope="row">Embedded Web Stack</th>
+              <td data-label={`Current Release (${SITE.latestVersion})`}>Embedded Jetty 12.1</td>
+              <td data-label={`Development (${SITE.nextVersion})`}>Jetty 12.1 + Spring Boot 4.2 executable WAR (Tomcat 11)</td>
+            </tr>
+            <tr>
+              <th scope="row">Admin Interface</th>
+              <td data-label={`Current Release (${SITE.latestVersion})`}>Classic JSP Crawler-UI (<code>/mcf-crawler-ui</code>)</td>
+              <td data-label={`Development (${SITE.nextVersion})`}>Modern Admin Console (<code>/ui/</code>) + Classic Crawler-UI</td>
+            </tr>
+            <tr>
+              <th scope="row">REST APIs</th>
+              <td data-label={`Current Release (${SITE.latestVersion})`}>REST API v1 (<code>/mcf-api-service/json/*</code>) + Authority Service</td>
+              <td data-label={`Development (${SITE.nextVersion})`}>REST API v2 (<code>/api/v2/*</code>, OpenAPI 3, Swagger UI, GitOps) + v1</td>
+            </tr>
+            <tr>
+              <th scope="row">Extension SDK</th>
+              <td data-label={`Current Release (${SITE.latestVersion})`}>
+                <a href={SITE.sdkUrl} target="_blank" rel="noopener noreferrer">
+                  Apache ManifoldCF SDK {SITE.sdkVersion}
+                </a>
+              </td>
+              <td data-label={`Development (${SITE.nextVersion})`}>
+                <a href={SITE.sdkUrl} target="_blank" rel="noopener noreferrer">
+                  Apache ManifoldCF SDK (main)
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical Wiki Hub -->
+  <section class="section section-tinted">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="eyebrow">Technical Documentation</span>
+          <h2>Live Documentation on the GitHub Wiki</h2>
+        </div>
+        <a class="btn btn-primary btn-sm" href={WIKI_BASE} target="_blank" rel="noopener noreferrer">
+          Browse Full Wiki
+        </a>
+      </div>
+
+      <div class="grid grid-3">
+        {
+          WIKI_LINKS.map((item) => (
+            <article class="card">
+              <h3>
+                <a class="card-link" href={item.href} target="_blank" rel="noopener noreferrer">
+                  {item.title}
+                </a>
+              </h3>
+              <p>{item.description}</p>
+              <footer>
+                <span class="badge badge-neutral">GitHub Wiki &rarr;</span>
+              </footer>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Latest Blog Posts -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="eyebrow">Engineering Blog</span>
+          <h2>Latest Releases &amp; Technical Articles</h2>
+        </div>
+        <a class="btn btn-secondary btn-sm" href={withBase('/blog/')}>
+          View All Articles
+        </a>
+      </div>
+
+      <div class="grid grid-2">
+        {
+          posts.slice(0, 2).map((post) => (
+            <article class="card">
+              <header>
+                <div class="post-meta">
+                  <time datetime={post.data.pubDate.toISOString()}>
+                    {formatDate(post.data.pubDate)}
+                  </time>
+                  <span>&middot;</span>
+                  <span>{post.data.author}</span>
+                </div>
+                <h3>
+                  <a class="card-link" href={withBase(`/blog/${post.id}/`)}>
+                    {post.data.title}
+                  </a>
+                </h3>
+              </header>
+              <p>{post.data.summary}</p>
+              <footer>
+                <ul class="tag-list" role="list">
+                  {post.data.tags.map((tag) => <li class="badge">{tag}</li>)}
+                </ul>
+              </footer>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ASF Community & Events Banner -->
+  <section class="section section-tinted">
+    <div class="container asf-banner">
+      <div>
+        <span class="eyebrow">The Apache Software Foundation</span>
+        <h2>Open Governance. Community Over Code.</h2>
+        <p style="max-inline-size: 62ch; color: var(--color-text-secondary); margin-block-end: 1.15rem;">
+          Apache ManifoldCF is developed openly by an international community of committers and
+          contributors under the Apache License 2.0. Join the mailing lists, file issues on Jira,
+          or support The Apache Software Foundation.
+        </p>
+        <div class="hero-actions" style="margin: 0;">
+          <a class="btn btn-primary btn-sm" href={withBase('/community/')}>Join the Community</a>
+          <a
+            class="btn btn-secondary btn-sm"
+            href="https://www.apache.org/events/current-event.html"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Upcoming Apache Events
+          </a>
+          <a
+            class="btn btn-secondary btn-sm"
+            href="https://www.apache.org/foundation/sponsorship.html"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Sponsor Apache
+          </a>
+        </div>
+      </div>
+
+      <img
+        src={withBase('/images/manifoldcf-logo.png')}
+        alt="Apache ManifoldCF official project logo"
+        width="257"
+        height="128"
+        loading="lazy"
+        class="asf-logo-preview"
+      />
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-block-end: 1rem;
+  }
+
+  .hero-badges a.badge {
+    text-decoration: none;
+  }
+
+  .hero-stack {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .post-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin-block-end: 0.45rem;
+  }
+
+  .asf-banner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .asf-logo-preview {
+    background: #ffffff;
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border-subtle);
+  }
+</style>

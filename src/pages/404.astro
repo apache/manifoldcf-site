@@ -1,0 +1,42 @@
+---
+// Licensed to the Apache Software Foundation (ASF) under one or more
+// contributor license agreements.  See the NOTICE file distributed with
+// this work for additional information regarding copyright ownership.
+// The ASF licenses this file to You under the Apache License, Version 2.0
+// (the "License"); you may not use this file except in compliance with
+// the License.  You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { WIKI_BASE } from '../data/site';
+import { withBase } from '../utils/url';
+---
+
+<BaseLayout title="Page Not Found | Apache ManifoldCF™">
+  <section class="section">
+    <div class="container" style="text-align: center; padding-block: 3rem;">
+      <span class="badge badge-apache">404 · Not Found</span>
+      <h1 id="main-content" tabindex="-1" style="margin-block-start: 0.75rem;">
+        This page has moved or does not exist
+      </h1>
+      <p style="max-inline-size: 56ch; margin-inline: auto; color: var(--color-text-secondary);">
+        Technical manuals, connector guides, and developer documentation now live on the
+        official Apache ManifoldCF GitHub Wiki.
+      </p>
+      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; margin-block-start: 1.5rem;">
+        <a class="btn btn-primary" href={withBase('/')}>Go to Home</a>
+        <a class="btn btn-secondary" href={withBase('/downloads/')}>Downloads</a>
+        <a class="btn btn-secondary" href={WIKI_BASE} target="_blank" rel="noopener noreferrer">
+          Browse GitHub Wiki
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

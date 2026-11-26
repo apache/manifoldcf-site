@@ -1,10 +1,3 @@
-pelican:
-  notify: piergiorgio@apache.org
-  autobuild: preview/*
-  target: asf-staging
-  whoami: main
-  theme: theme/apache
-
 staging:
   whoami: asf-staging
   profile:
@@ -17,6 +10,8 @@ publish:
 github:
   description: "Apache ManifoldCF website"
   homepage: https://manifoldcf.apache.org/
+  ghp_branch: gh-pages
+  ghp_path: /
   autolink_jira:
     - CONNECTORS
   custom_subjects:
@@ -34,9 +29,9 @@ github:
   labels:
     - apache
     - website
-    - pelican
+    - astro
+    - github-pages
     - manifoldcf
-
   rulesets:
     - name: "Default Branch Protection"
       type: branch
@@ -50,6 +45,7 @@ github:
         - root
       restrict_deletion: true
       restrict_force_push: true
+
 notifications:
   commits: commits@manifoldcf.apache.org
   pullrequests: dev@manifoldcf.apache.org

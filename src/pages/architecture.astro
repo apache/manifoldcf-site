@@ -1,0 +1,184 @@
+---
+// Licensed to the Apache Software Foundation (ASF) under one or more
+// contributor license agreements.  See the NOTICE file distributed with
+// this work for additional information regarding copyright ownership.
+// The ASF licenses this file to You under the Apache License, Version 2.0
+// (the "License"); you may not use this file except in compliance with
+// the License.  You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ArchitectureDiagram from '../components/ArchitectureDiagram.astro';
+import CodeBlock from '../components/CodeBlock.astro';
+import { CONNECTOR_FAMILIES, SITE, WIKI_BASE } from '../data/site';
+
+const solrAclSnippet = `# Example Solr Filter Query generated with ManifoldCF Authority Service tokens
+fq=(allow_token_document:"group_engineering" OR allow_token_document:"user_jane_doe")
+   AND NOT (deny_token_document:"group_restricted")`;
+
+const restV2Snippet = `# Health probe (unauthenticated for Kubernetes / Docker readiness)
+curl -s http://localhost:8345/api/v2/health
+
+# Export declarative GitOps configuration (HTTP Basic Auth)
+curl -u admin:admin http://localhost:8345/api/v2/export/yaml`;
+---
+
+<BaseLayout
+  title="Architecture & Connectors | Apache ManifoldCF™"
+  description="Explore Apache ManifoldCF's modular connector architecture, document-level ACL security trimming, Java 25 Virtual Threads engine, and Spring Boot 4.2 + REST API v2 stack."
+>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Architecture &amp; Connectors</span>
+      <h1 id="main-content" tabindex="-1">Modular Content Ingestion &amp; Security Architecture</h1>
+      <p>
+        Apache ManifoldCF decouples source content repositories, document transformations,
+        identity authorities, and target search engines into a fault-tolerant, database-backed
+        crawling framework.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="eyebrow">Data &amp; Permission Flow</span>
+          <h2>How Documents &amp; ACLs Move Through ManifoldCF</h2>
+        </div>
+        <a
+          class="btn btn-secondary btn-sm"
+          href={`${WIKI_BASE}/Concepts-and-Architecture`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Concepts &amp; Architecture Wiki
+        </a>
+      </div>
+      <ArchitectureDiagram />
+    </div>
+  </section>
+
+  <section class="section section-tinted">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="eyebrow">Connector Ecosystem</span>
+          <h2>Five Pluggable Connector Families</h2>
+        </div>
+        <a
+          class="btn btn-primary btn-sm"
+          href={`${WIKI_BASE}/Included-Connectors`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Full Compatibility Matrix
+        </a>
+      </div>
+
+      <div class="grid grid-2">
+        {
+          CONNECTOR_FAMILIES.map((family) => (
+            <article class="card">
+              <h3>{family.name}</h3>
+              <p>{family.role}</p>
+              <ul class="tag-list" role="list">
+                {family.examples.map((ex) => <li class="badge badge-neutral">{ex}</li>)}
+              </ul>
+              <footer>
+                <a href={family.wikiHref} target="_blank" rel="noopener noreferrer">
+                  {family.name} Documentation &rarr;
+                </a>
+              </footer>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid grid-2" style="align-items: start; gap: 2rem;">
+      <div>
+        <span class="eyebrow">Security Trimming</span>
+        <h2>Zero-Leakage Document-Level Security</h2>
+        <p>
+          Every crawled document carries its native repository permissions—allow tokens, deny
+          tokens, and hierarchical parent/share tokens—directly into the target search index.
+        </p>
+        <p>
+          When an end user searches, your search plugin queries ManifoldCF's
+          <strong>Authority Service</strong> (<code>/mcf-authority-service/UserACLs</code>)
+          with the authenticated user name. Active tokens are resolved against Active Directory,
+          LDAP, or repository authorities and applied as a search filter query.
+        </p>
+        <a
+          class="btn btn-secondary btn-sm"
+          href={`${WIKI_BASE}/Document-Security-Model`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Read Document Security Model
+        </a>
+      </div>
+
+      <CodeBlock
+        id="arch-solr-acl"
+        label="Search-Time Security Trimming Filter"
+        code={solrAclSnippet}
+        copyLabel="Copy example Solr ACL filter query"
+      />
+    </div>
+  </section>
+
+  <section class="section section-tinted">
+    <div class="container grid grid-2" style="align-items: start; gap: 2rem;">
+      <div>
+        <span class="eyebrow">Next Generation ({SITE.nextVersion})</span>
+        <h2>Spring Boot 4.2, Modern Admin Console &amp; GitOps</h2>
+        <p>
+          Building on the Java 25 LTS and Project Loom foundation introduced in Release {SITE.latestVersion},
+          development on <code>trunk</code> adds a unified <strong>Spring Boot 4.2 executable WAR</strong>
+          alongside the classic Jetty 12.1 distribution:
+        </p>
+        <ul style="color: var(--color-text-secondary); padding-inline-start: 1.25rem;">
+          <li><strong>Modern Admin Console (<code>/ui/</code>):</strong> Clean browser UI alongside the classic JSP Crawler-UI.</li>
+          <li><strong>REST API v2 (<code>/api/v2/*</code>):</strong> OpenAPI 3 specification, Swagger UI, and declarative YAML/JSON GitOps configuration management.</li>
+          <li><strong>Cloud-Native Probes:</strong> Unauthenticated <code>/api/v2/health</code> and Spring Boot Actuator readiness endpoints for Kubernetes and Docker.</li>
+        </ul>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.65rem; margin-block-start: 1rem;">
+          <a
+            class="btn btn-primary btn-sm"
+            href={`${WIKI_BASE}/Spring-Boot-and-Modern-Admin-Console`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Spring Boot Guide
+          </a>
+          <a
+            class="btn btn-secondary btn-sm"
+            href={`${WIKI_BASE}/REST-API-v2-and-GitOps`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            REST API v2 &amp; GitOps
+          </a>
+        </div>
+      </div>
+
+      <CodeBlock
+        id="arch-rest-v2"
+        label="REST API v2 & GitOps Endpoints (trunk)"
+        code={restV2Snippet}
+        copyLabel="Copy REST API v2 example commands"
+      />
+    </div>
+  </section>
+</BaseLayout>

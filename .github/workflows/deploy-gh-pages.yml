@@ -1,0 +1,86 @@
+# Licensed to the Apache Software Foundation (ASF) under one or more
+# contributor license agreements.  See the NOTICE file distributed with
+# this work for additional information regarding copyright ownership.
+# The ASF licenses this file to You under the Apache License, Version 2.0
+# (the "License"); you may not use this file except in compliance with
+# the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+name: Build & Deploy GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: gh-pages
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Type-check Astro project
+        run: npm run check
+
+      - name: Build static site for GitHub Pages
+        run: npm run build:gh-pages
+
+      - name: Publish to gh-pages branch
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        run: |
+          rm -rf /tmp/gh-pages
+          mkdir -p /tmp/gh-pages
+
+          if git ls-remote --exit-code --heads origin gh-pages >/dev/null 2>&1; then
+            git fetch --depth=1 origin gh-pages
+            git worktree add /tmp/gh-pages origin/gh-pages
+            cd /tmp/gh-pages
+            git checkout -B gh-pages
+            git rm -rf . >/dev/null 2>&1 || true
+          else
+            git worktree add --orphan -b gh-pages /tmp/gh-pages
+            cd /tmp/gh-pages
+          fi
+
+          cp -a "$GITHUB_WORKSPACE/dist/." .
+          touch .nojekyll
+          rm -f .htaccess
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+
+          if ! git diff --cached --quiet; then
+            git commit -m "Deploy GitHub Pages preview from ${{ github.sha }}"
+            git push origin gh-pages
+          else
+            echo "No changes to publish to gh-pages."
+          fi

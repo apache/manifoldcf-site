@@ -1,0 +1,148 @@
+---
+// Licensed to the Apache Software Foundation (ASF) under one or more
+// contributor license agreements.  See the NOTICE file distributed with
+// this work for additional information regarding copyright ownership.
+// The ASF licenses this file to You under the Apache License, Version 2.0
+// (the "License"); you may not use this file except in compliance with
+// the License.  You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { withBase } from '../../utils/url';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const formatDate = (date: Date) =>
+  new Intl.DateTimeFormat('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    timeZone: 'UTC',
+  }).format(date);
+
+const articleJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: post.data.title,
+  description: post.data.description,
+  datePublished: post.data.pubDate.toISOString().slice(0, 10),
+  author: {
+    '@type': 'Person',
+    name: post.data.author,
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'The Apache Software Foundation',
+    url: 'https://www.apache.org/',
+  },
+};
+---
+
+<BaseLayout
+  title={`${post.data.title} | Apache ManifoldCF™ Blog`}
+  description={post.data.description}
+  ogType="article"
+  jsonLd={articleJsonLd}
+>
+  <section class="page-hero">
+    <div class="container">
+      <nav aria-label="Breadcrumb" class="breadcrumb">
+        <a href={withBase('/blog/')}>&larr; All Blog Articles</a>
+      </nav>
+      <h1 id="main-content" tabindex="-1">{post.data.title}</h1>
+      <div class="article-meta">
+        <time datetime={post.data.pubDate.toISOString()}>{formatDate(post.data.pubDate)}</time>
+        <span>&middot;</span>
+        <span>By {post.data.author}</span>
+      </div>
+      <ul class="tag-list" role="list" style="margin-block-start: 0.85rem;">
+        {post.data.tags.map((tag) => <li class="badge">{tag}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <article class="section">
+    <div class="container">
+      <div class="prose article-content">
+        <Content />
+      </div>
+
+      <footer class="article-footer">
+        <a class="btn btn-secondary btn-sm" href={withBase('/blog/')}>&larr; Back to Blog</a>
+        <a class="btn btn-primary btn-sm" href={withBase('/downloads/')}>Download ManifoldCF</a>
+      </footer>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .breadcrumb {
+    margin-block-end: 0.85rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  .breadcrumb a {
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    text-decoration: underline;
+  }
+
+  .article-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    margin-block-start: 0.5rem;
+  }
+
+  .article-content :global(table) {
+    inline-size: 100%;
+    border-collapse: collapse;
+    margin-block: 1.5rem;
+    font-size: 0.925rem;
+    display: block;
+    overflow-x: auto;
+  }
+
+  .article-content :global(th),
+  .article-content :global(td) {
+    padding: 0.65rem 0.9rem;
+    border: 1px solid var(--color-border-subtle);
+    text-align: start;
+  }
+
+  .article-content :global(thead th) {
+    background: var(--color-surface-subtle);
+    font-weight: 700;
+  }
+
+  .article-footer {
+    margin-block-start: 3rem;
+    padding-block-start: 1.5rem;
+    border-block-start: 1px solid var(--color-border-subtle);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+</style>

@@ -1,6 +1,17 @@
+# Dependencies & Build Output
+node_modules/
+dist/
+.astro/
+
+# Legacy Python/Pelican local environment
+env/
 *.pyc
-*.swp
 site-generated/
 pelican.auto.py
-env/
+
+# OS & Editor files
 .DS_Store
+*.swp
+.vscode/
+.idea/
+.project

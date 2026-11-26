@@ -1,0 +1,165 @@
+---
+// Licensed to the Apache Software Foundation (ASF) under one or more
+// contributor license agreements.  See the NOTICE file distributed with
+// this work for additional information regarding copyright ownership.
+// The ASF licenses this file to You under the Apache License, Version 2.0
+// (the "License"); you may not use this file except in compliance with
+// the License.  You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE, WIKI_BASE } from '../data/site';
+import { withBase } from '../utils/url';
+---
+
+<BaseLayout
+  title="Security Policy | Apache ManifoldCF™"
+  description="Apache ManifoldCF vulnerability reporting process, supported versions, security trust boundaries, and production hardening checklist."
+>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Security</span>
+      <h1 id="main-content" tabindex="-1">Security Policy &amp; Trust Boundaries</h1>
+      <p>
+        How to responsibly disclose security vulnerabilities to the Apache Security Team and how
+        to harden Apache ManifoldCF deployments in production.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="callout callout-warning">
+        <h2 style="font-size: 1.35rem; margin-block-end: 0.5rem;">Reporting a Vulnerability</h2>
+        <p>
+          If you discover a potential security issue in Apache ManifoldCF, please report it
+          <strong>privately</strong> to the Apache Security Team at{' '}
+          <a href="mailto:security@apache.org"><strong>security@apache.org</strong></a>.
+        </p>
+        <p style="margin-block-end: 0;">
+          Please <strong>do not</strong> report security issues via public GitHub issues, Jira
+          tickets, pull requests, or public mailing lists. See the{' '}
+          <a href="https://www.apache.org/security/" target="_blank" rel="noopener noreferrer">
+            ASF Security Team vulnerability handling process
+          </a>{' '}
+          for full details.
+        </p>
+      </div>
+
+      <div class="section-header" style="margin-block-start: 2.5rem;">
+        <div>
+          <span class="eyebrow">Trust Boundaries</span>
+          <h2>Architecture Security Model</h2>
+        </div>
+        <a
+          class="btn btn-secondary btn-sm"
+          href={`${WIKI_BASE}/Document-Security-Model`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Document ACL Security Model (Wiki)
+        </a>
+      </div>
+
+      <div class="grid grid-2">
+        <article class="card">
+          <h3>1. Administrative Consoles (<code>/mcf-crawler-ui</code> &amp; <code>/ui/</code>)</h3>
+          <p>
+            Authenticated operational consoles for connections, authorities, mappers, jobs, and
+            reports. State-changing actions require HTTP <code>POST</code> and per-session CSRF
+            request tokens; session cookies enforce <code>HttpOnly</code>,
+            <code>SameSite=Lax</code>, and a 30-minute timeout.
+          </p>
+          <p style="font-size: 0.9rem;">
+            <strong>Operator action:</strong> Replace default <code>admin/admin</code> credentials
+            in <code>properties.xml</code> and terminate TLS (HTTPS) in front of the console.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>2. REST API Services (<code>/mcf-api-service</code> &amp; <code>/api/v2/*</code>)</h3>
+          <p>
+            Programmatic administrative APIs requiring authentication on all operational
+            endpoints (HTTP Basic Auth or v1 session login; empty credentials rejected).
+            Obfuscated secrets are masked in API responses and GitOps exports.
+          </p>
+          <p style="font-size: 0.9rem;">
+            <strong>Operator action:</strong> Configure dedicated API credentials and restrict
+            network access to trusted automation clients. Only container health probes remain open.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>3. Authority Service (<code>/mcf-authority-service</code> / <code>/UserACLs</code>)</h3>
+          <p>
+            Internal backchannel queried by search-engine authorization plugins (Solr, OpenSearch,
+            Elasticsearch). User identifiers are treated as untrusted input—including RFC 4515
+            LDAP filter escaping.
+          </p>
+          <p style="font-size: 0.9rem;">
+            <strong>Operator action:</strong> Isolate <code>/UserACLs</code> on a private
+            search-engine network or place behind authenticating reverse proxy / container auth.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>4. Connectors &amp; Credential Obfuscation</h3>
+          <p>
+            Connectors harden XML parsers against external entity resolution (XXE) and DTD
+            processing and escape backend queries. Connector secrets support reversible
+            obfuscation backed by deployment-specific key material.
+          </p>
+          <p style="font-size: 0.9rem;">
+            <strong>Operator action:</strong> Set <code>org.apache.manifoldcf.obfuscation.passcode</code>
+            and <code>org.apache.manifoldcf.obfuscation.salt</code> (or <code>MCF_OBFUSCATION_*</code>
+            env vars) and restrict access to <code>properties.xml</code> and the database.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-tinted">
+    <div class="container grid grid-2" style="align-items: start;">
+      <article class="card">
+        <h2>Production Hardening Checklist</h2>
+        <ul style="padding-inline-start: 1.25rem; margin: 0; color: var(--color-text-secondary);">
+          <li style="margin-block-end: 0.5rem;">Replace default <code>admin / admin</code> credentials in <code>properties.xml</code> for UI and API logins.</li>
+          <li style="margin-block-end: 0.5rem;">Configure deployment-specific obfuscation passcode and salt via properties or environment variables.</li>
+          <li style="margin-block-end: 0.5rem;">Terminate TLS (HTTPS) in front of administrative consoles and REST APIs.</li>
+          <li style="margin-block-end: 0.5rem;">Network-isolate <code>/mcf-authority-service</code> (<code>/UserACLs</code>) so only trusted search nodes can query it.</li>
+          <li>Keep OpenJDK 25 and Apache ManifoldCF updated to the latest 2.x release ({SITE.latestVersion}) and verify release PGP signatures.</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2>Supported Versions</h2>
+        <p>
+          Security fixes are applied to the active development branch (<code>trunk</code>) and
+          released on the latest 2.x release line. Users are strongly encouraged to stay on
+          Release <strong>{SITE.latestVersion}</strong> or newer.
+        </p>
+        <footer>
+          <a class="btn btn-primary btn-sm" href={withBase('/downloads/')}>
+            Get Latest Release ({SITE.latestVersion})
+          </a>
+          <a
+            class="btn btn-secondary btn-sm"
+            href={`${WIKI_BASE}/Security-Policy`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Security Policy on Wiki
+          </a>
+        </footer>
+      </article>
+    </div>
+  </section>
+</BaseLayout>
