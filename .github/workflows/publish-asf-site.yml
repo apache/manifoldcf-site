@@ -1,0 +1,77 @@
+# Licensed to the Apache Software Foundation (ASF) under one or more
+# contributor license agreements.  See the NOTICE file distributed with
+# this work for additional information regarding copyright ownership.
+# The ASF licenses this file to You under the Apache License, Version 2.0
+# (the "License"); you may not use this file except in compliance with
+# the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+name: Publish to Production (asf-site)
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirm:
+        description: 'Type PUBLISH to deploy main to asf-site (https://manifoldcf.apache.org/)'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: asf-site
+  cancel-in-progress: false
+
+jobs:
+  publish-asf-site:
+    runs-on: ubuntu-24.04
+    if: github.event.inputs.confirm == 'PUBLISH'
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Type-check Astro project
+        run: npm run check
+
+      - name: Build static site for manifoldcf.apache.org
+        run: npm run build:asf
+
+      - name: Update asf-site content/ (preserving historical release/ docs)
+        run: |
+          git fetch --depth=1 origin asf-site
+          rm -rf /tmp/asf-site
+          git worktree add /tmp/asf-site origin/asf-site
+          cd /tmp/asf-site
+          git checkout -B asf-site
+
+          mkdir -p content
+          # Sync newly built site into content/ while preserving historical release/ docs & Javadocs
+          rsync -av --delete --exclude='release/' "$GITHUB_WORKSPACE/dist/" content/
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+
+          if ! git diff --cached --quiet; then
+            git commit -m "Publish website to asf-site from ${{ github.sha }}"
+            git push origin asf-site
+          else
+            echo "No changes to publish to asf-site."
+          fi

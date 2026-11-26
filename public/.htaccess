@@ -1,0 +1,46 @@
+# Licensed to the Apache Software Foundation (ASF) under one or more
+# contributor license agreements.  See the NOTICE file distributed with
+# this work for additional information regarding copyright ownership.
+# The ASF licenses this file to You under the Apache License, Version 2.0
+# (the "License"); you may not use this file except in compliance with
+# the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+Options +FollowSymlinks
+RewriteEngine on
+
+# Legacy en_US HTML routes -> Modern Astro portal routes
+RewriteRule ^en_US/?$ / [R=301,L,NC]
+RewriteRule ^en_US/index\.html$ / [R=301,L,NC]
+RewriteRule ^en_US/download\.html$ /downloads/ [R=301,L,NC]
+RewriteRule ^en_US/verify\.html$ /downloads/#verify [R=301,L,NC]
+RewriteRule ^en_US/blog\.html$ /blog/ [R=301,L,NC]
+RewriteRule ^en_US/blog-manifoldcf-2-31-release\.html$ /blog/manifoldcf-2-31-release/ [R=301,L,NC]
+RewriteRule ^en_US/blog-first-article\.html$ /blog/welcome-to-manifoldcf-blog/ [R=301,L,NC]
+RewriteRule ^en_US/mail\.html$ /community/#mailing-lists [R=301,L,NC]
+RewriteRule ^en_US/who\.html$ /community/#team [R=301,L,NC]
+RewriteRule ^en_US/books-and-presentations\.html$ /community/#resources [R=301,L,NC]
+RewriteRule ^en_US/developer-resources\.html$ https://github.com/apache/manifoldcf/wiki/Developer-Resources [R=301,L,NC]
+RewriteRule ^en_US/release-documentation\.html$ https://github.com/apache/manifoldcf/wiki/Release-Documentation [R=301,L,NC]
+RewriteRule ^en_US/security\.html$ /security/ [R=301,L,NC]
+
+# Legacy root-level documentation redirects -> GitHub Wiki
+RewriteRule ^end-user-documentation\.html$ https://github.com/apache/manifoldcf/wiki/End-User-Guide [R=301,L,NC]
+RewriteRule ^how-to-build-and-deploy\.html$ https://github.com/apache/manifoldcf/wiki/How-to-Build-and-Deploy [R=301,L,NC]
+RewriteRule ^developer-resources\.html$ https://github.com/apache/manifoldcf/wiki/Developer-Resources [R=301,L,NC]
+RewriteRule ^mail\.html$ /community/#mailing-lists [R=301,L,NC]
+RewriteRule ^download\.html$ /downloads/ [R=301,L,NC]
+RewriteRule ^faq\.html$ https://github.com/apache/manifoldcf/wiki/FAQ [R=301,L,NC]
+RewriteRule ^concepts\.html$ https://github.com/apache/manifoldcf/wiki/Concepts-and-Architecture [R=301,L,NC]
+RewriteRule ^performance-tuning\.html$ https://github.com/apache/manifoldcf/wiki/Performance-Tuning [R=301,L,NC]
+RewriteRule ^who\.html$ /community/#team [R=301,L,NC]
+RewriteRule ^script\.html$ https://github.com/apache/manifoldcf/wiki/Scripting-Language [R=301,L,NC]
+RewriteRule ^programmatic-operation\.html$ https://github.com/apache/manifoldcf/wiki/Programmatic-Operation-REST-API-v1 [R=301,L,NC]
+RewriteRule ^included-connectors\.html$ https://github.com/apache/manifoldcf/wiki/Included-Connectors [R=301,L,NC]

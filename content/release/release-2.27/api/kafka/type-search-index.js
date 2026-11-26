@@ -1,1 +1,0 @@
-typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"org.apache.manifoldcf.agents.output.kafka","l":"KafkaConfig"},{"p":"org.apache.manifoldcf.agents.output.kafka","l":"KafkaMessage"},{"p":"org.apache.manifoldcf.agents.output.kafka","l":"KafkaOutputConnector"},{"p":"org.apache.manifoldcf.agents.output.kafka","l":"Messages"}]

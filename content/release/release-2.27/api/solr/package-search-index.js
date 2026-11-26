@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"org.apache.manifoldcf.agents.output.solr"},{"l":"org.apache.manifoldcf.crawler.connectors.solr"}]

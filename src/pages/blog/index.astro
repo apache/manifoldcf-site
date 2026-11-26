@@ -1,0 +1,125 @@
+---
+// Licensed to the Apache Software Foundation (ASF) under one or more
+// contributor license agreements.  See the NOTICE file distributed with
+// this work for additional information regarding copyright ownership.
+// The ASF licenses this file to You under the Apache License, Version 2.0
+// (the "License"); you may not use this file except in compliance with
+// the License.  You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { withBase } from '../../utils/url';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const formatDate = (date: Date) =>
+  new Intl.DateTimeFormat('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    timeZone: 'UTC',
+  }).format(date);
+
+const blogJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Blog',
+  name: 'Apache ManifoldCF Blog',
+  description:
+    'Official technical articles, release announcements, architectural deep dives, and connector tutorials from the Apache ManifoldCF community.',
+  url: 'https://manifoldcf.apache.org/blog/',
+  publisher: {
+    '@type': 'Organization',
+    name: 'The Apache Software Foundation',
+    url: 'https://www.apache.org/',
+  },
+};
+---
+
+<BaseLayout
+  title="Blog | Apache ManifoldCF™"
+  description="Official Apache ManifoldCF blog featuring release announcements, architectural deep dives, connector tutorials, and security trimming best practices."
+  jsonLd={blogJsonLd}
+>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Project Blog</span>
+      <h1 id="main-content" tabindex="-1">Apache ManifoldCF&trade; Engineering Blog</h1>
+      <p>
+        Release announcements, Java 25 and Virtual Threads deep dives, connector tutorials, and
+        enterprise search security best practices written by ManifoldCF committers.
+      </p>
+      <div style="margin-block-start: 1.15rem;">
+        <a class="btn btn-secondary btn-sm" href={withBase('/rss.xml')}>
+          Subscribe via RSS
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid grid-2">
+        {
+          posts.map((post) => (
+            <article class="card">
+              <header>
+                <div class="blog-meta">
+                  <time datetime={post.data.pubDate.toISOString()}>
+                    {formatDate(post.data.pubDate)}
+                  </time>
+                  <span>&middot;</span>
+                  <span>{post.data.author}</span>
+                </div>
+                <h2>
+                  <a class="card-link" href={withBase(`/blog/${post.id}/`)}>
+                    {post.data.title}
+                  </a>
+                </h2>
+              </header>
+              <p>{post.data.summary}</p>
+              <footer>
+                <ul class="tag-list" role="list">
+                  {post.data.tags.map((tag) => <li class="badge">{tag}</li>)}
+                </ul>
+              </footer>
+            </article>
+          ))
+        }
+      </div>
+
+      <div class="callout" style="margin-block-start: 2.5rem;">
+        <h2 style="font-size: 1.2rem; margin-block-end: 0.4rem;">Want to contribute an article?</h2>
+        <p style="margin-block-end: 0; color: var(--color-text-secondary);">
+          Share a deployment case study, custom connector walkthrough, or performance benchmark
+          with the community—propose a post on the{' '}
+          <a href={withBase('/community/#mailing-lists')}>Development Mailing List</a> or open a
+          pull request on{' '}
+          <a href="https://github.com/apache/manifoldcf-site" target="_blank" rel="noopener noreferrer">
+            apache/manifoldcf-site
+          </a>.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .blog-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    margin-block-end: 0.5rem;
+  }
+</style>

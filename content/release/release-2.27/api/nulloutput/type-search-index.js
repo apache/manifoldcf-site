@@ -1,1 +1,0 @@
-typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"org.apache.manifoldcf.agents.output.nullconnector","l":"Messages"},{"p":"org.apache.manifoldcf.agents.output.nullconnector","l":"NullConnector"}]

@@ -1,0 +1,108 @@
+---
+// Licensed to the Apache Software Foundation (ASF) under one or more
+// contributor license agreements.  See the NOTICE file distributed with
+// this work for additional information regarding copyright ownership.
+// The ASF licenses this file to You under the Apache License, Version 2.0
+// (the "License"); you may not use this file except in compliance with
+// the License.  You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+import { ASF_FOOTER_LINKS, RELATED_APACHE_PROJECTS, SITE, WIKI_BASE } from '../data/site';
+import { withBase } from '../utils/url';
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="https://www.apache.org/foundation/sponsorship.html" target="_blank" rel="noopener noreferrer">
+          <img
+            src={withBase('/images/support-apache.png')}
+            alt="Support The Apache Software Foundation"
+            width="112"
+            height="112"
+            loading="lazy"
+          />
+        </a>
+        <p style="margin-block: 0.75rem 0; font-size: 0.9rem; color: var(--color-text-secondary); max-inline-size: 28ch;">
+          Apache ManifoldCF&trade; is an open-source project of The Apache Software Foundation.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="footer-heading">Project</h2>
+        <ul class="footer-list" role="list">
+          <li><a href={withBase('/architecture/')}>Architecture &amp; Connectors</a></li>
+          <li><a href={withBase('/downloads/')}>Downloads &amp; Verification</a></li>
+          <li><a href={withBase('/blog/')}>Project Blog</a></li>
+          <li><a href={withBase('/rss.xml')}>Blog RSS Feed</a></li>
+          <li><a href={withBase('/community/')}>Community &amp; Team</a></li>
+          <li><a href={withBase('/security/')}>Security Policy</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="footer-heading">Documentation &amp; Code</h2>
+        <ul class="footer-list" role="list">
+          <li><a href={WIKI_BASE} target="_blank" rel="noopener noreferrer">GitHub Technical Wiki</a></li>
+          <li><a href={`${WIKI_BASE}/How-to-Build-and-Deploy`} target="_blank" rel="noopener noreferrer">Build &amp; Deploy Guide</a></li>
+          <li><a href={`${WIKI_BASE}/Spring-Boot-and-Modern-Admin-Console`} target="_blank" rel="noopener noreferrer">Spring Boot &amp; Modern UI</a></li>
+          <li><a href={SITE.javadoc231Url} target="_blank" rel="noopener noreferrer">Release 2.31 Javadocs</a></li>
+          <li><a href={SITE.githubUrl} target="_blank" rel="noopener noreferrer">GitHub Repository</a></li>
+          <li><a href={SITE.jiraUrl} target="_blank" rel="noopener noreferrer">Apache Jira (CONNECTORS)</a></li>
+          <li><a href={SITE.dockerHubUrl} target="_blank" rel="noopener noreferrer">Official Docker Images</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="footer-heading">Apache Software Foundation</h2>
+        <ul class="footer-list" role="list">
+          {
+            ASF_FOOTER_LINKS.map((link) => (
+              <li>
+                <a href={link.href} target="_blank" rel="noopener noreferrer">
+                  {link.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="footer-heading">Related Apache Projects</h2>
+        <ul class="footer-list" role="list">
+          {
+            RELATED_APACHE_PROJECTS.map((project) => (
+              <li>
+                <a href={project.href} target="_blank" rel="noopener noreferrer">
+                  {project.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-legal">
+      <p>
+        Copyright &copy; 2009&ndash;2026 <a href="https://www.apache.org/">The Apache Software Foundation</a>,
+        licensed under the <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a>.
+      </p>
+      <p>
+        Apache ManifoldCF, ManifoldCF, Apache Solr, Apache Tika, Apache Lucene, Apache OpenNLP, Apache Kafka, Apache,
+        the Apache feather logo, and the Apache ManifoldCF logo are registered trademarks or trademarks of
+        The Apache Software Foundation in the United States and other countries. All other marks mentioned may be
+        trademarks or registered trademarks of their respective owners.
+      </p>
+    </div>
+  </div>
+</footer>

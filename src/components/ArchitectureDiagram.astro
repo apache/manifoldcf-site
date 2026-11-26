@@ -1,0 +1,151 @@
+---
+// Licensed to the Apache Software Foundation (ASF) under one or more
+// contributor license agreements.  See the NOTICE file distributed with
+// this work for additional information regarding copyright ownership.
+// The ASF licenses this file to You under the Apache License, Version 2.0
+// (the "License"); you may not use this file except in compliance with
+// the License.  You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+---
+
+<figure class="arch-figure">
+  <svg
+    class="arch-svg"
+    role="img"
+    aria-labelledby="arch-diagram-title arch-diagram-desc"
+    viewBox="0 0 960 360"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <title id="arch-diagram-title">Apache ManifoldCF Content Integration and Security Trimming Architecture</title>
+    <desc id="arch-diagram-desc">
+      Content repositories such as SharePoint, CMIS, Amazon S3, Google Drive, Jira, and Web feed into Apache ManifoldCF Repository Connectors, flow through Transformation Connectors (Tika, Metadata, OpenNLP) into Output Connectors targeting Apache Solr, OpenSearch, Elasticsearch, Kafka, HDFS, and MongoDB. Authority and User Mapping Connectors extract ACL tokens at crawl time and answer search-time UserACLs queries.
+    </desc>
+
+    <defs>
+      <marker id="mcf-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M 0 1 L 10 5 L 0 9 z" fill="var(--color-brand)" />
+      </marker>
+      <marker id="mcf-arrow-accent" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M 0 1 L 10 5 L 0 9 z" fill="var(--color-accent)" />
+      </marker>
+    </defs>
+
+    <!-- Column 1: Source Repositories -->
+    <rect x="16" y="34" width="208" height="292" rx="14" fill="var(--color-surface)" stroke="var(--color-border)" stroke-width="1.5" />
+    <text x="120" y="64" text-anchor="middle" fill="var(--color-text)" font-size="14" font-weight="700">Content Repositories</text>
+
+    <rect x="34" y="84" width="172" height="58" rx="9" fill="var(--color-surface-subtle)" stroke="var(--color-border-subtle)" />
+    <text x="120" y="109" text-anchor="middle" fill="var(--color-text)" font-size="12.5" font-weight="600">ECM &amp; Collaboration</text>
+    <text x="120" y="128" text-anchor="middle" fill="var(--color-text-muted)" font-size="11">SharePoint · CMIS · Confluence</text>
+
+    <rect x="34" y="156" width="172" height="58" rx="9" fill="var(--color-surface-subtle)" stroke="var(--color-border-subtle)" />
+    <text x="120" y="181" text-anchor="middle" fill="var(--color-text)" font-size="12.5" font-weight="600">Cloud Storage</text>
+    <text x="120" y="200" text-anchor="middle" fill="var(--color-text-muted)" font-size="11">Amazon S3 · Google Drive · Dropbox</text>
+
+    <rect x="34" y="228" width="172" height="58" rx="9" fill="var(--color-surface-subtle)" stroke="var(--color-border-subtle)" />
+    <text x="120" y="253" text-anchor="middle" fill="var(--color-text)" font-size="12.5" font-weight="600">Files, Web &amp; Data</text>
+    <text x="120" y="272" text-anchor="middle" fill="var(--color-text-muted)" font-size="11">File System · JDBC · Web · Jira</text>
+
+    <!-- Column 2: ManifoldCF Core -->
+    <rect x="264" y="16" width="432" height="328" rx="16" fill="var(--color-surface)" stroke="var(--color-brand)" stroke-width="2" />
+    <text x="480" y="46" text-anchor="middle" fill="var(--color-brand)" font-size="15" font-weight="800">
+      Apache ManifoldCF Core (Java 25 + Virtual Threads)
+    </text>
+
+    <!-- Ingestion Pipeline Row -->
+    <rect x="284" y="70" width="118" height="84" rx="10" fill="var(--color-surface-subtle)" stroke="var(--color-brand)" stroke-width="1.25" />
+    <text x="343" y="102" text-anchor="middle" fill="var(--color-text)" font-size="12.5" font-weight="700">Repository</text>
+    <text x="343" y="120" text-anchor="middle" fill="var(--color-text)" font-size="12.5" font-weight="700">Connectors</text>
+    <text x="343" y="140" text-anchor="middle" fill="var(--color-text-muted)" font-size="10.5">Docs + Native ACLs</text>
+
+    <rect x="422" y="70" width="118" height="84" rx="10" fill="var(--color-surface-subtle)" stroke="var(--color-border)" stroke-width="1.25" />
+    <text x="481" y="102" text-anchor="middle" fill="var(--color-text)" font-size="12.5" font-weight="700">Transform</text>
+    <text x="481" y="120" text-anchor="middle" fill="var(--color-text)" font-size="12.5" font-weight="700">Pipeline</text>
+    <text x="481" y="140" text-anchor="middle" fill="var(--color-text-muted)" font-size="10.5">Tika · Filter · NLP</text>
+
+    <rect x="560" y="70" width="116" height="84" rx="10" fill="var(--color-surface-subtle)" stroke="var(--color-brand)" stroke-width="1.25" />
+    <text x="618" y="102" text-anchor="middle" fill="var(--color-text)" font-size="12.5" font-weight="700">Output</text>
+    <text x="618" y="120" text-anchor="middle" fill="var(--color-text)" font-size="12.5" font-weight="700">Connectors</text>
+    <text x="618" y="140" text-anchor="middle" fill="var(--color-text-muted)" font-size="10.5">Index + Tokens</text>
+
+    <!-- Authority Service Row -->
+    <rect x="284" y="186" width="392" height="68" rx="10" fill="var(--color-surface-subtle)" stroke="var(--color-accent)" stroke-width="1.5" stroke-dasharray="5 3" />
+    <text x="480" y="213" text-anchor="middle" fill="var(--color-accent)" font-size="13" font-weight="700">
+      Authority Service &amp; User Mapping (/UserACLs)
+    </text>
+    <text x="480" y="234" text-anchor="middle" fill="var(--color-text-muted)" font-size="11.5">
+      Active Directory · LDAP · SharePoint · Generic JSON · RegExp Mapping
+    </text>
+
+    <!-- Admin & API Strip -->
+    <rect x="284" y="274" width="392" height="50" rx="9" fill="var(--color-surface-subtle)" stroke="var(--color-border-subtle)" />
+    <text x="480" y="297" text-anchor="middle" fill="var(--color-text)" font-size="12" font-weight="700">
+      Admin Consoles, REST API v1/v2 &amp; Notifications
+    </text>
+    <text x="480" y="314" text-anchor="middle" fill="var(--color-text-muted)" font-size="11">
+      Jetty 12.1 · Spring Boot 4.2 (trunk) · OpenAPI 3 · Slack / Email / Rocket.Chat
+    </text>
+
+    <!-- Column 3: Target Search & Sinks -->
+    <rect x="736" y="34" width="208" height="292" rx="14" fill="var(--color-surface)" stroke="var(--color-border)" stroke-width="1.5" />
+    <text x="840" y="64" text-anchor="middle" fill="var(--color-text)" font-size="14" font-weight="700">Search &amp; Data Sinks</text>
+
+    <rect x="754" y="84" width="172" height="58" rx="9" fill="var(--color-surface-subtle)" stroke="var(--color-border-subtle)" />
+    <text x="840" y="109" text-anchor="middle" fill="var(--color-text)" font-size="12.5" font-weight="600">Apache Solr</text>
+    <text x="840" y="128" text-anchor="middle" fill="var(--color-text-muted)" font-size="11">Native Security Filter Plugin</text>
+
+    <rect x="754" y="156" width="172" height="58" rx="9" fill="var(--color-surface-subtle)" stroke="var(--color-border-subtle)" />
+    <text x="840" y="181" text-anchor="middle" fill="var(--color-text)" font-size="12.5" font-weight="600">OpenSearch &amp; Elastic</text>
+    <text x="840" y="200" text-anchor="middle" fill="var(--color-text-muted)" font-size="11">ACL-Aware Search Indexes</text>
+
+    <rect x="754" y="228" width="172" height="58" rx="9" fill="var(--color-surface-subtle)" stroke="var(--color-border-subtle)" />
+    <text x="840" y="253" text-anchor="middle" fill="var(--color-text)" font-size="12.5" font-weight="600">Streaming &amp; Lakes</text>
+    <text x="840" y="272" text-anchor="middle" fill="var(--color-text-muted)" font-size="11">Apache Kafka · HDFS · MongoDB</text>
+
+    <!-- Arrows -->
+    <line x1="224" y1="112" x2="280" y2="112" stroke="var(--color-brand)" stroke-width="2" marker-end="url(#mcf-arrow)" />
+    <line x1="402" y1="112" x2="418" y2="112" stroke="var(--color-brand)" stroke-width="2" marker-end="url(#mcf-arrow)" />
+    <line x1="540" y1="112" x2="556" y2="112" stroke="var(--color-brand)" stroke-width="2" marker-end="url(#mcf-arrow)" />
+    <line x1="676" y1="112" x2="732" y2="112" stroke="var(--color-brand)" stroke-width="2" marker-end="url(#mcf-arrow)" />
+
+    <!-- Security Token Arrow to Search -->
+    <line x1="676" y1="220" x2="732" y2="220" stroke="var(--color-accent)" stroke-width="2" stroke-dasharray="5 3" marker-end="url(#mcf-arrow-accent)" />
+    <!-- Authority feed to Repository -->
+    <line x1="343" y1="186" x2="343" y2="158" stroke="var(--color-accent)" stroke-width="1.75" stroke-dasharray="4 3" marker-end="url(#mcf-arrow-accent)" />
+  </svg>
+  <figcaption class="arch-caption">
+    ManifoldCF crawls heterogeneous repositories incrementally, preserves native allow/deny ACL tokens alongside extracted text, and answers sub-millisecond search-time security trimming lookups via the Authority Service.
+  </figcaption>
+</figure>
+
+<style>
+  .arch-figure {
+    margin: 0;
+    padding: 1.25rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border-subtle);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .arch-svg {
+    inline-size: 100%;
+    block-size: auto;
+    font-family: var(--font-sans);
+  }
+
+  .arch-caption {
+    margin-block-start: 0.9rem;
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    max-inline-size: 75ch;
+  }
+</style>

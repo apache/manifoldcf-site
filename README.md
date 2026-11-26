@@ -1,49 +1,65 @@
-Apache ManifoldCF Website
-=============================
+# Apache ManifoldCF™ Website
 
-This is the source of the Apache ManifoldCF team's website, 
-found at https://manifoldcf.apache.org/
+Source repository for the official **Apache ManifoldCF™** website, built with [Astro](https://astro.build/).
 
-## How to build the ManifoldCF Site:
-This builds the website and puts its pages in output/
+- **GitHub Pages Preview:** `https://apache.github.io/manifoldcf-site/` (published automatically from `main` to `gh-pages`)
+- **Production Website:** `https://manifoldcf.apache.org/` (published manually from `main` to `asf-site`)
+- **Technical Documentation:** [Apache ManifoldCF GitHub Wiki](https://github.com/apache/manifoldcf/wiki)
 
-```bash
-virtualenv $venvname
-source $venvname/bin/activate
-pip install -r requirements.txt
+## Local Development
 
-git pull origin master
-
-# Edit all the markdown! (manifoldcf-site/content/pages/)
-
-pelican -t theme
-```
-
-To preview:
+Requires **Node.js 22+**.
 
 ```bash
-cd output/
-python -m pelican.server
-# Browse to localhost:8000
+npm install
+npm run dev
 ```
 
-## Technical site documentation:
-Any time you check in a file, the site regenerates:
-https://ci2.apache.org/#/builders/3
+Open `http://localhost:4321/` to preview changes live.
 
-## Preparation
-The `gfm_reader.py` script points to a specific directory on
-bb-slave1 for loading the `libcmark-gfm.so` and `libcmark-gfmextensions.so`
-libraries. The path should be adjusted for your local installation.
+## Build Targets
 
-Run `build_cmark.sh` to build the two libraries. It is
-then helpful to create a directory (say, `build_cmark/lib`) with
-two symlinks from the `.so` to the longer, version-specific libraries
-that the above shell script builds.
+The same Astro source builds for both GitHub Pages (under `/manifoldcf-site`) and ASF Production (at `/`):
 
-## Preview PRs
-To stage a preview of what a PR would result in, be sure to name your branches 
-using the `preview/$foo` syntax, for instance `preview/cleanup-dec-2021`. This 
-will auto-build and -stage your changes and make them available at 
-`manifoldcf-$foo.staged.apache.org`, i.e. `manifoldcf-cleanup-dec-2021.staged.apache.org`
+```bash
+# Type-check Astro templates & content collections
+npm run check
 
+# Build for GitHub Pages preview (https://apache.github.io/manifoldcf-site/)
+npm run build:gh-pages
+
+# Build for ASF production (https://manifoldcf.apache.org/)
+npm run build:asf
+```
+
+## Writing Blog Posts
+
+Add a new Markdown file under `src/content/blog/<slug>.md` with frontmatter:
+
+```markdown
+---
+title: "Your Article Title"
+description: "Short SEO summary for search engines and social previews."
+pubDate: 2026-11-26
+author: "Your Name"
+tags: ["Release", "Architecture"]
+summary: "Brief teaser displayed on the Blog index and Home page."
+---
+
+Article body in standard Markdown...
+```
+
+New posts are automatically listed on `/`, `/blog/`, and included in `/rss.xml` and the XML sitemap.
+
+## Deployment Workflows
+
+1. **GitHub Pages Preview (`.github/workflows/deploy-gh-pages.yml`):**
+   - Runs automatically on every push to `main` (and validates builds on PRs).
+   - Publishes `dist/` to the `gh-pages` branch, served via `.asf.yaml` (`ghp_branch: gh-pages`, `ghp_path: /`).
+2. **Production ASF Publishing (`.github/workflows/publish-asf-site.yml`):**
+   - Manual `workflow_dispatch` only (requires typing `PUBLISH`).
+   - Builds with `SITE_BASE=/` and syncs into `asf-site`'s `content/` directory while **preserving `content/release/`** (historical release manuals and Javadocs).
+
+## License
+
+Licensed under the [Apache License, Version 2.0](LICENSE).

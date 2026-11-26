@@ -1,0 +1,299 @@
+---
+// Licensed to the Apache Software Foundation (ASF) under one or more
+// contributor license agreements.  See the NOTICE file distributed with
+// this work for additional information regarding copyright ownership.
+// The ASF licenses this file to You under the Apache License, Version 2.0
+// (the "License"); you may not use this file except in compliance with
+// the License.  You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CodeBlock from '../components/CodeBlock.astro';
+import {
+  EARLIER_RELEASES,
+  LATEST_RELEASE,
+  SDK_RELEASE,
+  SITE,
+  WIKI_BASE,
+} from '../data/site';
+
+const verifyCommands = `# 1. Download and import the official ASF KEYS file (from downloads.apache.org)
+curl -fsSLO https://downloads.apache.org/manifoldcf/KEYS
+gpg --import KEYS
+
+# 2. Verify PGP signature
+gpg --verify apache-manifoldcf-${LATEST_RELEASE.version}-bin.tar.gz.asc apache-manifoldcf-${LATEST_RELEASE.version}-bin.tar.gz
+
+# 3. Verify SHA-512 checksum
+gpg --print-md SHA512 apache-manifoldcf-${LATEST_RELEASE.version}-bin.tar.gz | diff - apache-manifoldcf-${LATEST_RELEASE.version}-bin.tar.gz.sha512`;
+
+const dockerCmd = `docker pull apache/manifoldcf:${LATEST_RELEASE.version}
+docker run -d -p 8345:8345 --name manifoldcf apache/manifoldcf:${LATEST_RELEASE.version}`;
+
+const latestRows = [
+  ...LATEST_RELEASE.artifacts.binary.map((a) => ({ kind: 'Binary Distribution', ...a })),
+  ...LATEST_RELEASE.artifacts.source.map((a) => ({ kind: 'Source Distribution', ...a })),
+  ...LATEST_RELEASE.artifacts.lib.map((a) => ({ kind: 'Libraries Distribution', ...a })),
+];
+---
+
+<BaseLayout
+  title="Downloads | Apache ManifoldCF™"
+  description={`Download Apache ManifoldCF ${LATEST_RELEASE.version}, Apache ManifoldCF SDK ${SDK_RELEASE.version}, and official Docker images with PGP and SHA-512 verification.`}
+>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Official ASF Distributions</span>
+      <h1 id="main-content" tabindex="-1">Download Apache ManifoldCF&trade;</h1>
+      <p>
+        Download official Apache ManifoldCF binary, source, and library distributions, the
+        ManifoldCF Connector SDK, or run the official Docker image. Always verify release
+        integrity with PGP signatures and SHA-512 checksums.
+      </p>
+    </div>
+  </section>
+
+  <!-- Latest 2.31 Release -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="badge">Latest Release · {LATEST_RELEASE.date}</span>
+          <h2 style="margin-block-start: 0.5rem;">Apache ManifoldCF {LATEST_RELEASE.version}</h2>
+          <p>{LATEST_RELEASE.summary}</p>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+          <a class="btn btn-secondary btn-sm" href={LATEST_RELEASE.keysUrl} target="_blank" rel="noopener noreferrer">
+            ASF KEYS
+          </a>
+          <a class="btn btn-secondary btn-sm" href={LATEST_RELEASE.changesUrl} target="_blank" rel="noopener noreferrer">
+            CHANGES.txt
+          </a>
+          <a class="btn btn-secondary btn-sm" href={SITE.javadoc231Url} target="_blank" rel="noopener noreferrer">
+            2.31 Javadocs
+          </a>
+        </div>
+      </div>
+
+      <div tabindex="0" role="region" aria-labelledby="latest-release-caption" class="table-wrapper">
+        <table>
+          <caption id="latest-release-caption">
+            Apache ManifoldCF {LATEST_RELEASE.version} Distribution Archives (Requires OpenJDK 25+)
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">Package</th>
+              <th scope="col">Archive Download (ASF Mirror)</th>
+              <th scope="col">Verification</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              latestRows.map((item) => (
+                <tr>
+                  <th scope="row">{item.label}</th>
+                  <td data-label="Archive Download">
+                    <a href={item.url} target="_blank" rel="noopener noreferrer">
+                      <code>{item.filename}</code>
+                    </a>
+                  </td>
+                  <td data-label="Verification">
+                    <a
+                      href={item.asc}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`PGP signature for ${item.filename}`}
+                    >
+                      PGP (.asc)
+                    </a>
+                    {' · '}
+                    <a
+                      href={item.sha512}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`SHA-512 checksum for ${item.filename}`}
+                    >
+                      SHA-512
+                    </a>
+                  </td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Docker & SDK -->
+  <section class="section section-tinted">
+    <div class="container grid grid-2" style="align-items: start;">
+      <article class="card">
+        <span class="badge badge-accent" style="align-self: flex-start;">Container Image</span>
+        <h2>Official Docker Image</h2>
+        <p>
+          Pull the official Java 25 Apache ManifoldCF container image from Docker Hub and start
+          the single-process instance on port <code>8345</code>.
+        </p>
+        <CodeBlock
+          id="download-docker-cmd"
+          code={dockerCmd}
+          copyLabel="Copy Docker pull and run commands"
+        />
+        <footer>
+          <a class="btn btn-secondary btn-sm" href={SITE.dockerHubUrl} target="_blank" rel="noopener noreferrer">
+            Docker Hub Repository
+          </a>
+          <a
+            class="btn btn-secondary btn-sm"
+            href={`${WIKI_BASE}/How-to-Build-and-Deploy`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Deployment Guide
+          </a>
+        </footer>
+      </article>
+
+      <article class="card">
+        <span class="badge" style="align-self: flex-start;">Extension SDK · {SDK_RELEASE.date}</span>
+        <h2>Apache ManifoldCF SDK {SDK_RELEASE.version}</h2>
+        <p>
+          Bootstrap, package, and test custom Repository, Authority, Transformation, and Output
+          connectors using the official Apache ManifoldCF SDK.
+        </p>
+        <ul style="padding-inline-start: 1.2rem; margin: 0; color: var(--color-text-secondary);">
+          {
+            SDK_RELEASE.artifacts.map((art) => (
+              <li style="margin-block-end: 0.45rem;">
+                <a href={art.url} target="_blank" rel="noopener noreferrer">
+                  <code>{art.filename}</code>
+                </a>{' '}
+                (
+                <a href={art.asc} target="_blank" rel="noopener noreferrer" aria-label={`PGP signature for ${art.filename}`}>
+                  PGP
+                </a>
+                {' / '}
+                <a href={art.sha512} target="_blank" rel="noopener noreferrer" aria-label={`SHA-512 checksum for ${art.filename}`}>
+                  SHA-512
+                </a>
+                )
+              </li>
+            ))
+          }
+        </ul>
+        <footer>
+          <a class="btn btn-secondary btn-sm" href={SDK_RELEASE.changesUrl} target="_blank" rel="noopener noreferrer">
+            SDK CHANGES.txt
+          </a>
+          <a class="btn btn-secondary btn-sm" href={SITE.sdkUrl} target="_blank" rel="noopener noreferrer">
+            SDK on GitHub
+          </a>
+        </footer>
+      </article>
+    </div>
+  </section>
+
+  <!-- Cryptographic Verification -->
+  <section class="section" id="verify">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="eyebrow">Integrity Check</span>
+          <h2>Verifying Release Signatures &amp; Checksums</h2>
+        </div>
+        <a
+          class="btn btn-secondary btn-sm"
+          href={`${WIKI_BASE}/Verifying-Releases`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Full Verification Guide
+        </a>
+      </div>
+
+      <p class="prose" style="color: var(--color-text-secondary);">
+        It is essential that you verify the integrity of downloaded files using the PGP
+        signatures (<code>.asc</code>) or SHA-512 checksums (<code>.sha512</code>). Always
+        fetch the <code>KEYS</code> file and signature files directly from
+        <code>https://downloads.apache.org/manifoldcf/</code>, never from third-party mirrors.
+      </p>
+
+      <CodeBlock
+        id="verify-release-cmd"
+        label="GPG & SHA-512 Verification Commands"
+        code={verifyCommands}
+        copyLabel="Copy GPG and SHA-512 verification commands"
+      />
+    </div>
+  </section>
+
+  <!-- Earlier Releases Accordion -->
+  <section class="section section-tinted">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="eyebrow">Release History</span>
+          <h2>Earlier Releases &amp; Archives</h2>
+        </div>
+        <a
+          class="btn btn-secondary btn-sm"
+          href={`${WIKI_BASE}/Downloads`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Complete Historical Archive (1.0 &ndash; 2.31)
+        </a>
+      </div>
+
+      <div class="accordion">
+        {
+          EARLIER_RELEASES.map((rel) => (
+            <details>
+              <summary>
+                <span>
+                  Apache ManifoldCF {rel.version} &mdash; {rel.date}
+                  {rel.isArchive ? ' (ASF Archive)' : ''}
+                </span>
+              </summary>
+              <div class="accordion-body">
+                <p style="color: var(--color-text-secondary);">{rel.summary}</p>
+                <p style="font-size: 0.9rem;">
+                  <a href={rel.keysUrl} target="_blank" rel="noopener noreferrer">KEYS</a>
+                  {' · '}
+                  <a href={rel.changesUrl} target="_blank" rel="noopener noreferrer">CHANGES.txt</a>
+                </p>
+                <ul style="padding-inline-start: 1.25rem; margin: 0;">
+                  {[...rel.artifacts.binary, ...rel.artifacts.source, ...rel.artifacts.lib].map((art) => (
+                    <li style="margin-block-end: 0.35rem;">
+                      <strong>{art.label}:</strong>{' '}
+                      <a href={art.url} target="_blank" rel="noopener noreferrer">
+                        <code>{art.filename}</code>
+                      </a>{' '}
+                      (
+                      <a href={art.asc} target="_blank" rel="noopener noreferrer" aria-label={`PGP signature for ${art.filename}`}>
+                        PGP
+                      </a>
+                      {' / '}
+                      <a href={art.sha512} target="_blank" rel="noopener noreferrer" aria-label={`SHA-512 checksum for ${art.filename}`}>
+                        SHA-512
+                      </a>
+                      )
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>

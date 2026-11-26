@@ -1,0 +1,201 @@
+---
+// Licensed to the Apache Software Foundation (ASF) under one or more
+// contributor license agreements.  See the NOTICE file distributed with
+// this work for additional information regarding copyright ownership.
+// The ASF licenses this file to You under the Apache License, Version 2.0
+// (the "License"); you may not use this file except in compliance with
+// the License.  You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import {
+  COMMITTERS,
+  COMMUNITY_RESOURCES,
+  MAILING_LISTS,
+  SITE,
+  WIKI_BASE,
+} from '../data/site';
+---
+
+<BaseLayout
+  title="Community & Team | Apache ManifoldCF™"
+  description="Connect with the Apache ManifoldCF community via mailing lists, GitHub, Apache Jira, books, talks, and meet the project committers."
+>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Community Over Code</span>
+      <h1 id="main-content" tabindex="-1">Apache ManifoldCF&trade; Community</h1>
+      <p>
+        Apache ManifoldCF is governed openly by its Project Management Committee (PMC) and built
+        by contributors worldwide. Ask questions, report bugs, submit pull requests, or join our
+        mailing lists.
+      </p>
+    </div>
+  </section>
+
+  <!-- Mailing Lists -->
+  <section class="section" id="mailing-lists">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="eyebrow">Communication</span>
+          <h2>Mailing Lists</h2>
+        </div>
+        <p>
+          All official Apache project decisions, release votes, and user support take place on our
+          public Apache mailing lists.
+        </p>
+      </div>
+
+      <div class="grid grid-3">
+        {
+          MAILING_LISTS.map((list) => (
+            <article class="card">
+              <h3>{list.name}</h3>
+              <p style="font-family: var(--font-mono); font-size: 0.88rem; color: var(--color-brand);">
+                {list.address}
+              </p>
+              <p>{list.description}</p>
+              <footer>
+                <a class="btn btn-primary btn-sm" href={list.subscribe} aria-label={`Subscribe to ${list.name}`}>
+                  Subscribe
+                </a>
+                <a class="btn btn-secondary btn-sm" href={list.unsubscribe} aria-label={`Unsubscribe from ${list.name}`}>
+                  Unsubscribe
+                </a>
+                <a class="btn btn-secondary btn-sm" href={list.archive} target="_blank" rel="noopener noreferrer" aria-label={`Browse ${list.name} archives`}>
+                  Archives
+                </a>
+              </footer>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Code & Contribution Channels -->
+  <section class="section section-tinted">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="eyebrow">Contribute</span>
+          <h2>Repositories, Issues &amp; Documentation</h2>
+        </div>
+      </div>
+
+      <div class="grid grid-4">
+        <article class="card">
+          <h3><a class="card-link" href={SITE.githubUrl} target="_blank" rel="noopener noreferrer">GitHub Repository</a></h3>
+          <p>Browse source code, open pull requests, and follow CI workflows for Apache ManifoldCF.</p>
+        </article>
+        <article class="card">
+          <h3><a class="card-link" href={WIKI_BASE} target="_blank" rel="noopener noreferrer">Technical Wiki</a></h3>
+          <p>End-user manuals, connector reference guides, REST API v2 specs, and developer tutorials.</p>
+        </article>
+        <article class="card">
+          <h3><a class="card-link" href={SITE.jiraUrl} target="_blank" rel="noopener noreferrer">Apache Jira (CONNECTORS)</a></h3>
+          <p>Track bugs, enhancement proposals, roadmap epics, and release progress.</p>
+        </article>
+        <article class="card">
+          <h3><a class="card-link" href={SITE.sdkUrl} target="_blank" rel="noopener noreferrer">ManifoldCF SDK</a></h3>
+          <p>Official Maven/Java SDK for developing and testing custom ManifoldCF connectors.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Committers -->
+  <section class="section" id="team">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="eyebrow">Who We Are</span>
+          <h2>Project Committers</h2>
+        </div>
+        <p>Alphabetical roster of Apache ManifoldCF committers and PMC members.</p>
+      </div>
+
+      <ul class="committer-grid" role="list">
+        {
+          COMMITTERS.map((person) => (
+            <li class="committer-card">
+              <strong>{person.name}</strong>
+              <code>{person.id}</code>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <!-- Books & Presentations -->
+  <section class="section section-tinted" id="resources">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="eyebrow">Learn More</span>
+          <h2>Books, Talks &amp; Podcasts</h2>
+        </div>
+        <a
+          class="btn btn-secondary btn-sm"
+          href={`${WIKI_BASE}/Books-and-Presentations`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Full Media List on Wiki
+        </a>
+      </div>
+
+      <div class="grid grid-3">
+        {
+          COMMUNITY_RESOURCES.map((res) => (
+            <article class="card">
+              <span class="badge badge-neutral" style="align-self: flex-start;">{res.type}</span>
+              <h3>
+                <a class="card-link" href={res.href} target="_blank" rel="noopener noreferrer">
+                  {res.title}
+                </a>
+              </h3>
+              <p>{res.author}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .committer-grid {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 0.75rem;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 15.5rem), 1fr));
+  }
+
+  .committer-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.65rem;
+    padding: 0.75rem 1rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border-subtle);
+    border-radius: var(--radius-sm);
+  }
+
+  .committer-card code {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+  }
+</style>
