@@ -1,0 +1,95 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><!-- MANDATORY: Declare light/dark support early + tiny FOUC-prevention inline script --><meta name="color-scheme" content="light dark"><script>
+      try {
+        var s = localStorage.getItem('color-scheme');
+        if (s === 'light' || s === 'dark') {
+          document.querySelector('meta[name="color-scheme"]').content = s;
+        }
+      } catch (e) {}
+    </script><title>Welcome to the Apache ManifoldCF Blog: Connecting Enterprise Content to Search Engines | Apache ManifoldCF™ Blog</title><meta name="description" content="Introductory architectural guide to Apache ManifoldCF: modular connectors, incremental ingestion, and document-level ACL security trimming for Apache Solr, Elasticsearch, and OpenSearch."><link rel="canonical" href="https://manifoldcf.staged.apache.org/blog/welcome-to-manifoldcf-blog/"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" href="/images/favicon.png"><link rel="alternate" type="application/rss+xml" title="Apache ManifoldCF Blog" href="/rss.xml"><!-- Open Graph / Twitter --><meta property="og:type" content="article"><meta property="og:site_name" content="Apache ManifoldCF"><meta property="og:title" content="Welcome to the Apache ManifoldCF Blog: Connecting Enterprise Content to Search Engines | Apache ManifoldCF™ Blog"><meta property="og:description" content="Introductory architectural guide to Apache ManifoldCF: modular connectors, incremental ingestion, and document-level ACL security trimming for Apache Solr, Elasticsearch, and OpenSearch."><meta property="og:url" content="https://manifoldcf.staged.apache.org/blog/welcome-to-manifoldcf-blog/"><meta property="og:image" content="https://manifoldcf.staged.apache.org/images/manifoldcf-logo.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Welcome to the Apache ManifoldCF Blog: Connecting Enterprise Content to Search Engines | Apache ManifoldCF™ Blog"><meta name="twitter:description" content="Introductory architectural guide to Apache ManifoldCF: modular connectors, incremental ingestion, and document-level ACL security trimming for Apache Solr, Elasticsearch, and OpenSearch."><meta name="twitter:image" content="https://manifoldcf.staged.apache.org/images/manifoldcf-logo.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Welcome to the Apache ManifoldCF Blog: Connecting Enterprise Content to Search Engines","description":"Introductory architectural guide to Apache ManifoldCF: modular connectors, incremental ingestion, and document-level ACL security trimming for Apache Solr, Elasticsearch, and OpenSearch.","datePublished":"2026-07-31","author":{"@type":"Person","name":"Apache ManifoldCF Project Team"},"publisher":{"@type":"Organization","name":"The Apache Software Foundation","url":"https://www.apache.org/"}}</script><link rel="stylesheet" href="/_astro/architecture.C74fhtx2.css">
+<style>.breadcrumb[data-astro-cid-7jjqptxk]{margin-block-end:.85rem;font-size:.9rem;font-weight:600}.breadcrumb[data-astro-cid-7jjqptxk] a[data-astro-cid-7jjqptxk]{text-decoration:none}.breadcrumb[data-astro-cid-7jjqptxk] a[data-astro-cid-7jjqptxk]:hover{text-decoration:underline}.article-meta[data-astro-cid-7jjqptxk]{display:flex;flex-wrap:wrap;gap:.5rem;color:var(--color-text-muted);font-size:.95rem;margin-block-start:.5rem}.article-content[data-astro-cid-7jjqptxk] table{inline-size:100%;border-collapse:collapse;margin-block:1.5rem;font-size:.925rem;display:block;overflow-x:auto}.article-content[data-astro-cid-7jjqptxk] th,.article-content[data-astro-cid-7jjqptxk] td{padding:.65rem .9rem;border:1px solid var(--color-border-subtle);text-align:start}.article-content[data-astro-cid-7jjqptxk] thead th{background:var(--color-surface-subtle);font-weight:700}.article-footer[data-astro-cid-7jjqptxk]{margin-block-start:3rem;padding-block-start:1.5rem;border-block-start:1px solid var(--color-border-subtle);display:flex;flex-wrap:wrap;gap:.75rem}
+</style></head> <body> <a class="skip-link visually-hidden" href="#main-content">Skip to main content</a> <header class="site-header"> <div class="container header-inner"> <a class="site-brand" href="/"> <img class="site-brand-mark" src="/favicon.svg" alt="" width="34" height="34"> <span> Apache ManifoldCF&trade;
+<span class="site-brand-sub">Release 2.31 · Java 25 LTS</span> </span> </a> <div class="header-controls"> <nav class="site-nav" aria-label="Primary"> <button class="menu-button" type="button" popovertarget="site-menu" popovertargetaction="toggle" aria-controls="site-menu"> <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"> <path d="M4 7h16M4 12h16M4 17h16"></path> </svg> <span>Menu</span> </button> <ul id="site-menu" class="site-menu" popover="auto"> <li> <a href="/"> <span>Home</span>  </a> </li><li> <a href="/architecture/"> <span>Architecture</span>  </a> </li><li> <a href="/downloads/"> <span>Downloads</span>  </a> </li><li> <a href="/blog/" aria-current="page"> <span>Blog</span>  </a> </li><li> <a href="/community/"> <span>Community</span>  </a> </li><li> <a href="/security/"> <span>Security</span>  </a> </li><li> <a href="https://github.com/apache/manifoldcf/wiki" target="_blank" rel="noopener noreferrer"> <span>Wiki Docs</span> <svg aria-hidden="true" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"> <path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path> </svg> </a> </li> </ul> </nav> <button class="theme-toggle" type="button" data-theme-toggle> <span class="theme-opt-dark"> <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path> </svg> <span class="visually-hidden">Switch to dark theme</span> </span> <span class="theme-opt-light"> <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="12" cy="12" r="4"></circle> <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path> </svg> <span class="visually-hidden">Switch to light theme</span> </span> </button> </div> </div> </header> <main>  <section class="page-hero" data-astro-cid-7jjqptxk> <div class="container" data-astro-cid-7jjqptxk> <nav aria-label="Breadcrumb" class="breadcrumb" data-astro-cid-7jjqptxk> <a href="/blog/" data-astro-cid-7jjqptxk>&larr; All Blog Articles</a> </nav> <h1 id="main-content" tabindex="-1" data-astro-cid-7jjqptxk>Welcome to the Apache ManifoldCF Blog: Connecting Enterprise Content to Search Engines</h1> <div class="article-meta" data-astro-cid-7jjqptxk> <time datetime="2026-07-31T09:00:00.000Z" data-astro-cid-7jjqptxk>July 31, 2026</time> <span data-astro-cid-7jjqptxk>&middot;</span> <span data-astro-cid-7jjqptxk>By Apache ManifoldCF Project Team</span> </div> <ul class="tag-list" role="list" style="margin-block-start: 0.85rem;" data-astro-cid-7jjqptxk> <li class="badge" data-astro-cid-7jjqptxk>Architecture</li><li class="badge" data-astro-cid-7jjqptxk>Security</li><li class="badge" data-astro-cid-7jjqptxk>Enterprise Search</li><li class="badge" data-astro-cid-7jjqptxk>Connectors</li> </ul> </div> </section> <article class="section" data-astro-cid-7jjqptxk> <div class="container" data-astro-cid-7jjqptxk> <div class="prose article-content" data-astro-cid-7jjqptxk> <h2 id="1-introduction-the-enterprise-content-integration-challenge">1. Introduction: The Enterprise Content Integration Challenge</h2>
+<p>In modern enterprise environments, valuable unstructured content resides across dozens of disparate repositories—including Microsoft SharePoint, Atlassian Confluence, CMIS platforms, network file shares, databases, and cloud platforms like Google Drive and Amazon S3.</p>
+<p>Building an effective search experience across these repositories requires solving two major challenges:</p>
+<ol>
+<li><strong>High-performance, Incremental Ingestion:</strong> Reliably extracting documents, metadata, and updates from diverse repositories without placing undue load on source systems.</li>
+<li><strong>Document-Level Security (ACL) Enforcement:</strong> Ensuring that users only see search results for documents they have explicit permission to access in the source repository.</li>
+</ol>
+<p><strong>Apache ManifoldCF™</strong> is an open-source framework specifically architected to solve both of these challenges seamlessly.</p>
+<blockquote>
+<p><strong>Key Takeaway:</strong> Apache ManifoldCF acts as an intelligent middleware layer that continuously crawls source repositories, extracts metadata and security ACLs, and feeds target search engines (like Apache Solr, Elasticsearch, and OpenSearch) while maintaining security trimming.</p>
+</blockquote>
+<h2 id="2-core-architecture--connector-model">2. Core Architecture &#x26; Connector Model</h2>
+<p>ManifoldCF’s modular architecture relies on distinct types of pluggable connectors:</p>
+<table>
+<thead>
+<tr>
+<th>Connector Type</th>
+<th>Role &#x26; Functionality</th>
+<th>Example Connectors</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Repository Connectors</strong></td>
+<td>Fetch documents, version strings, metadata, and raw content streams from source systems.</td>
+<td>SharePoint, CMIS, Jira, Confluence, Web, File System, HDFS, Google Drive, Amazon S3</td>
+</tr>
+<tr>
+<td><strong>Authority Connectors</strong></td>
+<td>Query authentication systems to retrieve active user and group security tokens for search-time ACL filtering.</td>
+<td>Active Directory, LDAP, SharePoint Authority, Generic JSON Authority</td>
+</tr>
+<tr>
+<td><strong>Transformation Connectors</strong></td>
+<td>Process document streams between extraction and indexing (text extraction, metadata mapping, filtering).</td>
+<td>Apache Tika, Forced Metadata, OpenNLP, Content Limiter</td>
+</tr>
+<tr>
+<td><strong>Output Connectors</strong></td>
+<td>Receive processed document streams and push indexed data and security tokens to target repositories.</td>
+<td>Apache Solr, Elasticsearch, OpenSearch, Amazon CloudSearch, Kafka, HDFS</td>
+</tr>
+</tbody>
+</table>
+<p>A typical ManifoldCF ingestion job configures a <em>Repository Connector</em> to pull documents, optional <em>Transformation Connectors</em> to extract text, and an <em>Output Connector</em> to index data into Apache Solr, OpenSearch, or Elasticsearch.</p>
+<h2 id="3-security-trimming--acl-enforcement">3. Security Trimming &#x26; ACL Enforcement</h2>
+<p>Unlike naive crawlers that ignore document permissions, ManifoldCF captures the exact Access Control Lists (ACLs) associated with each document.</p>
+<p>When indexing a document, ManifoldCF attaches security tokens representing:</p>
+<ul>
+<li><strong>Allow Tokens:</strong> Groups and users allowed to view the document.</li>
+<li><strong>Deny Tokens:</strong> Groups and users explicitly restricted from viewing the document.</li>
+<li><strong>Parent/Folder Tokens:</strong> Hierarchical permission inheritance.</li>
+</ul>
+<p>At search time, the search application queries ManifoldCF’s <strong>Authority Service</strong> (<code>/mcf-authority-service/UserACLs</code>) using the logged-in user’s identity. The Authority Service returns the user’s active security tokens, which are appended to the search query:</p>
+<pre class="astro-code astro-code-themes github-light github-dark-dimmed" style="background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>// Example Solr Filter Query generated by ManifoldCF Authority Service</span></span>
+<span class="line"><span>fq=(allow_token_document:"group_engineering" OR allow_token_document:"user_john_doe")</span></span>
+<span class="line"><span>   AND NOT (deny_token_document:"group_restricted")</span></span></code></pre>
+<p>This ensures instant, security-trimmed search results with minimal query-time latency overhead.</p>
+<h2 id="4-supported-repositories--output-targets">4. Supported Repositories &#x26; Output Targets</h2>
+<p>Apache ManifoldCF ships out-of-the-box support for a broad ecosystem of enterprise systems:</p>
+<ul>
+<li><strong>Enterprise Content Management (ECM):</strong> Microsoft SharePoint, CMIS, Alfresco, OpenText LiveLink.</li>
+<li><strong>Collaboration &#x26; Cloud:</strong> Atlassian Confluence, Atlassian Jira, Amazon S3, Google Drive, Dropbox.</li>
+<li><strong>Data Stores &#x26; Files:</strong> Windows/Linux File Systems, HDFS, JDBC/SQL Databases, Web Crawling, RSS feeds.</li>
+<li><strong>Search &#x26; Storage Destinations:</strong> Apache Solr, OpenSearch, Elasticsearch, Apache Kafka, MongoDB, Amazon CloudSearch, File Output.</li>
+</ul>
+<h2 id="5-looking-ahead-blog-roadmap--community">5. Looking Ahead: Blog Roadmap &#x26; Community</h2>
+<p>This first article marks the beginning of our ongoing engineering blog series. Upcoming topics include:</p>
+<ul>
+<li>Configuring high-throughput crawling for 10M+ document repositories with Java 25 Virtual Threads.</li>
+<li>Running the Spring Boot 4.2 executable WAR, Modern Admin Console (<code>/ui/</code>), and REST API v2 GitOps workflows.</li>
+<li>Building custom Repository and Output Connectors with the Apache ManifoldCF SDK.</li>
+<li>Deploying ManifoldCF in Kubernetes and Docker container environments.</li>
+</ul>
+<p>We invite you to get involved with Apache ManifoldCF—explore the <a href="https://github.com/apache/manifoldcf/wiki">Technical Wiki</a>, join our mailing lists, or contribute directly on <a href="https://github.com/apache/manifoldcf">GitHub</a>.</p> </div> <footer class="article-footer" data-astro-cid-7jjqptxk> <a class="btn btn-secondary btn-sm" href="/blog/" data-astro-cid-7jjqptxk>&larr; Back to Blog</a> <a class="btn btn-primary btn-sm" href="/downloads/" data-astro-cid-7jjqptxk>Download ManifoldCF</a> </footer> </div> </article>  </main> <footer class="site-footer"> <div class="container"> <div class="footer-grid"> <div> <a href="https://www.apache.org/foundation/sponsorship.html" target="_blank" rel="noopener noreferrer"> <img src="/images/support-apache.png" alt="Support The Apache Software Foundation" width="112" height="112" loading="lazy"> </a> <p style="margin-block: 0.75rem 0; font-size: 0.9rem; color: var(--color-text-secondary); max-inline-size: 28ch;">
+Apache ManifoldCF&trade; is an open-source project of The Apache Software Foundation.
+</p> </div> <div> <h2 class="footer-heading">Project</h2> <ul class="footer-list" role="list"> <li><a href="/architecture/">Architecture &amp; Connectors</a></li> <li><a href="/downloads/">Downloads &amp; Verification</a></li> <li><a href="/blog/">Project Blog</a></li> <li><a href="/rss.xml">Blog RSS Feed</a></li> <li><a href="/community/">Community &amp; Team</a></li> <li><a href="/security/">Security Policy</a></li> </ul> </div> <div> <h2 class="footer-heading">Documentation &amp; Code</h2> <ul class="footer-list" role="list"> <li><a href="https://github.com/apache/manifoldcf/wiki" target="_blank" rel="noopener noreferrer">GitHub Technical Wiki</a></li> <li><a href="https://github.com/apache/manifoldcf/wiki/How-to-Build-and-Deploy" target="_blank" rel="noopener noreferrer">Build &amp; Deploy Guide</a></li> <li><a href="https://github.com/apache/manifoldcf/wiki/Spring-Boot-and-Modern-Admin-Console" target="_blank" rel="noopener noreferrer">Spring Boot &amp; Modern UI</a></li> <li><a href="https://manifoldcf.apache.org/release/release-2.31/api/framework/index.html" target="_blank" rel="noopener noreferrer">Release 2.31 Javadocs</a></li> <li><a href="https://github.com/apache/manifoldcf" target="_blank" rel="noopener noreferrer">GitHub Repository</a></li> <li><a href="https://issues.apache.org/jira/projects/CONNECTORS" target="_blank" rel="noopener noreferrer">Apache Jira (CONNECTORS)</a></li> <li><a href="https://hub.docker.com/r/apache/manifoldcf" target="_blank" rel="noopener noreferrer">Official Docker Images</a></li> </ul> </div> <div> <h2 class="footer-heading">Apache Software Foundation</h2> <ul class="footer-list" role="list"> <li> <a href="https://www.apache.org/" target="_blank" rel="noopener noreferrer"> Apache Software Foundation </a> </li><li> <a href="https://www.apache.org/licenses/" target="_blank" rel="noopener noreferrer"> License (Apache 2.0) </a> </li><li> <a href="https://www.apache.org/security/" target="_blank" rel="noopener noreferrer"> Security </a> </li><li> <a href="https://www.apache.org/events/current-event.html" target="_blank" rel="noopener noreferrer"> Events </a> </li><li> <a href="https://www.apache.org/foundation/sponsorship.html" target="_blank" rel="noopener noreferrer"> Sponsorship </a> </li><li> <a href="https://privacy.apache.org/policies/privacy-policy-public.html" target="_blank" rel="noopener noreferrer"> Privacy Policy </a> </li><li> <a href="https://www.apache.org/foundation/thanks.html" target="_blank" rel="noopener noreferrer"> Thanks </a> </li> </ul> </div> <div> <h2 class="footer-heading">Related Apache Projects</h2> <ul class="footer-list" role="list"> <li> <a href="https://solr.apache.org/" target="_blank" rel="noopener noreferrer"> Apache Solr </a> </li><li> <a href="https://tika.apache.org/" target="_blank" rel="noopener noreferrer"> Apache Tika </a> </li><li> <a href="https://lucene.apache.org/" target="_blank" rel="noopener noreferrer"> Apache Lucene </a> </li><li> <a href="https://opennlp.apache.org/" target="_blank" rel="noopener noreferrer"> Apache OpenNLP </a> </li><li> <a href="https://kafka.apache.org/" target="_blank" rel="noopener noreferrer"> Apache Kafka </a> </li><li> <a href="https://nutch.apache.org/" target="_blank" rel="noopener noreferrer"> Apache Nutch </a> </li> </ul> </div> </div> <div class="footer-legal"> <p>
+Copyright &copy; 2009&ndash;2026 <a href="https://www.apache.org/">The Apache Software Foundation</a>,
+        licensed under the <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a>.
+</p> <p>
+Apache ManifoldCF, ManifoldCF, Apache Solr, Apache Tika, Apache Lucene, Apache OpenNLP, Apache Kafka, Apache,
+        the Apache feather logo, and the Apache ManifoldCF logo are registered trademarks or trademarks of
+        The Apache Software Foundation in the United States and other countries. All other marks mentioned may be
+        trademarks or registered trademarks of their respective owners.
+</p> </div> </div> </footer> <script type="module" src="/_astro/BaseLayout.astro_astro_type_script_index_0_lang.C6Pf7kZS.js"></script> </body> </html> 
