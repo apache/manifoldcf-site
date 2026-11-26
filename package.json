@@ -17,7 +17,7 @@
     "@astrojs/rss": "^4.0.12",
     "@astrojs/sitemap": "^3.3.0",
     "@oddbird/popover-polyfill": "^0.6.1",
-    "astro": "^5.7.10"
+    "astro": "^7.4.13"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",
